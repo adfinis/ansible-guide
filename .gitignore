@@ -1,0 +1,9 @@
+# .gitignore
+
+# ansible
+*.retry
+/ansible.cfg
+/vault-pass
+
+# python
+*.pyc
