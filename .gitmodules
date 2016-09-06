@@ -1,0 +1,3 @@
+[submodule "roles"]
+	path = roles
+	url = git@git.adfinis-sygroup.ch:ad-sy/ansible-roles.src.git
