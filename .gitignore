@@ -10,3 +10,6 @@
 
 # documentation
 /doc/_build/
+
+# vagrant
+/.vagrant/
