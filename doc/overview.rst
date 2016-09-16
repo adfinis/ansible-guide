@@ -32,6 +32,70 @@ Group Variables
 Directory and file structure
 ----------------------------
 
+::
+
+  .
+  ├── README.rst
+  ├── doc/
+  ├── ansible.cfg
+  ├── site.yml
+  ├── vault-pass
+  ├── defaults/
+  │   └── main.yml
+  ├── files/
+  │   ├── file1.txt
+  │   └── file2.txt
+  ├── group_vars/
+  │   └── all/
+  │       ├── ntp.yml
+  │       └── ssh.yml
+  ├── host_vars/
+  │   ├── www.example.com/
+  │   │   ├── ntp.yml
+  │   │   └── ssh.yml
+  │   └── mail.example.org/
+  │       ├── ntp.yml
+  │       └── ssh.yml
+  ├── roles/
+  │   ├── ntp/
+  │   │   ├── defaults/
+  │   │   │   └── main.yml
+  │   │   ├── handlers/
+  │   │   │   └── main.yml
+  │   │   ├── tasks/
+  │   │   │   ├── configuration.yml
+  │   │   │   ├── installation.yml
+  │   │   │   └── main.yml
+  │   │   ├── templates/
+  │   │   │   └── etc/
+  │   │   │       └── ntp.conf.j2
+  │   │   └── vars/
+  │   │       ├── Debian.yml
+  │   │       ├── RedHat.yml
+  │   │       └── Ubuntu.yml
+  │   └── ssh/
+  │       ├── defaults/
+  │       │   └── main.yml
+  │       ├── handlers/
+  │       │   └── main.yml
+  │       ├── tasks/
+  │       │   ├── configuration.yml
+  │       │   ├── installation.yml
+  │       │   └── main.yml
+  │       ├── templates/
+  │       │   └── etc/
+  │       │       └── ssh/
+  │       │           └── sshd_config.j2
+  │       └── vars/
+  │            ├── Debian.yml
+  │            ├── RedHat.yml
+  │            └── Ubuntu.yml
+  └── vars/
+      ├── Debian.yml
+      ├── RedHat.yml
+      └── Ubuntu.yml
+
+
 /group_vars/
 ~~~~~~~~~~~~
 In this directory, the group variables are placed within files. Group variables
