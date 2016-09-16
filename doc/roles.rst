@@ -112,7 +112,7 @@ those in the files named:
 * ...
 
 Each variable start with ``<rolename>_`` and the name contains only lower
-letters.
+case, numbers and underline ``_``.
 
 .. code-block:: Yaml
 
