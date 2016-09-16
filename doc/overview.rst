@@ -60,7 +60,10 @@ Directory and file structure
   │   ├── ntp/
   │   │   ├── defaults/
   │   │   │   └── main.yml
+  │   │   ├── files/
   │   │   ├── handlers/
+  │   │   │   └── main.yml
+  │   │   ├── meta/
   │   │   │   └── main.yml
   │   │   ├── tasks/
   │   │   │   ├── configuration.yml
@@ -76,8 +79,14 @@ Directory and file structure
   │   └── ssh/
   │       ├── defaults/
   │       │   └── main.yml
+  │       ├── files/
+  │       │   └── etc/
+  │       │       └── default/
+  │       │           └── ssh
   │       ├── handlers/
   │       │   └── main.yml
+  │       ├── meta/
+  │       │   └── main.yml
   │       ├── tasks/
   │       │   ├── configuration.yml
   │       │   ├── installation.yml
