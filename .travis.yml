@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+
+language: python
+sudo: false
+cache: pip
+python:
+  - "2.7"
+
+script:
+  - ansible-playbook site.yml --syntax-check
+  - ansible-lint site.yml
+
+# vim: set ts=2 sw=2 tw=2 :
