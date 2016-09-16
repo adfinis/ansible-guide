@@ -9,6 +9,7 @@ Contents:
 
    overview.rst
    getting_started.rst
+   styling_guide.rst
 
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et nowrap tw=76 :
