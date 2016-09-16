@@ -93,4 +93,40 @@ Inside ``configuration.yml`` all configurations can be modified.
     notify: [ 'check sshd config and restart' ]
 
 
+Variables
+=========
+
+In the directory ``vars/`` are required at least the files
+
+* ``Debian.yml``
+* ``RedHat.yml``
+* ``Ubuntu.yml``
+
+If there are special variables for some operating systems, you can specify
+those in the files named:
+
+* ``Debian_8.yml``
+* ``CentOS_7.yml``
+* ``RedHat_7.yml``
+* ``Ubuntu_16.yml``
+* ...
+
+Each variable start with ``<rolename>_`` and the name contains only lower
+letters.
+
+.. code-block:: Yaml
+
+  ---
+
+  ssh_packages:
+    - openssh-client
+    - openssh-server
+
+  ssh_service: ssh
+  ssh_daemon_bin: /usr/sbin/sshd
+
+  ssh_daemon_cfg: /etc/ssh/sshd_config
+  ssh_sftp_server: /usr/lib/openssh/sftp-server
+
+
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
