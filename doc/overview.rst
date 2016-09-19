@@ -75,8 +75,7 @@ Directory and file structure
   │   │   │       └── ntp.conf.j2
   │   │   └── vars/
   │   │       ├── Debian.yml
-  │   │       ├── RedHat.yml
-  │   │       └── Ubuntu.yml
+  │   │       └── RedHat.yml
   │   └── ssh/
   │       ├── defaults/
   │       │   └── main.yml
@@ -98,12 +97,10 @@ Directory and file structure
   │       │           └── sshd_config.j2
   │       └── vars/
   │            ├── Debian.yml
-  │            ├── RedHat.yml
-  │            └── Ubuntu.yml
+  │            └── RedHat.yml
   └── vars/
       ├── Debian.yml
-      ├── RedHat.yml
-      └── Ubuntu.yml
+      └── RedHat.yml
 
 /group_vars/
 ------------

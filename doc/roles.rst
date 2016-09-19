@@ -26,8 +26,7 @@ Roles
   │           └── sshd_config.j2
   └── vars/
        ├── Debian.yml
-       ├── RedHat.yml
-       └── Ubuntu.yml
+       └── RedHat.yml
 
 
 Tasks
@@ -105,7 +104,6 @@ In the directory ``vars/`` are required at least the files
 
 * ``Debian.yml``
 * ``RedHat.yml``
-* ``Ubuntu.yml``
 
 If there are special variables for some operating systems, you can specify
 those in the files named:
