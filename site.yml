@@ -3,6 +3,7 @@
 - hosts: all
   gather_facts: True
   roles:
+    - console
     - ntp
     - ssh
     - snmp
