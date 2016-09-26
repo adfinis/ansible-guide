@@ -169,8 +169,24 @@ The last listed variables winning prioritization.
 - role and include vars (``roles/$ROLE/vars/main.yml``)
 - block vars (only for tasks in block; `Blocks
   <http://docs.ansible.com/ansible/playbooks_blocks.html>`_)
-- task vars (only for the task; task with_items)
+- task vars (only for the task)
 - extra vars (always win precedence; ``ansible --extra-vars='foo=bar'``)
+
+We don't use all of the above locations, mostly the following locations are
+used.
+
+- role defaults (``roles/$ROLE/defaults/main.yml``)
+- inventory group_vars (``group_vars/$HOSTGROUP/*.yml``)
+- inventory host_vars (``host_vars/$FQDN/*.yml``)
+- host facts (default facts of a host `Information discovered from system
+  facts
+  <http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts>`_)
+- registered vars (`Register Variables
+  <http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables>`_)
+- set_facts (`Module set_fact
+  <http://docs.ansible.com/ansible/set_fact_module.html>`_)
+- role and include vars (``roles/$ROLE/vars/main.yml``)
+- task vars (only for the task)
 
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
