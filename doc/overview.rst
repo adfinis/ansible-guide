@@ -143,4 +143,34 @@ Describive readme file.
 Playbook files.
 
 
+Variable Precedence
+===================
+
+This list shows different locations and their precendence of variables.
+The last listed variables winning prioritization.
+
+- role defaults (``roles/$ROLE/defaults/main.yml``)
+- inventory vars (``vars/main.yml``)
+- inventory group_vars (``group_vars/$HOSTGROUP/*.yml``)
+- inventory host_vars (``host_vars/$FQDN/*.yml``)
+- playbook group_vars (we don't make a difference to inventory group_vars)
+- playbook host_vars (we don't make a difference to inventory host_vars)
+- host facts (default facts of a host `Information discovered from system
+  facts
+  <http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts>`_)
+- play vars (?)
+- play vars_prompt (`Prompts
+  <http://docs.ansible.com/ansible/playbooks_prompts.html>`_)
+- play vars_files (?)
+- registered vars (`Register Variables
+  <http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables>`_)
+- set_facts (`Module set_fact
+  <http://docs.ansible.com/ansible/set_fact_module.html>`_)
+- role and include vars (``roles/$ROLE/vars/main.yml``)
+- block vars (only for tasks in block; `Blocks
+  <http://docs.ansible.com/ansible/playbooks_blocks.html>`_)
+- task vars (only for the task; task with_items)
+- extra vars (always win precedence; ``ansible --extra-vars='foo=bar'``)
+
+
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
