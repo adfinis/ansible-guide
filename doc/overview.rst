@@ -9,29 +9,11 @@ information, chech out the
 `documentation index <http://docs.ansible.com/ansible/index.html>`_.
 
 
-Guideline
-=========
-`Best Practices
-<http://docs.ansible.com/ansible/playbooks_best_practices.html>`_
-
-Component description
----------------------
-
-Roles
-~~~~~
-`Playbook Roles and Include Statements
-<http://docs.ansible.com/ansible/playbooks_roles.html>`_
-
-Playbooks
-~~~~~~~~~
-`Intro to Playbooks <http://docs.ansible.com/ansible/playbooks_intro.html>`_
-
-Group Variables
-~~~~~~~~~~~~~~~
-
-
 Directory and file structure
 ============================
+There is a `Best Practices
+<http://docs.ansible.com/ansible/playbooks_best_practices.html>`_ by
+ansible, our guideline implement most of that stuff.
 
 ::
 
@@ -39,6 +21,7 @@ Directory and file structure
   ├── README.rst
   ├── doc/
   ├── ansible.cfg
+  ├── hosts
   ├── site.yml
   ├── vault-pass
   ├── defaults/
@@ -102,50 +85,63 @@ Directory and file structure
       ├── Debian.yml
       └── RedHat.yml
 
-/group_vars/
-------------
-In this directory, the group variables are placed within files. Group variables
-will overwrite defaults set by the roles themselves.
 
-/roles
-------
-All roles have one directory in here.
+Inventory
+=========
+The file ``hosts`` in the project directory contains a list of each server,
+if needed with the depending connection informations.
 
-/roles/rolea/defaults/main.yml
-------------------------------
-In this file, the default variables for this role are defined and set.
+::
 
-/roles/rolea/handlers/main.yml
-------------------------------
-Handlers are stored in here. These handlers allow to be triggered when
-something specific is happening.
+  jumphost.example.com
 
-/roles/rolea/meta/main.yml
---------------------------
-Meta information of a role is defined here. I.e. requirements for a role.
+  [webservers]
+  www1.example.com  ansible_host=192.0.2.50 ansible_port=2222 ansible_user=root
+  www2.example.com
 
-/roles/rolea/tasks/main.yml
----------------------------
-The main tasks for this role are define within this file.
+  [databases]
+  db-[0:9].example.com
 
-/roles/rolea/templates/
------------------------
-Within this directory, template files are stored with a `.j2` extension as the
-files are threatend as `Jinja2 <http://jinja.pocoo.org/>`_ templates. This
-allows to customize files
+You can define groups of hosts with ``[]``. There is a group called ``all``,
+each server in the hosts file is in that group! Hostgroups can be used to
+define special roles only for one hostgroup or to define some special
+variables for this group.
 
-/README.md
-----------
-Describive readme file.
 
-/playbooka.yml
---------------
-Playbook files.
+Task structure
+==============
+- Playbooks
+    A playbook is a set of roles. For each playbook can be defined on which
+    hostgroup it should run, default is on all.
+    `Intro to Playbooks
+    <http://docs.ansible.com/ansible/playbooks_intro.html>`_
+- Roles:
+    Each role configure one software, contains multiple tasks.
+    `Playbook Roles and Include Statements
+    <http://docs.ansible.com/ansible/playbooks_roles.html>`_
+- Tasks:
+    Each tasks uses one modules (e.g. template, file, copy, service).
+
+
+Variable structure
+==================
+- roles/$ROLE/defaults/main.yml
+    Each variable in a role should have a default value. Default values are
+    specified in this file.
+- roles/$ROLE/vars/\*.yml
+    We use multiple variable files per role. Define only constant data here,
+    like package names. Store data here, instead of in the tasks.
+- group_vars/$HOSTGROUPS/\*.yml
+    Each host can be in multiple hostgroups, create hostgroups as many as
+    you need and as least as possible. Possible variables per hostgroup
+    could be ntp servers per datacenter or nameservers per net.
+- host_vars/$FQDN/\*.yml
+    Host specific data, e.g. webserver virtualhost configurations or ip
+    configuration.
 
 
 Variable Precedence
 ===================
-
 This list shows different locations and their precendence of variables.
 The last listed variables winning prioritization.
 
