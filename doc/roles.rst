@@ -183,4 +183,18 @@ If some files should be copied without changing content, they can be stored
 in the directory ``files``.
 
 
+Meta
+====
+
+Meta information of a role is defined here. I.e. requirements for a role.
+
+
+Templates
+=========
+
+Within this directory, template files are stored with a `.j2` extension as the
+files are threatend as `Jinja2 <http://jinja.pocoo.org/>`_ templates. This
+allows to customize files.
+
+
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
