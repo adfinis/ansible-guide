@@ -115,11 +115,11 @@ Task structure
     hostgroup it should run, default is on all.
     `Intro to Playbooks
     <http://docs.ansible.com/ansible/playbooks_intro.html>`_
-- Roles:
+- Roles
     Each role configure one software, contains multiple tasks.
     `Playbook Roles and Include Statements
     <http://docs.ansible.com/ansible/playbooks_roles.html>`_
-- Tasks:
+- Tasks
     Each tasks uses one modules (e.g. template, file, copy, service).
 
 
