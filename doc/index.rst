@@ -3,7 +3,7 @@ Ansible Guide
 =============
 
 .. toctree::
-   :maxdepth: 2
+  :maxdepth: 2
 
   overview.rst
   getting_started.rst
