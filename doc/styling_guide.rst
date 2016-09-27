@@ -30,7 +30,8 @@ Tasks
 - Key and value are separated by colon and whitespace
 - Values don't need to be quoted if they are single words
 - Variables are always quoted and have whitespaces around the name
-- Quoting with single quotes or double quote
+- Quoting with single quotes or double quotes is allowed, there is no
+  preference
 
 Variables
 ---------
@@ -44,7 +45,8 @@ Variables
 - Variable names contains only lower letters, numbers and underlines
 - Each name starts with the rolename and an underline
 - Values are quoted if they contain variables or whitespaces
-- Quoting with single quotes or double quote
+- Quoting with single quotes or double quotes is allowed, there is no
+  preference
 - Each variable has a description above
 
 
