@@ -50,6 +50,24 @@ Variables
 - Each variable has a description above
 
 
+Registered variables
+--------------------
+::
+
+  ---
+
+  - name: task 1
+    module:
+      arg1: Foo
+      arg2: Bar
+    register: role_register_baz
+
+- Registered variables contains only lower letters, numbers and underline
+- The name starts with the rolename and ``_register_`` concatenated (except
+  special cases, where the registered variable should overwrite default
+  variables)
+
+
 vim Config
 ==========
 
