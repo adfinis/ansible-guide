@@ -7,6 +7,8 @@ python:
   - "2.7"
 
 script:
+  - ansible --version
+  - ansible-lint --version
   - ansible-playbook site.yml --syntax-check
   - ansible-lint site.yml
 

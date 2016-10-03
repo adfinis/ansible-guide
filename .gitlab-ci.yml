@@ -16,6 +16,8 @@ run-syntax:
 run-lint:
   stage: lint
   script:
+    - ansible --version
+    - ansible-lint --version
     - ansible-lint site.yml
 
 # vim: set ts=2 sw=2 tw=2 :
