@@ -6,6 +6,9 @@ cache: pip
 python:
   - "2.7"
 
+install:
+  - pip install ansible ansible-lint
+
 script:
   - ansible --version
   - ansible-lint --version
