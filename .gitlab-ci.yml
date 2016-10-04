@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 before_script:
+  - pip install --upgrade ansible ansible-lint
   - git submodule sync
   - git submodule update --init --recursive
 
