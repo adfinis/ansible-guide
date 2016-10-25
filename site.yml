@@ -3,7 +3,10 @@
 - hosts: all
   gather_facts: True
   roles:
+    - ansible
     - console
     - ntp
     - ssh
     - snmp
+    - nginx
+    - nodejs
