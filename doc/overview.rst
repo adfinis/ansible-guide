@@ -41,6 +41,7 @@ ansible, our guideline implement most of that stuff.
   │       ├── ntp.yml
   │       └── ssh.yml
   ├── roles/
+  ├── adsy-roles/
   │   ├── ntp/
   │   │   ├── defaults/
   │   │   │   └── main.yml
