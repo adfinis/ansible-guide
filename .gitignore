@@ -2,7 +2,6 @@
 
 # ansible
 *.retry
-/ansible.cfg
 /vault-pass
 
 # python

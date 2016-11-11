@@ -73,10 +73,6 @@ longer) there is a socket file in ``~/.ssh/sockets/``, ansible will use this
 socket file to connect to the hosts, and ansible don't need a login with
 public keys or passwords anymore.
 
-**Important:** please don't add the ``ansible.cfg`` to the git repository.
-Not everybody use a ssh controlmaster and not everybody use the same
-directory for the controlmaster sockets!
-
 
 Run Ansible
 ===========
