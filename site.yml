@@ -7,7 +7,8 @@
   roles:
     - upgrade
   tasks:
-    - group_by:
+    - name: create dynamic host groups by os distribution and major version
+      group_by:
         key: '{{ ansible_distribution }}_{{ ansible_distribution_major_version }}'
 
 - hosts: all
