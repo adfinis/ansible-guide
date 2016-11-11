@@ -43,6 +43,10 @@ The ``main.yml`` file include just the other files.
     with_first_found:
       - '{{ ansible_distribution }}_{{ ansible_distribution_major_version }}.yml'
       - '{{ ansible_os_family }}.yml'
+    tags:
+      - 'role::$ROLENAME'
+      - 'role::$ROLENAME:install'
+      - 'role::$ROLENAME:config'
 
   - include: installation.yml
   - include: configuration.yml
@@ -58,6 +62,9 @@ packages. The related packages are stored as a variable.
     package:
       name: '{{ item }}'
       state: present
+    tags:
+      - 'role::$ROLENAME'
+      - 'role::$ROLENAME:install'
     with_items: '{{ ssh_packages }}'
 
 Inside ``configuration.yml`` all configurations can be modified.
@@ -79,6 +86,9 @@ Inside ``configuration.yml`` all configurations can be modified.
       serole: object_r
       setype: sshd_key_t
       selevel: s0
+    tags:
+      - 'role::$ROLENAME'
+      - 'role::$ROLENAME:config'
 
   - name: configure ssh
     template:
@@ -91,7 +101,11 @@ Inside ``configuration.yml`` all configurations can be modified.
       serole: object_r
       setype: etc_t
       selevel: s0
-    notify: [ 'check sshd config and restart' ]
+    tags:
+      - 'role::$ROLENAME'
+      - 'role::$ROLENAME:config'
+    notify:
+      - 'check sshd config and restart'
 
 
 Variables
@@ -108,27 +122,37 @@ In the directory ``vars/`` are required at least the files
 If there are special variables for some operating systems, you can specify
 those in the files named:
 
+* ``Debian_7.yml``
 * ``Debian_8.yml``
+* ``CentOS_6.yml``
 * ``CentOS_7.yml``
-* ``RedHat_7.yml``
+* ``Ubuntu_14.yml``
 * ``Ubuntu_16.yml``
 * ...
 
 Each variable start with ``<rolename>_`` and the name contains only lower
 case, numbers and underline ``_``.
+**A comment before the variable is required!**
 
 .. code-block:: Yaml
 
   ---
 
+  # ssh related packages
   ssh_packages:
     - openssh-client
     - openssh-server
 
+  # ssh service name
   ssh_service: ssh
+
+  # ssh daemon binary (absolute path)
   ssh_daemon_bin: /usr/sbin/sshd
 
+  # ssh daemon configuration file
   ssh_daemon_cfg: /etc/ssh/sshd_config
+
+  # ssh daemon sftp server
   ssh_sftp_server: /usr/lib/openssh/sftp-server
 
 
@@ -139,6 +163,7 @@ Every variable which is used inside a template or for tasks, and which is
 not defined in the vars, needs to be defined as defaults.
 Defaults can be used for example for cipher suites, ntp server names or
 default ports.
+**A comment before the variable is required!**
 
 There is only one defaults file, called ``main.yml``.
 
@@ -146,9 +171,10 @@ There is only one defaults file, called ``main.yml``.
 
   ---
 
+  # a list of ssh host keys
   ssh_host_keys:
     - /etc/ssh/ssh_host_rsa_key
-    #- /etc/ssh/ssh_host_ed25519_key
+    - /etc/ssh/ssh_host_ed25519_key
 
 
 Handlers
@@ -158,6 +184,7 @@ Handlers are used to check configurations and restart services. Don't
 restart a service with a task, which runs every time, the role is running.
 The improvement of handlers is, that they must be notified by a task, and
 they run only once of each playbook.
+Use handlers instead of check if a previous task has changed.
 
 .. code-block:: Yaml
 
@@ -180,13 +207,45 @@ Files
 =====
 
 If some files should be copied without changing content, they can be stored
-in the directory ``files``.
+in the directory ``files``. Files are rare used, they are mostly replaced
+with templates. E.g. a binary or a compressed file can be copied with file.
 
 
 Meta
 ====
 
-Meta information of a role is defined here. I.e. requirements for a role.
+Meta information of a role are defined here. I.e. requirements for a role.
+
+.. code-block:: Yaml
+
+  ---
+
+  dependencies:
+    - pki
+
+  galaxy_info:
+    author: 'Adfinis SyGroup AG'
+    description: 'Install and manage ssh and sshd'
+    company: 'Adfinis SyGroup AG'
+    license: 'GNU General Public License v3'
+    min_ansible_version: '2.0.0'
+    platforms:
+      - name: Archlinux
+      - name: Debian
+        versions:
+          - wheezy
+          - jessie
+      - name: Ubuntu
+        versions:
+          - trusty
+          - xenial
+      - name: CentOS
+        versions:
+          - 6
+          - 7
+    galaxy_tags:
+      - ssh
+      - sshd
 
 
 Templates
@@ -195,6 +254,8 @@ Templates
 Within this directory, template files are stored with a `.j2` extension as the
 files are threatend as `Jinja2 <http://jinja.pocoo.org/>`_ templates. This
 allows to customize files.
+Templates should have a comment with ``{{ ansible_managed }}`` at the
+beginning.
 
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
