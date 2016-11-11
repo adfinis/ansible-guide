@@ -2,6 +2,16 @@
 
 - hosts: all
   gather_facts: True
+  vars:
+    - dist_upgrade: True
+  roles:
+    - upgrade
+  tasks:
+    - group_by:
+        key: '{{ ansible_distribution }}_{{ ansible_distribution_major_version }}'
+
+- hosts: all
+  gather_facts: False
   roles:
     - ansible
     - console
@@ -9,4 +19,30 @@
     - ssh
     - snmp
     - nginx
+
+- hosts: Debian_7
+  gather_facts: False
+  roles: []
+
+- hosts: Debian_8
+  gather_facts: False
+  roles:
+    - nodejs
+
+- hosts: CentOS_6
+  gather_facts: False
+  roles: []
+
+- hosts: CentOS_7
+  gather_facts: False
+  roles:
+    - nodejs
+
+- hosts: Ubuntu_14
+  gather_facts: False
+  roles: []
+
+- hosts: Ubuntu_16
+  gather_facts: False
+  roles:
     - nodejs
