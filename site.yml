@@ -18,8 +18,10 @@
     - console
     - ntp
     - ssh
+    - pki
     - snmp
     - nginx
+    - mariadb
 
 - hosts: Debian_7
   gather_facts: False
