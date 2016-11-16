@@ -1,24 +1,25 @@
+---
 # -*- coding: utf-8 -*-
 
 before_script:
   - pip install --upgrade ansible ansible-lint
   - git submodule sync
   - git submodule update --init --recursive
+  - ansible --version
+  - ansible-lint --version
 
 stages:
   - syntax
   - lint
 
-run-syntax:
+syntax-check:
   stage: syntax
   script:
     - ansible-playbook site.yml --syntax-check
 
-run-lint:
+ansible-lint:
   stage: lint
   script:
-    - ansible --version
-    - ansible-lint --version
     - ansible-lint site.yml
 
 # vim: set ts=2 sw=2 tw=2 :
