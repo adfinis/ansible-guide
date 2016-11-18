@@ -19,6 +19,7 @@
     - snmp
     - nginx
     - mariadb
+    - telegraf
 
 - hosts: Debian_7
   gather_facts: False
