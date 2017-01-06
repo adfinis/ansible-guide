@@ -12,6 +12,7 @@
   gather_facts: False
   roles:
     - ansible
+    - hostname
     - console
     - ntp
     - ssh
