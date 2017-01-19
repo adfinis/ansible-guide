@@ -21,6 +21,11 @@ ansible-lint:
   stage: lint
   script:
     - ansible-lint site.yml
-    - for f in *.yml; do grep -q tasks "$f" && echo "File ${f} contains tasks" && exit 1 || exit 0; done
+    - for f in *.yml; do
+        grep -q tasks "$f" &&
+        echo "File ${f} contains tasks" &&
+        exit 1;
+      done;
+      exit 0
 
 # vim: set ts=2 sw=2 tw=2 :
