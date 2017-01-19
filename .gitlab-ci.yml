@@ -3,8 +3,6 @@
 
 before_script:
   - pip install --upgrade ansible ansible-lint
-  - git submodule sync
-  - git submodule update --init --recursive
   - ansible --version
   - ansible-lint --version
 
