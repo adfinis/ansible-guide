@@ -20,7 +20,7 @@ syntax-check:
 ansible-lint:
   stage: lint
   script:
-    - ansible-lint site.yml
+    - ansible-lint -R -r .testenv/lint-rules/ site.yml
     - for f in *.yml; do
         grep -q tasks "$f" &&
         echo "File ${f} contains tasks" &&
