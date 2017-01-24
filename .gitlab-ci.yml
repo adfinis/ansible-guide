@@ -3,8 +3,6 @@
 
 before_script:
   - pip install --upgrade ansible ansible-lint
-  - git submodule sync
-  - git submodule update --init --recursive
   - ansible --version
   - ansible-lint --version
 
@@ -20,7 +18,12 @@ syntax-check:
 ansible-lint:
   stage: lint
   script:
-    - ansible-lint site.yml
-    - for f in *.yml; do grep -q tasks "$f" && echo "File ${f} contains tasks" && exit 1 || exit 0; done
+    - ansible-lint -R -r .testenv/lint-rules/ site.yml
+    - for f in *.yml; do
+        grep -q tasks "$f" &&
+        echo "File ${f} contains tasks" &&
+        exit 1;
+      done;
+      exit 0
 
 # vim: set ts=2 sw=2 tw=2 :
