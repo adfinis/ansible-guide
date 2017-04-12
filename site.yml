@@ -12,6 +12,7 @@
   gather_facts: False
   roles:
     - ansible
+    - pkg_mirror
     - hostname
     - console
     - network
@@ -24,6 +25,8 @@
     - mariadb
     - telegraf
     - postfix
+    - rpcbind
+    - rsyslog
 
 - hosts: Debian_7
   gather_facts: False
