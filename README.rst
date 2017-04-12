@@ -1,5 +1,5 @@
 =============
-Ansible Guide
+ANSIBLE GUIDE
 =============
 
 This repository provides an example project with the ansible roles of
@@ -17,14 +17,13 @@ ansible-roles status:
   :target: https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src/commits/master
 
 
-Build the documentation
+BUILD THE DOCUMENTATION
 =======================
-
 To build the documentation, which is provided with this repository, you need
 to install Sphinx-doc_.
 
 
-Reference
+REFERENCE
 =========
 
 * reStructuredText_
