@@ -29,6 +29,8 @@ Beyond the documentation this repository is also an example project and test
 environment. To use the test environment, there are some dependencies:
 
 * vagrant
+* virtualbox
+* internet connection
 * vagrant boxes
   * adsy-debian-7
   * adsy-debian-8
