@@ -25,7 +25,7 @@ to install Sphinx-doc_.
 
 TEST ENVIRONMENT
 ================
-Beyond the documentation this repository is also a example project and test
+Beyond the documentation this repository is also an example project and test
 environment. To use the test environment, there are some dependencies:
 
 * vagrant
