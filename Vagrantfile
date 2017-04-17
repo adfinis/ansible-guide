@@ -3,41 +3,39 @@
 
 Vagrant.configure("2") do |config|
   config.vm.define "debian7" do |debian7|
-    debian7.vm.box = "adsy-debian-7.7.0.box"
-    debian7.vm.box_url = "https://pkg.adfinis-sygroup.ch/vagrant/adsy-debian-7.7.0.box"
-    debian7.vm.box_download_checksum = "c39829c2f21b1081000347eda24234362007690ccb514b77b888e2d213e7b150"
+    debian7.vm.box = "adsy-debian-7.8-nonminimized.box"
+    debian7.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-debian-7.8-nonminimized.box"
+    debian7.vm.box_download_checksum = "e9ee9616f864f60f6c7ff4c71e6f3f7940c84279ae46f3fe5ee97f44ec4e14b9"
     debian7.vm.box_download_checksum_type = "sha256"
   end
   config.vm.define "debian8" do |debian8|
-    debian8.vm.box = "adsy-debian-8.0.0.box"
-    debian8.vm.box_url = "https://pkg.adfinis-sygroup.ch/vagrant/adsy-debian-8.0.0.box"
-    debian8.vm.box_download_checksum = "69ff0f7fe316a78fda94f3ed090a13a84ee25480f38f9d0b12adb1ae8f0ed9a9"
+    debian8.vm.box = "adsy-debian-8.0-nonminimized.box"
+    debian8.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-debian-8.0-nonminimized.box"
+    debian8.vm.box_download_checksum = "55440e135e47f78f9a9983016358c8e612fa5b009d3892fe739affdc7f6fc7f3"
     debian8.vm.box_download_checksum_type = "sha256"
   end
   config.vm.define "centos6" do |centos6|
-    centos6.vm.box = "adsy-centos-6.5.box"
-    centos6.vm.box_url = "https://pkg.adfinis-sygroup.ch/vagrant/adsy-centos-6.5.box"
-    centos6.vm.box_download_checksum = "a0f2cc25560495cd927da103659a59d69b2e4f1bf032ee67f35e8ea1b1c88a80"
+    centos6.vm.box = "adsy-centos-6.7-nonminimized.box"
+    centos6.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-centos-6.7-nonminimized.box"
+    centos6.vm.box_download_checksum = "1d49b01229ce379e16becf02398c6ae845bea2e662536cef50bcc0dd42b5c71d"
     centos6.vm.box_download_checksum_type = "sha256"
-    centos6.ssh.insert_key = false
   end
   config.vm.define "centos7" do |centos7|
-    centos7.vm.box = "adsy-centos-7.2.box"
-    centos7.vm.box_url = "https://pkg.adfinis-sygroup.ch/vagrant/adsy-centos-7.2.box"
-    centos7.vm.box_download_checksum = "b7464b893efeec591e04b3f74adbdd6c2df2c5f044c1c38abfb014b3659e28a6"
+    centos7.vm.box = "adsy-centos-7.2-nonminimized.box"
+    centos7.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-centos-7.2-nonminimized.box"
+    centos7.vm.box_download_checksum = "32c1dd02c564e2e5591522e18568be9be741a0ae902cd55c70fe17ef98eedd70"
     centos7.vm.box_download_checksum_type = "sha256"
-    centos7.ssh.insert_key = false
   end
   config.vm.define "ubuntu14" do |ubuntu14|
-    ubuntu14.vm.box = "adsy-ubuntu-14.04.box"
-    ubuntu14.vm.box_url = "https://pkg.adfinis-sygroup.ch/vagrant/adsy-ubuntu-14.04.box"
-    ubuntu14.vm.box_download_checksum = "a2dbf07b02f95e1c5b2579ccb2bdb2e0138787ead11bcd0c1e29931822039510"
+    ubuntu14.vm.box = "adsy-ubuntu-14.04-nonminimized.box"
+    ubuntu14.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-14.04-nonminimized.box"
+    ubuntu14.vm.box_download_checksum = "f4f64915c93837d85c4eb3b3a022ded6918c7cfc316e99d76a6313d15d625c47"
     ubuntu14.vm.box_download_checksum_type = "sha256"
   end
   config.vm.define "ubuntu16" do |ubuntu16|
-    ubuntu16.vm.box = "adsy-ubuntu-16.04.box"
-    ubuntu16.vm.box_url = "https://pkg.adfinis-sygroup.ch/vagrant/adsy-ubuntu-16.04.box"
-    ubuntu16.vm.box_download_checksum = "bf80309862a07be833bde34474ac235510c346d6689ad8df90104eecc4c1743b"
+    ubuntu16.vm.box = "adsy-ubuntu-16.04-nonminimized.box"
+    ubuntu16.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-16.04-nonminimized.box"
+    ubuntu16.vm.box_download_checksum = "b031473a4fe8741af099b22cb0b0381aa1a11830c9073626ffe47d8c5ceb2c5f"
     ubuntu16.vm.box_download_checksum_type = "sha256"
   end
 
