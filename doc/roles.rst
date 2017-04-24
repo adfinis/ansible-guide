@@ -210,6 +210,30 @@ If some files should be copied without changing content, they can be stored
 in the directory ``files``. Files are rare used, they are mostly replaced
 with templates. E.g. a binary or a compressed file can be copied with file.
 
+Within this directory, we rebuild the path structure of a target system. We
+do not store files in a flattened directory.
+
+Good example:
+
+::
+
+  ssh/
+  └── files/
+      └── etc/
+          ├── default/
+          │   └── ssh
+          └── ssh/
+              └── ssh_config
+
+Bad example:
+
+::
+
+  ssh/
+  └── files/
+      ├── ssh
+      └── ssh_config
+
 
 Meta
 ====
@@ -256,6 +280,30 @@ files are threatend as `Jinja2 <http://jinja.pocoo.org/>`_ templates. This
 allows to customize files.
 Templates should have a comment with ``{{ ansible_managed }}`` at the
 beginning.
+
+Within this directory, we rebuild the path structure of a target system. We
+do not store templates in a flattened directory.
+
+Good example:
+
+::
+
+  ssh/
+  └── files/
+      └── etc/
+          ├── default/
+          │   └── ssh.j2
+          └── ssh/
+              └── ssh_config.j2
+
+Bad example:
+
+::
+
+  ssh/
+  └── files/
+      ├── ssh.j2
+      └── ssh_config.j2
 
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
