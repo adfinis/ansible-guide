@@ -51,7 +51,11 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
-    vb.customize ["modifyvm", :id, "--memory", 512]
+    vb.customize [
+      "modifyvm", :id,
+      "--memory", 512,
+      "--nictype1", "virtio",
+    ]
   end
 
   #config.push.define "atlas" do |push|
