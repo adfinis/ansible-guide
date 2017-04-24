@@ -5,28 +5,28 @@
   vars:
     - dist_upgrade: True
   roles:
+    - pkg_mirror
     - upgrade
+    - ansible
+    - hostname
     - test_env
 
 - hosts: all
   gather_facts: False
   roles:
-    - ansible
-    - pkg_mirror
-    - hostname
     - console
-    - network
-    - users
-    - ntp
-    - ssh
-    - pki
-    - snmp
-    - nginx
     - mariadb
-    - telegraf
+    - network
+    - nginx
+    - ntp
+    - pki
     - postfix
     - rpcbind
     - rsyslog
+    - snmp
+    - ssh
+    - telegraf
+    - users
 
 - hosts: Debian_7
   gather_facts: False
