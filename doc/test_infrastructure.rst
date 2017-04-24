@@ -3,7 +3,7 @@ Test Infrastructure
 ===================
 
 Vagrant provides an easy way to test Ansible roles in an encapsulated
-environment. Vagrant is an abstraction layer for multiple virtualisation
+environment. It is an abstraction layer for multiple virtualisation
 platforms. A possible setup is defined in the Vagrantfile inside this
 repository.
 
