@@ -45,7 +45,7 @@ Handler Tasks
       arg1: Foo
       arg2: {{ role_service }}
 
-- Handlers have the same rules as tasks.
+- Handlers follow the same rules as tasks.
 - Each handler name must start with the role name.
 
 
