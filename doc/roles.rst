@@ -49,7 +49,14 @@ The ``main.yml`` file include just the other files.
       - 'role::$ROLENAME:config'
 
   - include: installation.yml
+    tags:
+      - 'role::$ROLENAME'
+      - 'role::$ROLENAME:install'
+
   - include: configuration.yml
+    tags:
+      - 'role::$ROLENAME'
+      - 'role::$ROLENAME:config'
 
 Tasks inside the ``installation.yml`` file are to install all related
 packages. The related packages are stored as a variable.
@@ -86,9 +93,6 @@ Inside ``configuration.yml`` all configurations can be modified.
       serole: object_r
       setype: sshd_key_t
       selevel: s0
-    tags:
-      - 'role::$ROLENAME'
-      - 'role::$ROLENAME:config'
 
   - name: configure ssh
     template:
@@ -101,9 +105,6 @@ Inside ``configuration.yml`` all configurations can be modified.
       serole: object_r
       setype: etc_t
       selevel: s0
-    tags:
-      - 'role::$ROLENAME'
-      - 'role::$ROLENAME:config'
     notify:
       - 'check sshd config and restart'
 
