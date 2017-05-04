@@ -16,6 +16,7 @@
   roles:
     - console
     - mariadb
+    - motd
     - network
     - nginx
     - ntp
