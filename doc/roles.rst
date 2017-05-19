@@ -58,6 +58,9 @@ The ``main.yml`` file include just the other files.
       - 'role::$ROLENAME'
       - 'role::$ROLENAME:config'
 
+Role tagging helps later while running Ansible. If ``ansible-playbook`` is
+called with tags, only matching tasks, else all, will be executed.
+
 Tasks inside the ``installation.yml`` file are to install all related
 packages. The related packages are stored as a variable.
 
@@ -69,9 +72,6 @@ packages. The related packages are stored as a variable.
     package:
       name: '{{ item }}'
       state: present
-    tags:
-      - 'role::$ROLENAME'
-      - 'role::$ROLENAME:install'
     with_items: '{{ ssh_packages }}'
 
 Inside ``configuration.yml`` all configurations can be modified.
@@ -106,7 +106,36 @@ Inside ``configuration.yml`` all configurations can be modified.
       setype: etc_t
       selevel: s0
     notify:
-      - 'check sshd config and restart'
+      - 'ssh check sshd config and restart'
+
+Add additional tags to installation and configuration tasks if needed, but
+be aware to add also the base tags like in the ``main.yml``.
+
+Good example:
+
+.. code-block:: Yaml
+
+  - name: install ssh related packages
+    package:
+      name: '{{ item }}'
+      state: present
+    with_items: '{{ ssh_packages }}'
+    tags:
+      - 'role::$ROLENAME'
+      - 'role::$ROLENAME:install'
+      - 'role::$ROLENAME:packages'
+
+Bad example:
+
+.. code-block:: Yaml
+
+  - name: install ssh related packages
+    package:
+      name: '{{ item }}'
+      state: present
+    with_items: '{{ ssh_packages }}'
+    tags:
+      - 'role::$ROLENAME:packages'
 
 
 Variables
@@ -191,17 +220,18 @@ Use handlers instead of check if a previous task has changed.
 
   ---
 
-  - name: check sshd config and restart
+  - name: ssh check sshd config and restart
     command: '{{ ssh_daemon_bin }} -t'
-    notify: [ 'restart sshd' ]
+    notify: [ 'ssh restart sshd' ]
 
-  - name: restart sshd
+  - name: ssh restart sshd
     service:
       name: '{{ ssh_service }}'
       state: restarted
 
 This handlers get notified by a task, like `configure ssh`_ will call the
-handler ``check sshd config and restart``, but only if the task has changed.
+handler ``ssh check sshd config and restart``, but only if the task has
+changed.
 
 
 Files
