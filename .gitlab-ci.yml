@@ -5,6 +5,7 @@ before_script:
   - mkdir -p ~/.ssh
   - echo "$GITLAB_SSH_KEY" > ~/.ssh/id_rsa
   - echo "$GITLAB_SSH_KEY_PUB" > ~/.ssh/id_rsa.pub
+  - export ANSIBLE_VAULT_PASSWORD_FILE=".testenv/vault-env"
   - git submodule update --init
   - pip install --upgrade ansible ansible-lint
   - ansible --version
