@@ -14,6 +14,12 @@ Vagrant.configure("2") do |config|
     debian8.vm.box_download_checksum = "55440e135e47f78f9a9983016358c8e612fa5b009d3892fe739affdc7f6fc7f3"
     debian8.vm.box_download_checksum_type = "sha256"
   end
+  config.vm.define "debian9" do |debian9|
+    debian9.vm.box = "adsy-debian-9.0-nonminimized.box"
+    debian9.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-debian-9.0-nonminimized.box"
+    debian9.vm.box_download_checksum = "530158904a7ba3d8cf671fd2bea3d30ff2a784a91978ff84485ecca40efb6398"
+    debian9.vm.box_download_checksum_type = "sha256"
+  end
   config.vm.define "centos6" do |centos6|
     centos6.vm.box = "adsy-centos-6.7-nonminimized.box"
     centos6.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-centos-6.7-nonminimized.box"

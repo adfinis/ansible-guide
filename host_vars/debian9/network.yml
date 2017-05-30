@@ -1,0 +1,9 @@
+# network configuration options
+
+network_interfaces:
+  - device: enp0s3
+    tmpl: ethernet
+    ipv4:
+      type: dhcp
+    ipv6:
+      type: manual
