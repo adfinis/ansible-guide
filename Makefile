@@ -8,8 +8,25 @@ help:  ## display this help
 
 clean:  ## clean vagrant boxes
 	vagrant destroy -f
+	$(shell \
+		cd doc; \
+		make clean; \
+		cd ..; \
+	)
 
 test:  ## run test environment
 	vagrant up --provision
 
-.PHONY: all help test
+doc:  ## create html documentation
+	$(shell \
+		cd adsy-roles; \
+		for f in *; do \
+			test -f "$$f/defaults/main.yml" && \
+					cp "$$f/defaults/main.yml" "../doc/$$f.yml"; \
+		done; \
+	)
+	cd doc && make html
+
+.PHONY: all help test doc
+
+# vim: set noexpandtab ts=4 sw=4 ft=make :
