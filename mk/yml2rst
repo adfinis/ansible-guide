@@ -1,0 +1,53 @@
+#!/usr/bin/env python3
+
+"""Create a rst file from Yaml file."""
+
+import codecs
+import sys
+
+_state = 1
+_func  = []
+
+
+class State(object):
+    """State."""
+
+    RST = 0
+    YML = 1
+
+
+role = sys.argv[1]
+file_ = sys.argv[2]
+outfile = sys.argv[3]
+with codecs.open(file_, encoding="UTF-8") as in_:
+    with codecs.open(outfile, mode="w", encoding="UTF-8") as out:
+        try:
+            out.write("{1}\n{0}\n{1}\n\n".format(
+                role,
+                '=' * len(role)
+            ))
+            line = next(in_)
+            while True:
+                if _state == State.RST:
+                    if line.startswith("# "):
+                        out.write(line[2:])
+                        line = next(in_)
+                    elif line.startswith("#"):
+                        out.write(line[1:])
+                        line = next(in_)
+                    else:
+                        out.write("\n.. code-block:: YAML\n\n")
+                        _state = State.YML
+                else:
+                    if line.startswith("---"):
+                        line = next(in_)
+                    elif line.startswith("# "):
+                        _state = State.RST
+                    elif line.startswith("#"):
+                        _state = State.RST
+                    else:
+                        out.write("   %s" % line)
+                        line = next(in_)
+        except StopIteration:
+            pass
+        sys.exit(0)
