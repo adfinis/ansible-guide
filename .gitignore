@@ -10,6 +10,7 @@
 
 # documentation
 /doc/_build/
+/doc/*.yml.rst
 
 # vagrant
 /.vagrant/
