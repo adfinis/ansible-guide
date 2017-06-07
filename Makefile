@@ -1,5 +1,9 @@
 .DEFAULT_GOAL := help
 
+ROLES_DFLT			:= $(wildcard adsy-roles/*/defaults/main.yml)
+ROLES_DFLT_DOC		:= $(patsubst adsy-roles/%/defaults/main.yml, doc/%.yml.rst, $(ROLES_DFLT))
+ROLES_DFLT_FILES	:= $(patsubst doc/%, %, $(ROLES_DFLT_DOC))
+
 all:
 
 help:  ## display this help
@@ -8,6 +12,7 @@ help:  ## display this help
 
 clean:  ## clean vagrant boxes
 	vagrant destroy -f
+	rm doc/*.yml.rst
 	$(shell \
 		cd doc; \
 		make clean; \
@@ -17,15 +22,13 @@ clean:  ## clean vagrant boxes
 test:  ## run test environment
 	vagrant up --provision
 
-doc:  ## create html documentation
-	$(shell \
-		cd adsy-roles; \
-		for f in *; do \
-			test -f "$$f/defaults/main.yml" && \
-					cp "$$f/defaults/main.yml" "../doc/$$f.yml"; \
-		done; \
-	)
+doc: $(ROLES_DFLT_DOC)  ## create html documentation
+	cp mk/role_overview.rst doc/role_overview.rst
+	echo " $(ROLES_DFLT_FILES)" | sed "s/.rst/.rst\n/g" >> doc/role_overview.rst
 	cd doc && make html
+
+doc/%.yml.rst: adsy-roles/%/defaults/main.yml
+	mk/yml2rst $* $< $@
 
 .PHONY: all help test doc
 

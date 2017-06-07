@@ -11,6 +11,7 @@
 # documentation
 /doc/_build/
 /doc/*.yml.rst
+/doc/role_overview.rst
 
 # vagrant
 /.vagrant/
