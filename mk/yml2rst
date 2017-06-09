@@ -3,6 +3,7 @@
 """Create a rst file from Yaml file."""
 
 import codecs
+import os
 import sys
 
 _state = 1
@@ -17,40 +18,55 @@ class State(object):
 
 
 role = sys.argv[1]
-file_ = sys.argv[2]
+role_dir = sys.argv[2]
 outfile = sys.argv[3]
-with codecs.open(file_, encoding="UTF-8") as in_:
-    with codecs.open(outfile, mode="w", encoding="UTF-8") as out:
-        try:
-            # write title
-            out.write("{1}\n{0}\n{1}\n\n".format(
-                role,
-                '=' * len(role)
-            ))
-            line = next(in_)
-            while True:
-                if _state == State.RST:
-                    if line.startswith("# "):
-                        out.write(line[2:])
-                        line = next(in_)
-                    elif line.startswith("#"):
-                        out.write(line[1:])
-                        line = next(in_)
-                    elif len(line) == 1:
-                        line = next(in_)
+with codecs.open(outfile, mode="w", encoding="UTF-8") as out:
+
+    # write role title
+    try:
+        out.write("{1}\n{0}\n{1}\n\n".format(
+            role,
+            '=' * len(role)
+        ))
+    except BaseException:
+        sys.exit(1)
+
+    # copy role readme
+    file_ = '%s/README.rst' % role_dir
+    if os.path.isfile(file_):
+        with codecs.open(file_, encoding="UTF-8") as in_:
+            out.writelines(l for l in in_)
+
+    # copy defaults/main.yml
+    file_ = '%s/defaults/main.yml' % role_dir
+    if os.path.isfile(file_):
+        with codecs.open(file_, encoding="UTF-8") as in_:
+            try:
+                line = next(in_)
+                while True:
+                    if _state == State.RST:
+                        if line.startswith("# "):
+                            out.write(line[2:])
+                            line = next(in_)
+                        elif line.startswith("#"):
+                            out.write(line[1:])
+                            line = next(in_)
+                        elif len(line) == 1:
+                            line = next(in_)
+                        else:
+                            out.write("\n.. code-block:: YAML\n\n")
+                            _state = State.YML
                     else:
-                        out.write("\n.. code-block:: YAML\n\n")
-                        _state = State.YML
-                else:
-                    if line.startswith("---"):
-                        line = next(in_)
-                    elif line.startswith("# "):
-                        _state = State.RST
-                    elif line.startswith("#"):
-                        _state = State.RST
-                    else:
-                        out.write("   %s" % line)
-                        line = next(in_)
-        except StopIteration:
-            pass
-        sys.exit(0)
+                        if line.startswith("---"):
+                            line = next(in_)
+                        elif line.startswith("# "):
+                            _state = State.RST
+                        elif line.startswith("#"):
+                            _state = State.RST
+                        else:
+                            out.write("   %s" % line)
+                            line = next(in_)
+            except StopIteration:
+                pass
+
+    sys.exit(0)

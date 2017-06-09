@@ -31,7 +31,7 @@ doc: $(ROLES_DFLT_DOC)  ## create html documentation
 		>> doc/role_overview.rst
 	cd doc && make html
 
-doc/%.yml.rst: adsy-roles/%/defaults/main.yml
+doc/%.yml.rst: adsy-roles/%
 	mk/yml2rst $* $< $@
 
 .PHONY: all help test doc
