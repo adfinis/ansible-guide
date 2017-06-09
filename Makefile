@@ -24,7 +24,11 @@ test:  ## run test environment
 
 doc: $(ROLES_DFLT_DOC)  ## create html documentation
 	cp mk/role_overview.rst doc/role_overview.rst
-	echo " $(ROLES_DFLT_FILES)" | sed "s/.rst/.rst\n/g" >> doc/role_overview.rst
+	echo " $(ROLES_DFLT_FILES)" | \
+		sed "s/.rst/.rst\n/g" | \
+		sort -u | \
+		grep -v '_template.yml.rst' \
+		>> doc/role_overview.rst
 	cd doc && make html
 
 doc/%.yml.rst: adsy-roles/%/defaults/main.yml

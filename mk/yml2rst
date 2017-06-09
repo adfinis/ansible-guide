@@ -22,6 +22,7 @@ outfile = sys.argv[3]
 with codecs.open(file_, encoding="UTF-8") as in_:
     with codecs.open(outfile, mode="w", encoding="UTF-8") as out:
         try:
+            # write title
             out.write("{1}\n{0}\n{1}\n\n".format(
                 role,
                 '=' * len(role)
@@ -34,6 +35,8 @@ with codecs.open(file_, encoding="UTF-8") as in_:
                         line = next(in_)
                     elif line.startswith("#"):
                         out.write(line[1:])
+                        line = next(in_)
+                    elif len(line) == 1:
                         line = next(in_)
                     else:
                         out.write("\n.. code-block:: YAML\n\n")
