@@ -11,3 +11,15 @@ network_interfaces:
       type: dhcp
     ipv6:
       type: manual
+  - device: enp0s3
+    tmpl: ethernet
+    ipv4:
+      type: dhcp
+    ipv6:
+      type: manual
+  - device: foo
+    tmpl: ethernet
+    ipv4:
+      type: manual
+    ipv6:
+      type: manual
