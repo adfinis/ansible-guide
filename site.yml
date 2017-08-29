@@ -16,6 +16,7 @@
   roles:
     - console
     - hwraid
+    - ipmi
     - iptables
     - mariadb
     - motd
