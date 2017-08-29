@@ -15,6 +15,7 @@
   gather_facts: False
   roles:
     - console
+    - hwraid
     - iptables
     - mariadb
     - motd
