@@ -41,6 +41,6 @@ build-sphinx:
     - mv doc/_build/html ansible-guide/html
   artifacts:
     paths:
-      - ansible-guide/*
+      - ansible-guide/html/*
 
 # vim: set ts=2 sw=2 tw=2 :
