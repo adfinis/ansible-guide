@@ -1,5 +1,5 @@
 docs:
   extract_to: /var/www/html/adsy/ansible-guide
-  download_delay: 20
+  download_delay: 5
   stages:
-    - build-sphinx
+    - doc
