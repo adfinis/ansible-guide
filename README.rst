@@ -32,6 +32,7 @@ environment. To use the test environment, there are some dependencies:
 * virtualbox
 * internet connection
 * vagrant boxes
+
   * adsy-debian-7
   * adsy-debian-8
   * adsy-centos-6
