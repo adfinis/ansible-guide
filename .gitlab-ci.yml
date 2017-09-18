@@ -38,7 +38,7 @@ build-sphinx:
   script:
     - mkdir ansible-guide
     - make doc
-    - mv doc/_build/html ansible-guide
+    - mv doc/_build/html/* ansible-guide
   artifacts:
     paths:
       - ansible-guide/*
