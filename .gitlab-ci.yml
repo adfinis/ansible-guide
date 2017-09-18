@@ -15,6 +15,7 @@ before_script:
 stages:
   - syntax
   - lint
+  - doc
 
 syntax-check:
   stage: syntax
@@ -31,5 +32,15 @@ ansible-lint:
         exit 1;
       done;
       exit 0
+
+build-sphinx:
+  stage: doc
+  script:
+    - mkdir ansible-guide
+    - make doc
+    - mv doc/_build/html ansible-guide/html
+  artifacts:
+    paths:
+      - ansible-guide/*
 
 # vim: set ts=2 sw=2 tw=2 :
