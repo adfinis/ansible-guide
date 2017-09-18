@@ -38,9 +38,9 @@ build-sphinx:
   script:
     - mkdir ansible-guide
     - make doc
-    - mv doc/_build/html ansible-guide/html
+    - mv doc/_build/html ansible-guide
   artifacts:
     paths:
-      - ansible-guide/html/*
+      - ansible-guide/*
 
 # vim: set ts=2 sw=2 tw=2 :
