@@ -40,7 +40,7 @@ build-sphinx:
     - make doc
     - mv doc/_build/html/* ansible-guide
   only:
-    master
+    - master
   artifacts:
     paths:
       - ansible-guide/*
