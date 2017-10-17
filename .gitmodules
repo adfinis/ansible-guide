@@ -6,4 +6,4 @@
 	url = git@git.adfinis-sygroup.ch:ad-sy/adsy-sphinx-template.src.git
 [submodule ".testenv/lint-rules"]
 	path = .testenv/lint-rules
-	url = git@git.adfinis-sygroup.ch:ad-sy/ansible-lint-rules.src.git
+	url = https://github.com/adfinis-sygroup/ansible-lint-rules.git
