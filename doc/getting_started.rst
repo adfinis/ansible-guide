@@ -7,7 +7,7 @@ Project Repository
 ==================
 
 First of all, you need a project repository. For that, you can just clone
-this repository or start a new one. As Git Submodule you should add the
+this repository or start a new one. As a Git Submodule you should add the
 ansible-roles.src_ as ``roles/``:
 
 ::
@@ -16,8 +16,8 @@ ansible-roles.src_ as ``roles/``:
   git commit -m 'Intial commit.' --allow-empty
   git submodule add https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src adsy-roles
 
-Create the main playbook ``site.yml`` with content like the following, add
-your roles as needed:
+Create the main playbook ``site.yml`` with content along the following
+example. Add your roles as needed:
 
 ::
 
@@ -51,7 +51,8 @@ host can be in multiple hostgroups. Each host is in the hostgroup ``all``.
 
 You can now start ansible, and ansible will connect to each host with ssh.
 If you can't login with public keys, you can use ssh controlmaster with
-sockets, for that, add a file ``ansible.cfg``.
+sockets, for that, create a file called ``ansible.cfg`` in the root of your
+project directory.
 
 ::
 
@@ -69,9 +70,9 @@ You need to create the directory ``~/.ssh/sockets`` and you should
 manually establish a connection to each host (with a command like ``ssh -o
 ControlMaster=auto -o ControlPath='~/.ssh/sockets/%C' -o ControlPersist=30s
 -l root $FQDN``). While the connection is established (and 30 seconds
-longer) there is a socket file in ``~/.ssh/sockets/``, ansible will use this
-socket file to connect to the hosts, and ansible don't need a login with
-public keys or passwords anymore.
+after that) a socket file in ``~/.ssh/sockets/`` is generated. Ansible will use this
+socket file to connect to the hosts, and doesn't' need to reauthenticate.
+This speeds up ansible operations considerably.  
 
 
 Run Ansible
@@ -81,7 +82,7 @@ To run ansible with your playbook and your hosts, just start
 ``ansible-playbook -i hosts site.yml``. If you want to know what has
 changed, you can add the option ``--diff`` and if you want to know that
 before you change anything, you can add ``--check``. With the checkmode
-enabled, nothing get changed on your system!
+enabled, nothing gets changed on any of the systems!
 
 As a possible way to go, start ansible with diff and checkmode:
 
@@ -89,7 +90,7 @@ As a possible way to go, start ansible with diff and checkmode:
 
   ansible-playbook -i hosts --diff --check site.yml
 
-If you think the changes are well, you can start ansible without checkmode:
+If you think the changes do what you intend to do, you can start ansible without the checkmode:
 
 ::
 
