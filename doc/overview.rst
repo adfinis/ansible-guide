@@ -144,7 +144,7 @@ Variable structure
 Variable Precedence
 ===================
 This list shows different locations and their precendence of variables.
-The last existing location has winning prioritization.
+The last valid rule has winning prioritization.
 
 - role defaults (``roles/$ROLE/defaults/main.yml``)
 - inventory vars (``vars/main.yml``)
