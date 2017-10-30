@@ -1,6 +1,6 @@
-[submodule "adsy-roles"]
-	path = adsy-roles
-	url = git@git.adfinis-sygroup.ch:ad-sy/ansible-roles.src.git
+[submodule "adfinis-roles"]
+	path = adfinis-roles
+	url = https://github.com/adfinis-sygroup/ansible-roles.git
 [submodule "doc/adsy-sphinx-template.src"]
 	path = doc/adsy-sphinx-template.src
 	url = git@git.adfinis-sygroup.ch:ad-sy/adsy-sphinx-template.src.git

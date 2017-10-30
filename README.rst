@@ -8,13 +8,13 @@ with Sphinx-doc_.
 
 ansible-guide status:
 
-.. image:: https://git.adfinis-sygroup.ch/ad-sy/ansible-guide.doc/badges/master/build.svg
-  :target: https://git.adfinis-sygroup.ch/ad-sy/ansible-guide.doc/commits/master
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-guide.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-guide
 
 ansible-roles status:
 
-.. image:: https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src/badges/master/build.svg
-  :target: https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src/commits/master
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-roles.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-roles
 
 
 BUILD THE DOCUMENTATION
@@ -35,6 +35,7 @@ environment. To use the test environment, there are some dependencies:
 
   * adsy-debian-7
   * adsy-debian-8
+  * adsy-debian-9
   * adsy-centos-6
   * adsy-centos-7
   * adsy-ubuntu-14
