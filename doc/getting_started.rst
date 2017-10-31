@@ -72,7 +72,7 @@ ControlMaster=auto -o ControlPath='~/.ssh/sockets/%C' -o ControlPersist=30s
 -l root $FQDN``). While the connection is established (and 30 seconds
 after that) a socket file in ``~/.ssh/sockets/`` is generated. Ansible will use this
 socket file to connect to the hosts, and doesn't' need to reauthenticate.
-This speeds up ansible operations considerably.  
+This speeds up ansible operations considerably especially with many hosts.  
 
 
 Run Ansible
