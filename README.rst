@@ -2,18 +2,18 @@
 ANSIBLE GUIDE
 =============
 
-This repository provides an example project with the ansible roles of
-Adfinis SyGroup AG. In additional, it contains a guide to ansible, written
-with Sphinx-doc_.
+This repository provides an example project with the Ansible roles of
+Adfinis SyGroup AG. In additional, it contains a guide to Ansible, written
+with `Sphinx Documentation`_.
 
 `Documentation`_ is available here.
 
-ansible-guide status:
+Ansible Guide status:
 
 .. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-guide.svg?style=flat-square
   :target: https://github.com/adfinis-sygroup/ansible-guide
 
-ansible-roles status:
+Ansible Roles status:
 
 .. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-roles.svg?style=flat-square
   :target: https://github.com/adfinis-sygroup/ansible-roles
@@ -22,7 +22,7 @@ ansible-roles status:
 BUILD THE DOCUMENTATION
 =======================
 To build the documentation, which is provided with this repository, you need
-to install Sphinx-doc_.
+to install `Sphinx Documentation`_.
 
 
 TEST ENVIRONMENT
@@ -53,7 +53,7 @@ REFERENCE
 
 
 .. _Documentation: https://docs.adfinis-sygroup.ch/public/ansible-guide/
-.. _Sphinx-doc: http://www.sphinx-doc.org/
+.. _Sphinx Documentation: http://www.sphinx-doc.org/
 .. _reStructuredText: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
 
