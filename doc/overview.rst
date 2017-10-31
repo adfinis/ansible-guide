@@ -3,17 +3,17 @@ OVERVIEW
 ========
 
 
-If you do not know what `ansible <https://www.ansible.com/>`_ is, to check the
-`intro <http://docs.ansible.com/ansible/intro.html>`_ out. For general
-information, chech out the
+If you don't know what `ansible <https://www.ansible.com/>`_ is, check out the
+`intro <http://docs.ansible.com/ansible/intro.html>`_.  For general
+information, check out the
 `documentation index <http://docs.ansible.com/ansible/index.html>`_.
 
 
 Directory and file structure
 ============================
-There is a `Best Practices
-<http://docs.ansible.com/ansible/playbooks_best_practices.html>`_ by
-ansible, our guideline implement most of that stuff.
+The Ansible Project publishes a `Best Practices
+<http://docs.ansible.com/ansible/playbooks_best_practices.html>`_ 
+our guideline is an extension to that guide. 
 
 ::
 
@@ -90,7 +90,7 @@ ansible, our guideline implement most of that stuff.
 Inventory
 =========
 The file ``hosts`` in the project directory contains a list of each server,
-if needed with the depending connection informations.
+if needed with the depending connection information.
 
 ::
 
@@ -104,7 +104,7 @@ if needed with the depending connection informations.
   db-[0:9].example.com
 
 You can define groups of hosts with ``[]``. There is a group called ``all``,
-each server in the hosts file is in that group! Hostgroups can be used to
+each server in the hosts file is automatically in that group! Hostgroups can be used to
 define special roles only for one hostgroup or to define some special
 variables for this group.
 
@@ -112,16 +112,16 @@ variables for this group.
 Task structure
 ==============
 - Playbooks
-    A playbook is a set of roles. For each playbook can be defined on which
-    hostgroup it should run, default is on all.
+    A playbook is a set of roles. For each playbook it can be defined in which
+    hostgroup it should be run, default is [all].
     `Intro to Playbooks
     <http://docs.ansible.com/ansible/playbooks_intro.html>`_
 - Roles
-    Each role configure one software, contains multiple tasks.
+    Each role configures one applicatoin and consists of multiple tasks.
     `Playbook Roles and Include Statements
     <http://docs.ansible.com/ansible/playbooks_roles.html>`_
 - Tasks
-    Each tasks uses one modules (e.g. template, file, copy, service).
+    Each tasks uses one module (e.g. template, file, copy, service).
 
 
 Variable structure
@@ -131,10 +131,10 @@ Variable structure
     specified in this file.
 - roles/$ROLE/vars/\*.yml
     We use multiple variable files per role. Define only constant data here,
-    like package names. Store data here, instead of in the tasks.
+    like package names. Store all data here not in the tasks.
 - group_vars/$HOSTGROUPS/\*.yml
     Each host can be in multiple hostgroups, create hostgroups as many as
-    you need and as least as possible. Possible variables per hostgroup
+    you need and as few as possible. Possible variables per hostgroup
     could be ntp servers per datacenter or nameservers per net.
 - host_vars/$FQDN/\*.yml
     Host specific data, e.g. webserver virtualhost configurations or ip
@@ -144,7 +144,7 @@ Variable structure
 Variable Precedence
 ===================
 This list shows different locations and their precendence of variables.
-The last listed variables winning prioritization.
+The last valid rule has winning prioritization.
 
 - role defaults (``roles/$ROLE/defaults/main.yml``)
 - inventory vars (``vars/main.yml``)

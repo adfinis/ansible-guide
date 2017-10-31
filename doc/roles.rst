@@ -32,7 +32,7 @@ ROLES
 Tasks
 =====
 
-The ``main.yml`` file include just the other files.
+The ``main.yml`` file is just used to include the other yaml files.
 
 .. code-block:: Yaml
 
@@ -211,10 +211,10 @@ Handlers
 ========
 
 Handlers are used to check configurations and restart services. Don't
-restart a service with a task, which runs every time, the role is running.
-The improvement of handlers is, that they must be notified by a task, and
-they run only once of each playbook.
-Use handlers instead of check if a previous task has changed.
+restart a service with a task, as its run every time the role is running.
+The advantage of handlers is, that they must be notified by a task or even 
+multiple tasks, and they run only once per playbook.
+Use handlers instead of a check when a previous task has changed.
 
 .. code-block:: Yaml
 
@@ -229,16 +229,16 @@ Use handlers instead of check if a previous task has changed.
       name: '{{ ssh_service }}'
       state: restarted
 
-This handlers get notified by a task, like `configure ssh`_ will call the
-handler ``ssh check sshd config and restart``, but only if the task has
-changed.
+This handler gets notified by a task called `configure ssh`_ it will call the
+handler ``check sshd config and restart``, but only if the task has
+effected a change.
 
 
 Files
 =====
 
-If some files should be copied without changing content, they can be stored
-in the directory ``files``. Files are rare used, they are mostly replaced
+If some static files have to be copied, they can be stored
+in the directory ``files``. Files are rarely used, they are mostly replaced
 with templates. E.g. a binary or a compressed file can be copied with file.
 
 Within this directory, we rebuild the path structure of a target system. We
@@ -309,8 +309,9 @@ Templates
 Within this directory, template files are stored with a `.j2` extension as the
 files are threatend as `Jinja2 <http://jinja.pocoo.org/>`_ templates. This
 allows to customize files.
-Templates should have a comment with ``{{ ansible_managed }}`` at the
-beginning.
+Templates should have a comment with ``{{ ansible_managed }}`` as the very
+beginning. This generates a comment header inside the file, warning a
+potential user that changes to the file may be overwritten. 
 
 Within this directory, we rebuild the path structure of a target system. We
 do not store templates in a flattened directory.
