@@ -7,12 +7,24 @@ python:
   - "2.7"
 
 install:
-  - pip install ansible ansible-lint
+  - pip install --upgrade ansible ansible-lint
 
-script:
+before_script:
+  - git submodule update --init
   - ansible --version
   - ansible-lint --version
+  - mkdir ansible-guide
+
+script:
   - ansible-playbook site.yml --syntax-check
-  - ansible-lint site.yml
+  - ansible-lint -R -r .testenv/lint-rules/ site.yml
+  - for f in *.yml; do
+      grep -q tasks "$f" &&
+      echo "File ${f} contains tasks" &&
+      exit 1;
+    done;
+    exit 0
+  - make doc
+  - mv doc/_build/html/* ansible-guide
 
 # vim: set ts=2 sw=2 tw=2 :

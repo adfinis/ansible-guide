@@ -85,7 +85,7 @@ language = None
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
     '_build',
-    'adsy-sphinx-template.src',
+    'sphinx-template',
     'Thumbs.db',
     '.DS_Store'
 ]
@@ -136,7 +136,7 @@ html_theme = 'adsy'
 # html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = ['adsy-sphinx-template.src/html']
+html_theme_path = ['sphinx-template/html']
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
