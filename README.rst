@@ -6,6 +6,8 @@ This repository provides an example project with the ansible roles of
 Adfinis SyGroup AG. In additional, it contains a guide to ansible, written
 with Sphinx-doc_.
 
+`Documentation`_ is available here.
+
 ansible-guide status:
 
 .. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-guide.svg?style=flat-square
@@ -50,6 +52,7 @@ REFERENCE
 * reStructuredText_
 
 
+.. _Documentation: https://docs.adfinis-sygroup.ch/public/ansible-guide/
 .. _Sphinx-doc: http://www.sphinx-doc.org/
 .. _reStructuredText: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
