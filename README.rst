@@ -2,7 +2,10 @@
 ANSIBLE GUIDE
 =============
 
-This repository provides an example project with the Ansible roles of
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-guide.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-guide/blob/master/LICENSE
+
+This repository provides an example project for the Ansible roles of
 Adfinis SyGroup AG. In additional, it contains a guide to Ansible, written
 with `Sphinx Documentation`_.
 
