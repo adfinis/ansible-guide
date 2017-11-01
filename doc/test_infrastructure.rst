@@ -14,12 +14,20 @@ There are some dependencies to test Ansible roles with vagrant:
 * internet connection
 * vagrant boxes
 
-  * adsy-debian-7
-  * adsy-debian-8
-  * adsy-centos-6
-  * adsy-centos-7
-  * adsy-ubuntu-14
-  * adsy-ubuntu-16
+  * `adsy-debian-7
+    <https://vagrant.adfinis-sygroup.ch/adsy-debian-7.8-nonminimized.box>`_
+  * `adsy-debian-8
+    <https://vagrant.adfinis-sygroup.ch/adsy-debian-8.9-nonminimized.box>`_
+  * `adsy-debian-9
+    <https://vagrant.adfinis-sygroup.ch/adsy-debian-9.1-nonminimized.box>`_
+  * `adsy-centos-6
+    <https://vagrant.adfinis-sygroup.ch/adsy-centos-6.7-nonminimized.box>`_
+  * `adsy-centos-7
+    <https://vagrant.adfinis-sygroup.ch/adsy-centos-7.4-nonminimized.box>`_
+  * `adsy-ubuntu-14
+    <https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-14.04-nonminimized.box>`_
+  * `adsy-ubuntu-16
+    <https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-16.04-nonminimized.box>`_
 
 To run the test environment use ``make test``.
 

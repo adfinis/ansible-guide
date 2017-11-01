@@ -212,7 +212,7 @@ Handlers
 
 Handlers are used to check configurations and restart services. Don't
 restart a service with a task, as its run every time the role is running.
-The advantage of handlers is, that they must be notified by a task or even 
+The advantage of handlers is, that they must be notified by a task or even
 multiple tasks, and they run only once per playbook.
 Use handlers instead of a check when a previous task has changed.
 
@@ -290,6 +290,7 @@ Meta information of a role are defined here. I.e. requirements for a role.
         versions:
           - wheezy
           - jessie
+          - stretch
       - name: Ubuntu
         versions:
           - trusty
@@ -311,7 +312,7 @@ files are threatend as `Jinja2 <http://jinja.pocoo.org/>`_ templates. This
 allows to customize files.
 Templates should have a comment with ``{{ ansible_managed }}`` as the very
 beginning. This generates a comment header inside the file, warning a
-potential user that changes to the file may be overwritten. 
+potential user that changes to the file may be overwritten.
 
 Within this directory, we rebuild the path structure of a target system. We
 do not store templates in a flattened directory.
