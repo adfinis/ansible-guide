@@ -60,7 +60,7 @@ project directory.
   ansible_managed     = Warning: File is managed by Ansible [https://github.com/adfinis-sygroup/ansible-roles]
   retry_files_enabled = False
   hostfile            = ./hosts
-  roles_path          = ./adsy-roles
+  roles_path          = ./adfinis-roles
 
   [ssh_connection]
   ssh_args            = -o ControlMaster=auto -o ControlPersist=30s
@@ -107,7 +107,7 @@ be accepted. Follow the guidelines for new roles.
 To create special roles for one project (e.g. not possible as a generic
 role or never needed in another project) put them inside the directory
 ``roles/``. Each role in this directory will override roles in the directory
-``adsy-roles/``.
+``adfinis-roles/``.
 
 
 .. _ansible-roles: https://github.com/adfinis-sygroup/ansible-roles
