@@ -8,13 +8,13 @@ Project Repository
 
 First of all, you need a project repository. For that, you can just clone
 this repository or start a new one. As a Git Submodule you should add the
-ansible-roles.src_ as ``roles/``:
+`ansible-roles`_ as ``roles/``:
 
 ::
 
   git init
   git commit -m 'Intial commit.' --allow-empty
-  git submodule add https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src adsy-roles
+  git submodule add https://github.com/adfinis-sygroup/ansible-roles adfinis-roles
 
 Create the main playbook ``site.yml`` with content along the following
 example. Add your roles as needed:
@@ -49,7 +49,7 @@ host can be in multiple hostgroups. Each host is in the hostgroup ``all``.
   www2.example.com
   db1.example.com
 
-You can now start ansible, and ansible will connect to each host with ssh.
+You can now start Ansible, and Ansible will connect to each host with ssh.
 If you can't login with public keys, you can use ssh controlmaster with
 sockets, for that, create a file called ``ansible.cfg`` in the root of your
 project directory.
@@ -57,7 +57,7 @@ project directory.
 ::
 
   [defaults]
-  ansible_managed     = Warning: File is managed by Ansible [https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src]
+  ansible_managed     = Warning: File is managed by Ansible [https://github.com/adfinis-sygroup/ansible-roles]
   retry_files_enabled = False
   hostfile            = ./hosts
   roles_path          = ./adsy-roles
@@ -72,25 +72,25 @@ ControlMaster=auto -o ControlPath='~/.ssh/sockets/%C' -o ControlPersist=30s
 -l root $FQDN``). While the connection is established (and 30 seconds
 after that) a socket file in ``~/.ssh/sockets/`` is generated. Ansible will use this
 socket file to connect to the hosts, and doesn't' need to reauthenticate.
-This speeds up ansible operations considerably especially with many hosts.  
+This speeds up Ansible operations considerably especially with many hosts.
 
 
 Run Ansible
 ===========
 
-To run ansible with your playbook and your hosts, just start
+To run Ansible with your playbook and your hosts, just start
 ``ansible-playbook -i hosts site.yml``. If you want to know what has
 changed, you can add the option ``--diff`` and if you want to know that
 before you change anything, you can add ``--check``. With the checkmode
 enabled, nothing gets changed on any of the systems!
 
-As a possible way to go, start ansible with diff and checkmode:
+As a possible way to go, start Ansible with diff and checkmode:
 
 ::
 
   ansible-playbook -i hosts --diff --check site.yml
 
-If you think the changes do what you intend to do, you can start ansible without the checkmode:
+If you think the changes do what you intend to do, you can start Ansible without the checkmode:
 
 ::
 
@@ -101,7 +101,7 @@ Special Roles
 =============
 
 If you need new roles, which aren't created yet, create them and make a
-pull-requests to the ansible-roles.src_ repository. Only generic roles will
+pull-requests to the `ansible-roles`_ repository. Only generic roles will
 be accepted. Follow the guidelines for new roles.
 
 To create special roles for one project (e.g. not possible as a generic
@@ -110,7 +110,7 @@ role or never needed in another project) put them inside the directory
 ``adsy-roles/``.
 
 
-.. _ansible-roles.src: https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src
+.. _ansible-roles: https://github.com/adfinis-sygroup/ansible-roles
 
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
