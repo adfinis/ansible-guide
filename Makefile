@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := help
 
-ROLES_DFLT			:= $(wildcard adsy-roles/*/defaults/main.yml)
-ROLES_DFLT_DOC		:= $(patsubst adsy-roles/%/defaults/main.yml, doc/%.yml.rst, $(ROLES_DFLT))
+ROLES_DFLT			:= $(wildcard adfinis-roles/*/defaults/main.yml)
+ROLES_DFLT_DOC		:= $(patsubst adfinis-roles/%/defaults/main.yml, doc/%.yml.rst, $(ROLES_DFLT))
 ROLES_DFLT_FILES	:= $(patsubst doc/%, %, $(ROLES_DFLT_DOC))
 
 all:
@@ -31,7 +31,7 @@ doc: $(ROLES_DFLT_DOC)  ## create html documentation
 		>> doc/role_overview.rst
 	cd doc && make html
 
-doc/%.yml.rst: adsy-roles/%
+doc/%.yml.rst: adfinis-roles/%
 	mk/yml2rst $* $< $@
 
 .PHONY: all help test doc
