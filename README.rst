@@ -2,7 +2,7 @@
 ANSIBLE GUIDE
 =============
 
-.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-guide.svg?style=flat-square
+.. image:: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg?style=flat-square
   :target: https://github.com/adfinis-sygroup/ansible-guide/blob/master/LICENSE
 
 This repository provides an example project for the Ansible roles of
