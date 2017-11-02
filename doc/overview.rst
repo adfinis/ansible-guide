@@ -12,8 +12,8 @@ information, check out the
 Directory and file structure
 ============================
 The Ansible Project publishes a `Best Practices
-<http://docs.ansible.com/ansible/playbooks_best_practices.html>`_ 
-our guideline is an extension to that guide. 
+<http://docs.ansible.com/ansible/playbooks_best_practices.html>`_
+our guideline is an extension to that guide.
 
 ::
 
@@ -41,7 +41,7 @@ our guideline is an extension to that guide.
   │       ├── ntp.yml
   │       └── ssh.yml
   ├── roles/
-  ├── adsy-roles/
+  ├── adfinis-roles/
   │   ├── ntp/
   │   │   ├── defaults/
   │   │   │   └── main.yml
