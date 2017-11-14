@@ -80,7 +80,7 @@ Vagrant.configure("2") do |config|
     ansible.become = true
     ansible.extra_vars = {
       ansible_ssh_user: 'vagrant',
-      ansible_managed: 'Warning: File is managed by Ansible [https://git.adfinis-sygroup.ch/ad-sy/ansible-roles.src]',
+      ansible_managed: 'Warning: File is managed by Ansible [https://github.com/adfinis-sygroup/ansible-roles]',
     }
   end
 end
