@@ -20,6 +20,7 @@
   roles:
     - console
     - hwraid
+    - hw_vm_tools
     - ipmi
     - iptables
     - mariadb
