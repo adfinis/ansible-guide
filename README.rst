@@ -13,12 +13,12 @@ with `Sphinx Documentation`_.
 
 Ansible Guide status:
 
-.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-guide.svg?style=flat-square
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-guide/master.svg?style=flat-square
   :target: https://github.com/adfinis-sygroup/ansible-guide
 
 Ansible Roles status:
 
-.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-roles.svg?style=flat-square
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-roles/master.svg?style=flat-square
   :target: https://github.com/adfinis-sygroup/ansible-roles
 
 
