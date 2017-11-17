@@ -7,24 +7,26 @@ python:
   - "2.7"
 
 install:
-  - pip install --upgrade ansible ansible-lint
+  - pip install --upgrade ansible ansible-lint sphinx sphinx-rtd-theme
 
 before_script:
+  - export ANSIBLE_VAULT_PASSWORD_FILE=".testenv/vault-env"
+  - ERRORS=0
   - git submodule update --init
   - ansible --version
   - ansible-lint --version
   - mkdir ansible-guide
 
 script:
-  - ansible-playbook site.yml --syntax-check
-  - ansible-lint -R -r .testenv/lint-rules/ site.yml
+  - ansible-playbook site.yml --syntax-check || let ERRORS+=1
+  - ansible-lint -R -r .testenv/lint-rules/ site.yml || let ERRORS+=1
   - for f in *.yml; do
       grep -q tasks "$f" &&
       echo "File ${f} contains tasks" &&
-      exit 1;
-    done;
-    exit 0
+      let ERRORS+=1;
+    done
   - make doc
   - mv doc/_build/html/* ansible-guide
+  - exit $ERRORS
 
 # vim: set ts=2 sw=2 tw=2 :
