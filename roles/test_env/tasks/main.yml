@@ -10,5 +10,7 @@
     - 'role::test_env:install'
     - 'role::test_env:config'
 
-- include: installation.yml
-- include: configuration.yml
+- import_tasks: installation.yml
+  tags:
+    - 'role::test_env'
+    - 'role::test_env:install'
