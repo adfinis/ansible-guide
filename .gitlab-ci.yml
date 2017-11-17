@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 before_script:
-  - export ANSIBLE_VAULT_PASSWORD_FILE=".testenv/vault-env"
   - git submodule update --init
 
 stages:
