@@ -19,4 +19,4 @@ build-sphinx:
     paths:
       - ansible-guide/*
 
-# vim: set ts=2 sw=2 tw=2 :
+# vim: set ts=2 sw=2 :
