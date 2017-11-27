@@ -17,9 +17,9 @@ Vagrant.configure("2") do |config|
     debian8.vm.boot_timeout = 30
   end
   config.vm.define "debian9" do |debian9|
-    debian9.vm.box = "adsy-debian-9.1-nonminimized.box"
-    debian9.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-debian-9.1-nonminimized.box"
-    debian9.vm.box_download_checksum = "d0a049cb1a6269de9b45f50a323e91a83fd42588a58465e97168be1fcc94b041"
+    debian9.vm.box = "adsy-debian-9.2-nonminimized.box"
+    debian9.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-debian-9.2-nonminimized.box"
+    debian9.vm.box_download_checksum = "d1b922f23941a2be3e7291668aa56194137b93f682e6a98542839dc5557793cd"
     debian9.vm.box_download_checksum_type = "sha256"
     debian9.vm.boot_timeout = 30
   end
