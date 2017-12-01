@@ -38,16 +38,16 @@ Vagrant.configure("2") do |config|
     centos7.vm.boot_timeout = 30
   end
   config.vm.define "ubuntu14" do |ubuntu14|
-    ubuntu14.vm.box = "adsy-ubuntu-14.04-nonminimized.box"
-    ubuntu14.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-14.04-nonminimized.box"
-    ubuntu14.vm.box_download_checksum = "f4f64915c93837d85c4eb3b3a022ded6918c7cfc316e99d76a6313d15d625c47"
+    ubuntu14.vm.box = "adsy-ubuntu-14.04.5-nonminimized.box"
+    ubuntu14.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-14.04.5-nonminimized.box"
+    ubuntu14.vm.box_download_checksum = "14fef38391d6c33991b382161eb3e79cbaa3bb3762aa4bb7654ab16b6be8e370"
     ubuntu14.vm.box_download_checksum_type = "sha256"
     ubuntu14.vm.boot_timeout = 30
   end
   config.vm.define "ubuntu16" do |ubuntu16|
-    ubuntu16.vm.box = "adsy-ubuntu-16.04-nonminimized.box"
-    ubuntu16.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-16.04-nonminimized.box"
-    ubuntu16.vm.box_download_checksum = "b031473a4fe8741af099b22cb0b0381aa1a11830c9073626ffe47d8c5ceb2c5f"
+    ubuntu16.vm.box = "adsy-ubuntu-16.04.3-nonminimized.box"
+    ubuntu16.vm.box_url = "https://vagrant.adfinis-sygroup.ch/adsy-ubuntu-16.04.3-nonminimized.box"
+    ubuntu16.vm.box_download_checksum = "8500882ad1f5657aee11ede074ab5a13db6d582d1ef29f5a421f1868f3308ed6"
     ubuntu16.vm.box_download_checksum_type = "sha256"
     ubuntu16.vm.boot_timeout = 30
   end
