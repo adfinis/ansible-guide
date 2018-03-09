@@ -40,7 +40,7 @@ Handler Tasks
 
   ---
 
-  - name: handler task 1
+  - name: role handler task 1
     module:
       arg1: Foo
       arg2: {{ role_service }}

@@ -48,12 +48,12 @@ The ``main.yml`` file is just used to include the other yaml files.
       - 'role::$ROLENAME:install'
       - 'role::$ROLENAME:config'
 
-  - include: installation.yml
+  - import_tasks: installation.yml
     tags:
       - 'role::$ROLENAME'
       - 'role::$ROLENAME:install'
 
-  - include: configuration.yml
+  - import_tasks: configuration.yml
     tags:
       - 'role::$ROLENAME'
       - 'role::$ROLENAME:config'
@@ -70,9 +70,8 @@ packages. The related packages are stored as a variable.
 
   - name: install ssh related packages
     package:
-      name: '{{ item }}'
+      name: '{{ ssh_packages }}'
       state: present
-    with_items: '{{ ssh_packages }}'
 
 Inside ``configuration.yml`` all configurations can be modified.
 
@@ -117,9 +116,8 @@ Good example:
 
   - name: install ssh related packages
     package:
-      name: '{{ item }}'
+      name: '{{ ssh_packages }}'
       state: present
-    with_items: '{{ ssh_packages }}'
     tags:
       - 'role::$ROLENAME'
       - 'role::$ROLENAME:install'
@@ -131,9 +129,8 @@ Bad example:
 
   - name: install ssh related packages
     package:
-      name: '{{ item }}'
+      name: '{{ ssh_packages }}'
       state: present
-    with_items: '{{ ssh_packages }}'
     tags:
       - 'role::$ROLENAME:packages'
 
@@ -222,7 +219,8 @@ Use handlers instead of a check when a previous task has changed.
 
   - name: ssh check sshd config and restart
     command: '{{ ssh_daemon_bin }} -t'
-    notify: [ 'ssh restart sshd' ]
+    notify:
+      - 'ssh restart sshd'
 
   - name: ssh restart sshd
     service:
@@ -276,7 +274,7 @@ Meta information of a role are defined here. I.e. requirements for a role.
   ---
 
   dependencies:
-    - pki
+    - role: pki
 
   galaxy_info:
     author: 'Adfinis SyGroup AG'
@@ -313,6 +311,35 @@ allows to customize files.
 Templates should have a comment with ``{{ ansible_managed }}`` as the very
 beginning. This generates a comment header inside the file, warning a
 potential user that changes to the file may be overwritten.
+
+If possible validate the template before copying it into place. This will
+guarantee that configuration will work after restarting the corresponding
+service.
+
+Good example:
+
+.. code-block:: Yaml
+
+  ---
+
+  - name: configure the ssh daemon
+    template:
+      src: etc/ssh/sshd_config.j2
+      dest: '{{ ssh_daemon_cfg }}'
+      owner: root
+      group: root
+      mode: 0644
+      seuser: system_u
+      serole: object_r
+      setype: etc_t
+      selevel: s0
+      validate: '{{ ssh_daemon_bin }} -t -f %s'
+    notify:
+      - 'ssh restart sshd'
+
+If not a single configuration file is used and it isn't possible to validate
+the configuration file, then do it with a handler which checks the
+configuration before calling another handler which will restart the service.
 
 Within this directory, we rebuild the path structure of a target system. We
 do not store templates in a flattened directory.

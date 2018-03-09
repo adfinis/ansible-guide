@@ -25,6 +25,7 @@ example. Add your roles as needed:
 
   - hosts: all
     roles:
+      - ansible
       - console
       - ssh
 

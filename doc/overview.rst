@@ -183,7 +183,6 @@ used.
 - set_facts (`Module set_fact
   <http://docs.ansible.com/ansible/set_fact_module.html>`_)
 - role and include vars (``roles/$ROLE/vars/main.yml``)
-- task vars (only for the task)
 
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
