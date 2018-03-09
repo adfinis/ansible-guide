@@ -312,8 +312,8 @@ Templates should have a comment with ``{{ ansible_managed }}`` as the very
 beginning. This generates a comment header inside the file, warning a
 potential user that changes to the file may be overwritten.
 
-If possible validate the template before copying into place. This will
-guarantee that configuration will work after restart the corresponding
+If possible validate the template before copying it into place. This will
+guarantee that configuration will work after restarting the corresponding
 service.
 
 Good example:
