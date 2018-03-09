@@ -1,11 +1,19 @@
 ---
 # -*- coding: utf-8 -*-
 
-image: python:3
+image: python:3.6
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/pip-cache"
+
+cache:
+  paths:
+    - "$CI_PROJECT_DIR/pip-cache"
+  key: "$CI_PROJECT_ID"
 
 before_script:
   - git submodule update --init
-  - pip install sphinx sphinx_rtd_theme
+  - pip install --upgrade sphinx sphinx_rtd_theme
 
 stages:
   - doc
