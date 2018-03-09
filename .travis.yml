@@ -4,10 +4,11 @@ language: python
 sudo: false
 cache: pip
 python:
-  - "2.7"
+  - "3.6"
 
 install:
-  - pip install --upgrade ansible ansible-lint sphinx sphinx-rtd-theme
+  - pip install --upgrade ansible ansible-lint
+  - pip install --upgrade sphinx sphinx_rtd_theme
 
 before_script:
   - export ANSIBLE_VAULT_PASSWORD_FILE=".testenv/vault-env"
