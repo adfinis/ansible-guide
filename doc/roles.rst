@@ -312,6 +312,35 @@ Templates should have a comment with ``{{ ansible_managed }}`` as the very
 beginning. This generates a comment header inside the file, warning a
 potential user that changes to the file may be overwritten.
 
+If possible validate the template before copying into place. This will
+guarantee that configuration will work after restart the corresponding
+service.
+
+Good example:
+
+.. code-block:: Yaml
+
+  ---
+
+  - name: configure the ssh daemon
+    template:
+      src: etc/ssh/sshd_config.j2
+      dest: '{{ ssh_daemon_cfg }}'
+      owner: root
+      group: root
+      mode: 0644
+      seuser: system_u
+      serole: object_r
+      setype: etc_t
+      selevel: s0
+      validate: '{{ ssh_daemon_bin }} -t -f %s'
+    notify:
+      - 'ssh restart sshd'
+
+If not a single configuration file is used and it isn't possible to validate
+the configuration file, then do it with a handler which checks the
+configuration before calling another handler which will restart the service.
+
 Within this directory, we rebuild the path structure of a target system. We
 do not store templates in a flattened directory.
 
