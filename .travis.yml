@@ -7,6 +7,11 @@ python:
   - "3.6"
 
 install:
+  - if [ -d ../lint-rules/.git ]; then
+      cd ../lint-rules && git fetch -p && git pull;
+    else
+      git clone https://github.com/adfinis-sygroup/ansible-lint-rules ../lint-rules;
+    fi
   - pip install --upgrade ansible ansible-lint
   - pip install --upgrade sphinx sphinx_rtd_theme
 
@@ -21,7 +26,7 @@ before_script:
 
 script:
   - ansible-playbook site.yml --syntax-check || let ERRORS+=1
-  - ansible-lint -R -r .testenv/lint-rules/ site.yml || let ERRORS+=1
+  - ansible-lint -R -r ../lint-rules site.yml || let ERRORS+=1
   - for f in *.yml; do
       grep -q tasks "$f" &&
       echo "File ${f} contains tasks" &&

@@ -12,6 +12,11 @@ cache:
   key: "$CI_PROJECT_ID"
 
 before_script:
+  - if [ -d ../lint-rules/.git ]; then
+      cd ../lint-rules && git fetch -p && git pull;
+    else
+      git clone https://github.com/adfinis-sygroup/ansible-lint-rules ../lint-rules;
+    fi
   - pip install --upgrade ansible ansible-lint
   - pip install --upgrade sphinx sphinx_rtd_theme
   - ansible-galaxy install -r requirements.yml
