@@ -23,10 +23,17 @@ outfile = sys.argv[3]
 with codecs.open(outfile, mode="w", encoding="UTF-8") as out:
 
     # copy role readme
-    file_ = '%s/README.rst' % role_dir
+    file_ = '{0}/README.rst'.format(role_dir)
     if os.path.isfile(file_):
         with codecs.open(file_, encoding="UTF-8") as in_:
             out.writelines(l for l in in_)
+
+    out.writelines([
+        "\n\n",
+        "Default Values for this Role\n",
+        "=============================\n",
+        "\n",
+    ])
 
     # copy defaults/main.yml
     file_ = '%s/defaults/main.yml' % role_dir
