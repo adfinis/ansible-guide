@@ -17,6 +17,7 @@ before_script:
   - ansible --version
   - ansible-lint --version
   - mkdir ansible-guide
+  - ansible-galaxy install -r requirements.yml
 
 script:
   - ansible-playbook site.yml --syntax-check || let ERRORS+=1

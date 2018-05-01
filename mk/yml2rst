@@ -22,15 +22,6 @@ role_dir = sys.argv[2]
 outfile = sys.argv[3]
 with codecs.open(outfile, mode="w", encoding="UTF-8") as out:
 
-    # write role title
-    try:
-        out.write("{1}\n{0}\n{1}\n\n".format(
-            role,
-            '=' * len(role)
-        ))
-    except BaseException:
-        sys.exit(1)
-
     # copy role readme
     file_ = '%s/README.rst' % role_dir
     if os.path.isfile(file_):
