@@ -3,6 +3,7 @@
 # ansible
 *.retry
 /vault-pass
+/adfinis-roles/
 
 # python
 *.pyc
@@ -13,6 +14,7 @@
 /doc/_build/
 /doc/*.yml.rst
 /doc/role_overview.rst
+/doc/sphinx-template/
 
 # vagrant
 /.vagrant/

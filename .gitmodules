@@ -1,9 +1,0 @@
-[submodule "adfinis-roles"]
-	path = adfinis-roles
-	url = https://github.com/adfinis-sygroup/ansible-roles.git
-[submodule "doc/sphinx-template"]
-	path = doc/sphinx-template
-	url = https://github.com/adfinis-sygroup/adsy-sphinx-template.git
-[submodule ".testenv/lint-rules"]
-	path = .testenv/lint-rules
-	url = https://github.com/adfinis-sygroup/ansible-lint-rules.git

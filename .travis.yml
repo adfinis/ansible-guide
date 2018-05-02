@@ -7,7 +7,7 @@ python:
   - "3.6"
 
 install:
-  - pip install --upgrade ansible ansible-lint
+  - pip install --upgrade ansible
   - pip install --upgrade sphinx sphinx_rtd_theme
 
 before_script:
@@ -15,12 +15,11 @@ before_script:
   - ERRORS=0
   - git submodule update --init
   - ansible --version
-  - ansible-lint --version
   - mkdir ansible-guide
+  - ansible-galaxy install -r requirements.yml
 
 script:
   - ansible-playbook site.yml --syntax-check || let ERRORS+=1
-  - ansible-lint -R -r .testenv/lint-rules/ site.yml || let ERRORS+=1
   - for f in *.yml; do
       grep -q tasks "$f" &&
       echo "File ${f} contains tasks" &&

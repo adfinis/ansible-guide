@@ -31,8 +31,11 @@ doc: $(ROLES_DFLT_DOC)  ## create html documentation
 		>> doc/role_overview.rst
 	cd doc && make html
 
-doc/%.yml.rst: adfinis-roles/%
+doc/%.yml.rst: adfinis-roles/% doc/sphinx-template
 	mk/yml2rst $* $< $@
+
+doc/sphinx-template:
+	git clone https://github.com/adfinis-sygroup/adsy-sphinx-template doc/sphinx-template
 
 .PHONY: all help test doc
 
