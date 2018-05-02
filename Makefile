@@ -1,8 +1,8 @@
 .DEFAULT_GOAL := help
 
-ROLES_DFLT			:= $(wildcard adfinis-roles/*/defaults/main.yml)
-ROLES_DFLT_DOC		:= $(patsubst adfinis-roles/%/defaults/main.yml, doc/%.yml.rst, $(ROLES_DFLT))
-ROLES_DFLT_FILES	:= $(patsubst doc/%, %, $(ROLES_DFLT_DOC))
+ROLES		:= $(wildcard adfinis-roles/*)
+ROLES_DOC	:= $(patsubst adfinis-roles/%, doc/%.rst, $(ROLES))
+ROLES_FILES	:= $(patsubst doc/%, %, $(ROLES_DOC))
 
 all:
 
@@ -11,27 +11,27 @@ help:  ## display this help
 		sort -k1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 clean:  ## clean vagrant boxes
-	vagrant destroy -f
-	rm doc/*.yml.rst
+	rm -f doc/adfinis-sygroup.*.rst
 	$(shell \
 		cd doc; \
 		make clean; \
 		cd ..; \
 	)
+	vagrant destroy -f
 
 test:  ## run test environment
 	vagrant up --provision
 
-doc: $(ROLES_DFLT_DOC)  ## create html documentation
+doc: $(ROLES_DOC)  ## create html documentation
 	cp mk/role_overview.rst doc/role_overview.rst
-	echo " $(ROLES_DFLT_FILES)" | \
+	echo " $(ROLES_FILES)" | \
 		sed "s/.rst/.rst\n/g" | \
 		sort -u | \
-		grep -v '_template.yml.rst' \
+		grep -v '_template.rst' \
 		>> doc/role_overview.rst
 	cd doc && make html
 
-doc/%.yml.rst: adfinis-roles/% doc/sphinx-template
+doc/%.rst: adfinis-roles/% doc/sphinx-template
 	mk/yml2rst $* $< $@
 
 doc/sphinx-template:
