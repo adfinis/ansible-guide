@@ -46,7 +46,7 @@ help:
 
 .PHONY: clean
 clean:
-	rm -rf $(BUILDDIR)/* *.yml.rst
+	rm -rf $(BUILDDIR)/* adfinis-sygroup.*.rst *.yml.rst
 
 .PHONY: html
 html:
