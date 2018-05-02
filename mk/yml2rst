@@ -30,7 +30,7 @@ with codecs.open(outfile, mode="w", encoding="UTF-8") as out:
 
     out.writelines([
         "\n\n",
-        "Default Values for this Role\n",
+        "Default values for this role\n",
         "=============================\n",
         "\n",
     ])
