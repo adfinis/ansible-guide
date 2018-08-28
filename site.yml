@@ -40,17 +40,20 @@
 - hosts: Debian_7
   gather_facts: False
   roles:
+    - adfinis-sygroup.docker
     - adfinis-sygroup.grub
 
 - hosts: Debian_8
   gather_facts: False
   roles:
+    - adfinis-sygroup.docker
     - adfinis-sygroup.grub
     - adfinis-sygroup.nodejs
 
 - hosts: Debian_9
   gather_facts: False
   roles:
+    - adfinis-sygroup.docker
     - adfinis-sygroup.grub
     - adfinis-sygroup.nodejs
 
@@ -61,16 +64,19 @@
 - hosts: CentOS_7
   gather_facts: False
   roles:
+    - adfinis-sygroup.docker
     - adfinis-sygroup.grub
     - adfinis-sygroup.nodejs
 
 - hosts: Ubuntu_14
   gather_facts: False
   roles:
+    - adfinis-sygroup.docker
     - adfinis-sygroup.grub
 
 - hosts: Ubuntu_16
   gather_facts: False
   roles:
+    - adfinis-sygroup.docker
     - adfinis-sygroup.grub
     - adfinis-sygroup.nodejs
