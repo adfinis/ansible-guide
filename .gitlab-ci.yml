@@ -28,6 +28,7 @@ build-sphinx:
   stage: doc
   script:
     - mkdir ansible-guide
+    - git clone https://github.com/adfinis-sygroup/adsy-sphinx-template doc/sphinx-template
     - make clean || true
     - make doc
     - mv doc/_build/html/* ansible-guide
