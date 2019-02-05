@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Ansible Guide'
-copyright = '2017, Adfinis SyGroup AG'
+copyright = '2019, Adfinis SyGroup AG'
 author = 'Adfinis SyGroup AG'
 
 # The version info for the project you're documenting, acts as replacement for
