@@ -1,5 +1,5 @@
 =============
-STYLING GUIDE
+Styling Guide
 =============
 
 YAML Syntax

@@ -1,5 +1,5 @@
 =============
-ANSIBLE GUIDE
+Ansible Guide
 =============
 
 .. toctree::
