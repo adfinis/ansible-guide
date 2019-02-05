@@ -14,6 +14,7 @@ before_script:
   - ansible --version
   - mkdir ansible-guide
   - make requirements
+  - cat requirements.yml
   - make install
 
 script:
