@@ -22,7 +22,7 @@ clean:  ## cleanup
 requirements: ## create requirements.yml
 	echo "---" > requirements.yml
 	for role in $$(ansible-galaxy search --author adfinis-sygroup | awk '/adfinis/ {print $$1}'); do \
-	    echo -e "- src: $$role\n  version: master" >> requirements.yml; \
+	    printf "\n- src: %s\n  version: master" "$$role" >> requirements.yml; \
 	done
 
 install: ## install all ansible roles
