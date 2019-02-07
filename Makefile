@@ -10,17 +10,23 @@ help:  ## display this help
 	@cat $(MAKEFILE_LIST) | grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' | \
 		sort -k1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-clean:  ## clean vagrant boxes
+clean:  ## cleanup
+	rm -f requirements.yml
 	rm -f doc/adfinis-sygroup.*.rst
 	$(shell \
 		cd doc; \
 		make clean; \
 		cd ..; \
 	)
-	vagrant destroy -f
 
-test:  ## run test environment
-	vagrant up --provision
+requirements: ## create requirements.yml
+	echo "---" > requirements.yml
+	for role in $$(ansible-galaxy search --author adfinis-sygroup | awk '/adfinis/ {print $$1}'); do \
+	    printf "\n- src: %s\n  version: master" "$$role" >> requirements.yml; \
+	done
+
+install: ## install all ansible roles
+	ansible-galaxy install -r requirements.yml
 
 doc: $(ROLES_DOC)  ## create html documentation
 	cp mk/role_overview.rst doc/role_overview.rst
@@ -37,6 +43,6 @@ doc/%.rst: adfinis-roles/% doc/sphinx-template
 doc/sphinx-template:
 	git clone https://github.com/adfinis-sygroup/adsy-sphinx-template doc/sphinx-template
 
-.PHONY: all help test doc
+.PHONY: all help clean requirements install doc
 
 # vim: set noexpandtab ts=4 sw=4 ft=make :

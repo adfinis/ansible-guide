@@ -1,5 +1,5 @@
 =============
-ROLE OVERVIEW
+Role Overview
 =============
 
 .. toctree::

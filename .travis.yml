@@ -11,22 +11,14 @@ install:
   - pip install --upgrade sphinx sphinx_rtd_theme
 
 before_script:
-  - export ANSIBLE_VAULT_PASSWORD_FILE=".testenv/vault-env"
-  - ERRORS=0
-  - git submodule update --init
   - ansible --version
   - mkdir ansible-guide
-  - ansible-galaxy install -r requirements.yml
+  - make requirements
+  - cat requirements.yml
+  - make install
 
 script:
-  - ansible-playbook site.yml --syntax-check || let ERRORS+=1
-  - for f in *.yml; do
-      grep -q tasks "$f" &&
-      echo "File ${f} contains tasks" &&
-      let ERRORS+=1;
-    done
   - make doc
   - mv doc/_build/html/* ansible-guide
-  - exit $ERRORS
 
 # vim: set ts=2 sw=2 tw=2 :

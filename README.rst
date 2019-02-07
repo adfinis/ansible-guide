@@ -1,31 +1,24 @@
 =============
-ANSIBLE GUIDE
+Ansible Guide
 =============
 
 .. image:: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg?style=flat-square
   :target: https://github.com/adfinis-sygroup/ansible-guide/blob/master/LICENSE
-
-This repository provides an example project for the Ansible roles of
-Adfinis SyGroup AG. In additional, it contains a guide to Ansible, written
-with `Sphinx Documentation`_.
-
-`Documentation`_ is available here.
-
-Ansible Guide status:
-
 .. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-guide/master.svg?style=flat-square
   :target: https://travis-ci.org/adfinis-sygroup/ansible-guide
 
-Ansible Roles status:
+This repository contains the Ansible guidelines and best practices used by
+Adfinis SyGroup. The documentation is written with `Sphinx`_.
 
-.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-roles/master.svg?style=flat-square
-  :target: https://travis-ci.org/adfinis-sygroup/ansible-roles
+In addition it includes the README and default values of all Ansible roles
+available in the Adfinis SyGroup Galaxy namespace.
 
+The rendered `documentation`_ is available here.
 
-BUILD THE DOCUMENTATION
-=======================
+Build
+=====
 To build the documentation, which is provided with this repository, you need
-to install `Sphinx Documentation`_.
+to install `Sphinx`_.
 
 
 TEST ENVIRONMENT
@@ -49,14 +42,14 @@ environment. To use the test environment, there are some dependencies:
 To run the test environment use ``make test``.
 
 
-REFERENCE
-=========
+References
+==========
 
 * reStructuredText_
 
 
-.. _Documentation: https://docs.adfinis-sygroup.ch/public/ansible-guide/
-.. _Sphinx Documentation: http://www.sphinx-doc.org/
+.. _documentation: https://docs.adfinis-sygroup.ch/public/ansible-guide/
+.. _Sphinx: http://www.sphinx-doc.org/
 .. _reStructuredText: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 
 

@@ -1,5 +1,5 @@
 ===================
-TEST INFRASTRUCTURE
+Test Infrastructure
 ===================
 
 Vagrant provides an easy way to test Ansible roles in an encapsulated

@@ -1,5 +1,0 @@
----
-
-postfix_aliases:
-  - name: root
-    alias: root@example.com
