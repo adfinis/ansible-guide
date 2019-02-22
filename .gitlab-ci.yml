@@ -12,25 +12,29 @@ cache:
   key: "$CI_PROJECT_ID"
 
 before_script:
-  - if [ -d ../lint-rules/.git ]; then
-      cd ../lint-rules && git pull --rebase ; cd -;
-    else
-      git clone https://github.com/adfinis-sygroup/ansible-lint-rules ../lint-rules;
-    fi
-  - pip install --upgrade ansible ansible-lint
+  - pip install --upgrade ansible
   - pip install --upgrade sphinx sphinx_rtd_theme
-  - ansible-galaxy install -r requirements.yml
+  - ansible --version
+  - mkdir ansible-guide
+  - make requirements
+  - cat requirements.yml
+  - make install
 
 stages:
-  - doc
+  - build-docs
+  - publish-docs
 
-build-sphinx:
-  stage: doc
+build-docs:
+  stage: build-docs
   script:
-    - mkdir ansible-guide
-    - git clone https://github.com/adfinis-sygroup/adsy-sphinx-template doc/sphinx-template
-    - make clean || true
     - make doc
+  artifacts:
+    paths:
+      - doc/_build/html/*
+
+publish-docs:
+  stage: publish-docs
+  script:
     - mv doc/_build/html/* ansible-guide
   only:
     - master
