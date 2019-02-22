@@ -11,15 +11,6 @@ cache:
     - "$CI_PROJECT_DIR/pip-cache"
   key: "$CI_PROJECT_ID"
 
-before_script:
-  - pip install --upgrade ansible
-  - pip install --upgrade sphinx sphinx_rtd_theme
-  - ansible --version
-  - mkdir ansible-guide
-  - make requirements
-  - cat requirements.yml
-  - make install
-
 stages:
   - build-docs
   - publish-docs
@@ -27,6 +18,13 @@ stages:
 build-docs:
   stage: build-docs
   script:
+    - pip install --upgrade ansible
+    - pip install --upgrade sphinx sphinx_rtd_theme
+    - ansible --version
+    - make requirements
+    - cat requirements.yml
+    - make install
+    - git clone https://github.com/adfinis-sygroup/adsy-sphinx-template doc/sphinx-template
     - make doc
   artifacts:
     paths:
@@ -35,6 +33,7 @@ build-docs:
 publish-docs:
   stage: publish-docs
   script:
+    - mkdir ansible-guide
     - mv doc/_build/html/* ansible-guide
   only:
     - master
