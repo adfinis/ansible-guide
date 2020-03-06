@@ -208,7 +208,7 @@ Handlers
 ========
 
 Handlers are used to check configurations and restart services. Don't
-restart a service with a task, as its run every time the role is running.
+restart a service with a task, as it's run every time the role is running.
 The advantage of handlers is, that they must be notified by a task or even
 multiple tasks, and they run only once per playbook.
 Use handlers instead of a check when a previous task has changed.
@@ -349,7 +349,7 @@ Good example:
 ::
 
   ssh/
-  └── files/
+  └── templates/
       └── etc/
           ├── default/
           │   └── ssh.j2
@@ -361,7 +361,7 @@ Bad example:
 ::
 
   ssh/
-  └── files/
+  └── templates/
       ├── ssh.j2
       └── ssh_config.j2
 
