@@ -117,7 +117,7 @@ Task structure
     `Intro to Playbooks
     <http://docs.ansible.com/ansible/playbooks_intro.html>`_
 - Roles
-    Each role configures one applicatoin and consists of multiple tasks.
+    Each role configures one application and consists of multiple tasks.
     `Playbook Roles and Include Statements
     <http://docs.ansible.com/ansible/playbooks_roles.html>`_
 - Tasks

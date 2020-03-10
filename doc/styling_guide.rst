@@ -43,7 +43,7 @@ Handler Tasks
   - name: role handler task 1
     module:
       arg1: Foo
-      arg2: {{ role_service }}
+      arg2: '{{ role_service }}'
 
 - Handlers follow the same rules as tasks.
 - Each handler name must start with the role name.
