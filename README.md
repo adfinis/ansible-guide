@@ -11,10 +11,11 @@ The rendered documentation is available here:
 
 * https://docs.adfinis.com/ansible-guide
 
-## Build
+## Dependencies
 
-To build the documentation, which is provided with this repository, you need
-to install `Sphinx`.
+To build the documentation you need to install `Sphinx`.
+
+## Build
 
 * Generate documentation:
 
