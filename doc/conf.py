@@ -52,8 +52,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Ansible Guide'
-copyright = 'Adfinis SyGroup AG'
-author = 'Adfinis SyGroup AG'
+copyright = 'Adfinis AG'
+author = 'Adfinis AG'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -277,7 +277,7 @@ latex_documents = [
         master_doc,
         'AnsibleGuide.tex',
         'Ansible Guide Documentation',
-        'Adfinis SyGroup AG',
+        'Adfinis AG',
         'manual',
     ),
 ]

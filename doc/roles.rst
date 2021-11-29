@@ -277,9 +277,9 @@ Meta information of a role are defined here. I.e. requirements for a role.
     - role: pki
 
   galaxy_info:
-    author: 'Adfinis SyGroup AG'
+    author: 'Adfinis AG'
     description: 'Install and manage ssh and sshd'
-    company: 'Adfinis SyGroup AG'
+    company: 'Adfinis AG'
     license: 'GNU General Public License v3'
     min_ansible_version: '2.0.0'
     platforms:
