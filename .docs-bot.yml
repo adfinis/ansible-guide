@@ -1,5 +1,0 @@
-docs:
-  extract_to: /var/www/html/public
-  download_delay: 5
-  stages:
-    - publish-docs

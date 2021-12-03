@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
+
+      - name: Install Dependencies
+        run: pip install ansible sphinx sphinx_rtd_theme
+
+      - name: Print Ansible version
+        run: ansible --version
+
+      - name: Prepare Ansible requirements file
+        run: make requirements
+
+      - name: Install Ansible roles
+        run: make install
+
+      - name: Prepare Sphinx templates
+        run: make doc/sphinx-template
+
+      - name: Generate docs
+        run: make doc
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: doc/_build/html
