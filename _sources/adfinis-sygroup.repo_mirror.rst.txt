@@ -1,0 +1,254 @@
+================
+ROLE REPO MIRROR
+================
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-repo_mirror.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-repo_mirror/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-repo_mirror.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-repo_mirror
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.repo_mirror-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/repo_mirror
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.repo_mirror }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-repo_mirror/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+repo_mirror role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+The default user mirrors will use
+
+.. code-block:: YAML
+
+   repo_mirror_user: mirror
+   
+The default group mirrors will use
+
+.. code-block:: YAML
+
+   repo_mirror_group: mirror
+   
+The mirror base path
+
+.. code-block:: YAML
+
+   repo_mirror_base_path: /var/www/mirror
+   
+The default log path
+
+.. code-block:: YAML
+
+   repo_mirror_log_path: /var/log/mirror
+   
+The default tmp path (files which are currently downloaded)
+
+.. code-block:: YAML
+
+   repo_mirror_tmp_path: /var/www/mirror/tmp
+   
+This is the default datetime format (2017/10/11 22:23:42 CEST)
+
+.. code-block:: YAML
+
+   repo_mirror_datetime_format: "+%Y/%m/%d %T %Z"
+   
+The default bandwith limit for syncing from remote
+
+.. code-block:: YAML
+
+   repo_mirror_bwlimit: 30MiB
+   
+The default rsync timeout in seconds
+
+.. code-block:: YAML
+
+   repo_mirror_rsync_timeout: 30
+   
+The FQDN of the mirror
+
+.. code-block:: YAML
+
+   repo_mirror_fqdn: 'mirror.example.com'
+   
+Deploy the fedora mirror report script
+
+.. code-block:: YAML
+
+   repo_mirror_fedora_report: false
+   repo_mirror_fedora_report_name: '<name>'
+   repo_mirror_fedora_report_pass: '<password>'
+   
+A list of fedora projects to report. Default is an empty list.
+
+.. code-block:: YAML
+
+   repo_mirror_fedora_reports: []
+   
+.. code-block:: YAML
+
+  repo_mirror_fedora_reports:
+    - name: 'Fedora EPEL'
+      enabled: false
+      path: '/var/www/mirror/epel'
+    - name: 'Fedora Linux'
+      enabled: False
+      path: '/var/www/mirror/fedora'
+A list of repositories. Default is an empty list.
+Below are some examples how to define a repository to mirror
+
+.. code-block:: YAML
+
+   repo_mirror_repos: []
+   
+.. code-block:: YAML
+
+  repo_mirror_fedora_reports:
+    - name: alpine
+      type: rsync_single
+      source_repo: rsync://rsync.alpinelinux.org/alpine/
+      cron_hour: '*/2'
+      cron_minute: '23'
+      cron_disabled: true # optional
+
+    - name: archlinux
+      source_repo: rsync://mirror.23media.de/archlinux
+      type: rsync_single
+      cron_hour: '*'
+      cron_minute: '*/10'
+      cron_disabled: true # optional
+
+    - name: debian
+      type: rsync_debian
+      source_repo: 'ftp.ch.debian.org::debian'
+      cron_hour: '*/2'
+      cron_minute: '01'
+      excludes:
+      - alpha
+      - arm
+      - arm64
+      - armel
+      - armhf
+      - hppa
+      - hurd-i386
+      - ia64
+      - kfreebsd-amd64
+      - kfreebsd-i386
+      - m68k
+      - mipsel
+      - mips64el
+      - mips
+      - powerpc
+      - ppc64el
+      - s390
+      - s390x
+      - sh
+      - sparc
+      cron_disabled: true # optional
+
+    - name: debian-security
+      type: rsync_single
+      source_repo: security.debian.org::debian-security
+      cron_hour: '*/2'
+      cron_minute: '13'
+      cron_disabled: true # optional
+
+    - name: epel
+      type: rsync_single
+      source_repo: rsync://dl.fedoraproject.org/fedora-epel
+      additional_report: '/usr/local/bin/report_mirror -c /etc/mirror/fedora_report.conf'
+      cron_hour: '*'
+      cron_minute: '58'
+      cron_disabled: true # optional
+
+    - name: centos
+      type: rsync_single
+      source_repo: eu-msync.centos.org::CentOS
+      rsync_timeout: 300 # Optional, if for example .ISO files time out
+      cron_hour: '*'
+      cron_minute: '13'
+      cron_disabled: true # optional
+
+    - name: dotdeb
+      type: rsync_single
+      source_repo: packages.dotdeb.org::packages
+      cron_hour: '*'
+      cron_minute: '47'
+      cron_disabled: true # optional
+
+    - name: nodejs
+      type: wget
+      source_repo: 'https://deb.nodesource.com/node_7.x/'
+      remotegpgkey: 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
+      bwlimit: 20000 # Optional, overwrite default
+      cron_hour: '*/2'
+      cron_minute: 24
+      cron_disabled: true # optional
+
+    - name: opensuse
+      type: rsync_single
+      source_repo: stage.opensuse.org::opensuse-hotstuff-640gb
+      cron_hour: '*'
+      cron_minute: '07'
+      cron_disabled: true # optional
+
+    - name: ubuntu
+      type: rsync_ubuntu
+      source_repo: rsync://ch.rsync.archive.ubuntu.com/ubuntu
+      cron_hour: '*/2'
+      cron_minute: '41'
+      cron_disabled: true # optional

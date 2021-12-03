@@ -1,0 +1,234 @@
+==============
+ROLE TELEGRAF
+==============
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-telegraf.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-telegraf/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-telegraf.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-telegraf
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.telegraf-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/telegraf
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.telegraf }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-telegraf/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+telegraf role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+   
+Default data collection interval for all inputs
+
+.. code-block:: YAML
+
+   telegraf_interval: "10s"
+   
+Rounds collection interval to 'interval'
+ie, if ``interval="10s"`` then always collect on :00, :10, :20, etc.
+
+.. code-block:: YAML
+
+   telegraf_round_interval: true
+   
+Default flushing interval for all outputs. You shouldn't set this below
+interval. Maximum flush_interval will be flush_interval + flush_jitter.
+
+.. code-block:: YAML
+
+   telegraf_flush_interval: "10s"
+   
+Telegraf output plugins to load.
+
+.. code-block:: YAML
+
+   telegraf_output:
+     - influxdb
+   
+Telegraf influxdb configuration.
+
+.. code-block:: YAML
+
+   telegraf_output_influxdb:
+     urls:
+       - http://localhost:8086
+     database: telegraf
+   
+Telegraf service input plugins to load.
+
+.. code-block:: YAML
+
+   telegraf_service_input: []
+   
+Telegraf plugins.
+
+.. code-block:: YAML
+
+   telegraf_plugins_global:
+     - cpu
+     - disk
+     - diskio
+     - kernel
+     - mem
+     - net
+     - netstat
+     - ntpq
+     - processes
+     - swap
+     - system
+   
+Set global tags to the metrics.
+E.g. ``hypervisor: hs.example.com``
+
+.. code-block:: YAML
+
+   telegraf_global_tags: {}
+   
+Configure rsyslog to log lesser.
+
+.. code-block:: YAML
+
+   telegraf_rsyslog: True
+   
+Rsyslog severity:
+
+- 0 Emergency: system is unusable
+- 1 Alert: action must be taken immediately
+- 2 Critical: critical conditions
+- 3 Error: error conditions
+- 4 Warning: warning conditions
+- 5 Notice: normal but significant condition
+- 6 Informational: informational messages
+- 7 Debug: debug-level messages
+
+.. code-block:: YAML
+
+   telegraf_rsyslog_severity: 5
+   
+define plugin structure variables
+
+.. code-block:: YAML
+
+   telegraf_plugin_aerospike: False
+   telegraf_plugin_apache: False
+   telegraf_plugin_bcache: False
+   telegraf_plugin_cassandra: False
+   telegraf_plugin_ceph: False
+   telegraf_plugin_cgroup: False
+   telegraf_plugin_cloudwatch: False
+   telegraf_plugin_consul: False
+   telegraf_plugin_couchbase: False
+   telegraf_plugin_couchdb: False
+   telegraf_plugin_cpu: False
+   telegraf_plugin_diskio: False
+   telegraf_plugin_disk: False
+   telegraf_plugin_disque: False
+   telegraf_plugin_dns_query: False
+   telegraf_plugin_docker: False
+   telegraf_plugin_dovecot: False
+   telegraf_plugin_elasticsearch: False
+   telegraf_plugin_exec: False
+   telegraf_plugin_filestat: False
+   telegraf_plugin_graylog: False
+   telegraf_plugin_haproxy: False
+   telegraf_plugin_httpjson: False
+   telegraf_plugin_http_response: False
+   telegraf_plugin_influxdb: False
+   telegraf_plugin_ipmi_sensor: False
+   telegraf_plugin_jolokia: False
+   telegraf_plugin_kernel: False
+   telegraf_plugin_leofs: False
+   telegraf_plugin_lustre2: False
+   telegraf_plugin_mailchimp: False
+   telegraf_plugin_memcached: False
+   telegraf_plugin_mem: False
+   telegraf_plugin_mesos: False
+   telegraf_plugin_mongodb: False
+   telegraf_plugin_mysql: False
+   telegraf_plugin_net: False
+   telegraf_plugin_net_response: False
+   telegraf_plugin_netstat: False
+   telegraf_plugin_nginx: False
+   telegraf_plugin_nsq: False
+   telegraf_plugin_nstat: False
+   telegraf_plugin_ntpq: False
+   telegraf_plugin_passenger: False
+   telegraf_plugin_pgbouncer: False
+   telegraf_plugin_phpfpm: False
+   telegraf_plugin_ping: False
+   telegraf_plugin_postgresql_extensible: False
+   telegraf_plugin_postgresql: False
+   telegraf_plugin_powerdns: False
+   telegraf_plugin_processes: False
+   telegraf_plugin_procstat: False
+   telegraf_plugin_prometheus: False
+   telegraf_plugin_puppetagent: False
+   telegraf_plugin_rabbitmq: False
+   telegraf_plugin_raindrops: False
+   telegraf_plugin_redis: False
+   telegraf_plugin_rethinkdb: False
+   telegraf_plugin_riak: False
+   telegraf_plugin_sensors: False
+   telegraf_plugin_snmp_legacy: False
+   telegraf_plugin_sqlserver: False
+   telegraf_plugin_swap: False
+   telegraf_plugin_system: False
+   telegraf_plugin_trig: False
+   telegraf_plugin_twemproxy: False
+   telegraf_plugin_varnish: False
+   telegraf_plugin_zfs: False
+   telegraf_plugin_zookeeper: False

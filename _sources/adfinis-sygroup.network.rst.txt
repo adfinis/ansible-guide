@@ -1,0 +1,132 @@
+=============
+ROLE NETWORK
+=============
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-network.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-network/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-network.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-network
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.network-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/network
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.network }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-network/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+network role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+   
+Local domain name
+
+.. code-block:: YAML
+
+   network_resolv_domain: '{{ ansible_domain }}'
+   
+Search list for host-name lookup
+
+.. code-block:: YAML
+
+   network_resolv_search:
+     - '{{ ansible_domain }}'
+   
+Resolv nameservers. Default is empty, use nameservers from DHCP.
+
+.. code-block:: YAML
+
+   network_resolv_nameservers: []
+   
+A possible list of nameservers can look like this:
+
+.. code-block:: YAML
+
+  network_resolv_nameservers:
+    - 192.168.1.1
+    - 8.8.8.8
+
+Network interface configurations. Default is to not configure any network interfaces.
+
+.. code-block:: YAML
+
+   network_interfaces: []
+   
+A possible list of interfaces and their configuration look like this:
+
+.. code-block:: YAML
+
+  network_interfaces:
+    # a normal interface with a static IPv4 and IPv6 address
+    - device: eth0
+      tmpl: ethernet
+      hwaddress: 00:11:22:33:44:55
+      force: True  # enforce that the configuration will be written
+      ipv4:
+        addr: 192.0.2.10
+        mask: 255.255.255.0
+      ipv6:
+        addr: 2001:db8::10
+        mask: 64
+      ipv4_gateway: 192.0.2.1
+      ipv6_gateway: 2001:db8::1
+    # a interface which has no configuration at all
+    - device: eth1
+      tmpl: ethernet
+    # a interface which will get the information from dhcp
+    - device: eth1
+      tmpl: ethernet
+      ipv4_dhcp: True

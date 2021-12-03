@@ -1,0 +1,330 @@
+
+
+Default values
+==============
+
+   
+The icinga2 master zone
+
+.. code-block:: YAML
+
+   icinga2_master_master_zone: monitoring-master
+   
+The parent zone of a client. Needed if a client is behind a satellite
+
+.. code-block:: YAML
+
+   icinga2_master_client_parent_zone: "{{ icinga2_master_master_zone }}"
+   
+All users which icinga2 should know. Containing the mailaddress and phone number
+Check the official Icinga2 documentation for further information
+https://icinga.com/docs/icinga2/latest/doc/09-object-types/#user
+
+.. code-block:: YAML
+
+   icinga2_master_users:
+     - name: icingaadmin
+       email: 'alertme@example.com'
+       groups:
+         - icingaadmins
+icinga2_master_users:
+  - name: username
+    displayname: 'User Name' # optional, defaults to an empty string
+    email: 'mail@example.com' # optional, defaults to an empty string
+    pager: '+41123456789' # optional, defaults to an empty string
+    groups: [] # optional, defaults to an empty list
+      # - group1
+      # - group2
+    enable_notifications: (true|false) # optional, defaults to true
+    period: '24x7' # optional, not set by default
+    types: [] # optional, not set by default
+      # - DowntimeStart
+      # - DowntimeEnd
+      # - DowntimeRemoved
+      # - Custom
+      # - Acknowledgement
+      # - Problem
+      # - Recovery
+      # - FlappingStart
+      # - FlappingEnd
+    states: [] # optional, not set by default
+      # - OK
+      # - Warning
+      # - Critical
+      # - Unknown
+      # - Up
+      # - Down
+All groups which icinga2 should know.
+Check the official icinga2 documentation for further information
+https://icinga.com/docs/icinga2/latest/doc/09-object-types/#usergroup
+
+.. code-block:: YAML
+
+   icinga2_master_usergroups:
+     - name: icingaadmins
+       displayname: 'Icinga2 Admins'
+icinga2_master_usergroups:
+  - name: groupname
+    displayname: 'Group Name' # optional, defaults to an empty string
+    groups: [] # optional, not set by default
+      # - group1
+      # - group2
+Icinga2 Hostgroups
+
+.. code-block:: YAML
+
+   icinga2_master_hostgroups: []
+icinga2_master_hostgroups:
+  - name: linux-servers
+    display_name: 'Linux Servers'
+    assignments:
+      - var: 'host.vars.os'
+        value: 'Linux'
+  - name: windows-servers
+    display_name: 'Windows Servers'
+    assignments:
+      - var: 'host.vars.os'
+        value: 'Windows'
+Icinga2 ServiceGroups
+
+.. code-block:: YAML
+
+   icinga2_master_servicegroups: []
+icinga2_master_servicegroups:
+  - name: ping
+    display_name: 'Ping Checks'
+    assignments:
+      - match: 'ping*'
+        value: 'service.name'
+  - name: http
+    display_name: 'HTTP Checks'
+    assignments:
+      - match: 'http*'
+        value: 'service.check_command'
+  - name: disk
+    display_name: 'Disk Checks'
+    assignments:
+      - match: 'disk*'
+        value: 'service.check_command'
+A list of all icinga2 api users
+
+.. code-block:: YAML
+
+   icinga2_master_api_users: []
+ - username: root
+   password: 'passw0rd'
+   permissions:
+   - name: '*'
+ - username: token-generator
+   password: 'passw0rd'
+   permissions:
+   - name: 'actions/generate-ticket'
+ - username: foo
+   password: 'passw0rd'
+   permissions:
+   - name: 'actions/generate-ticket'
+     filter: '"host.name" == "bar"'
+Icinga2 timeperiods
+
+.. code-block:: YAML
+
+   icinga2_master_timeperiods:
+     - name: holidays
+       display_name: Holidays
+       ranges:
+         - day: "december 25"
+           time: 00:00-24:00
+     - name: premium
+       display_name: SLA Premium
+       ranges:
+         - day: monday
+           time: 00:00-24:00
+         - day: tuesday
+           time: 00:00-24:00
+         - day: wednesday
+           time: 00:00-24:00
+         - day: thursday
+           time: 00:00-24:00
+         - day: friday
+           time: 00:00-24:00
+         - day: saturday
+           time: 00:00-24:00
+         - day: sunday
+           time: 00:00-24:00
+     - name: standard
+       display_name: SLA Standard
+       ranges:
+         - day: monday
+           time: 08:00-18:00
+         - day: tuesday
+           time: 08:00-18:00
+         - day: wednesday
+           time: 08:00-18:00
+         - day: thursday
+           time: 08:00-18:00
+         - day: friday
+           time: 08:00-18:00
+       excludes:
+         - holidays
+   
+Enable the graphite writer feature
+
+.. code-block:: YAML
+
+   icinga2_master_graphite_enabled: False
+   
+The Host graphite is running on
+
+.. code-block:: YAML
+
+   icinga2_master_graphite_host: 127.0.0.1
+   
+The port graphite is listening on
+
+.. code-block:: YAML
+
+   icinga2_master_graphite_port: 2003
+   
+# Icinga2 ido database settings
+Enable ido feature
+
+.. code-block:: YAML
+
+   icinga2_master_ido_enabled: False
+   
+icinga2 database name
+
+.. code-block:: YAML
+
+   icinga2_master_icinga2_database_name: icinga2
+
+icinga2 database host
+
+.. code-block:: YAML
+
+   icinga2_master_icinga2_database_host: 127.0.0.1
+   
+icinga2 database port
+
+.. code-block:: YAML
+
+   icinga2_master_icinga2_database_port: 3306
+   
+icinga2 database user
+
+.. code-block:: YAML
+
+   icinga2_master_icinga2_database_user: icinga2
+   
+icinga2 database password
+
+.. code-block:: YAML
+
+   icinga2_master_icinga2_database_pass: 'passw0rd'
+   
+if the database connection uses ssl or not (true or false)
+
+.. code-block:: YAML
+
+   icinga2_master_icinga2_database_ssl: false
+   
+the hostpattern which can access and login with the icinga2 user
+
+.. code-block:: YAML
+
+   icinga2_master_icinga2_database_hostpattern: 'localhost'
+   
+icinga2 database root user
+
+.. code-block:: YAML
+
+   icinga2_master_db_root_user: "user"
+   
+icinga2 database root password
+
+.. code-block:: YAML
+
+   icinga2_master_db_root_pass: "passw0rd"
+   
+   
+# Template settings
+If you have own templates for the configuration files in /etc/icinga2/conf.d
+consider adjusting the names here and add your template to
+templates/etc/icinga2/conf.d in the root of your playbook folder.
+
+.. code-block:: YAML
+
+   icinga2_master_template_confd_apiusers: "api-users.conf"
+   icinga2_master_template_confd_notifications: "notifications.conf"
+   icinga2_master_template_confd_templates: "templates.conf"
+   icinga2_master_template_confd_commands: "commands.conf"
+   icinga2_master_template_confd_groups: "groups.conf"
+   icinga2_master_template_confd_timeperiods: "timeperiods.conf"
+   icinga2_master_template_confd_users: "users.conf"
+   
+These variables can be adjusted if you have custom templates for the global
+templates directory which gets synced to all clients.
+
+.. code-block:: YAML
+
+   icinga2_master_template_globaltemplates:
+     - "services.conf"
+     - "templates.conf"
+   
+Global Zones to be added to zones.conf
+
+.. code-block:: YAML
+
+   icinga2_master_global_zones:
+     - global-templates
+   
+# Global alerting settings
+The URL from icingaweb2. Will be attached to the alerts
+icinga2_master_alerting_icingaweb2url = "https://icinga2.example.com/icingaweb2"
+The adress from which mails should be sent
+icinga2_master_mail_from: "mail@example.com"
+# Twilio alerting
+The account sid from https://www.twilio.com/console
+icinga2_master_twilio_account_sid: 'account_sid'
+The auth token from https://www.twilio.com/console
+icinga2_master_twilio_auth_token: 'auth_token'
+Whether twilio sms are enabled or not
+
+.. code-block:: YAML
+
+   icinga2_master_twilio_sms_enabled: False
+   
+The twilio phone numer used to send sms
+icinga2_master_twilio_sms_from: '+41123456789'
+Twilio SMS scripts additional commands
+Can be used to execute custom scripts after the SMS is sent
+defaults to an empty list, add command lines as necessary
+Example:
+icinga2_master_twilio_sms_additional_commands:
+ # Execute a custom script after the sms has been sent to also send
+ # the notification to mattermost
+ - "/etc/icinga2/scripts/mattermost.sh "${NOTIFICATION_MESSAGE}""
+
+.. code-block:: YAML
+
+   icinga2_master_twilio_sms_additional_commands: []
+   
+Whether twilio calls are enabled or not
+
+.. code-block:: YAML
+
+   icinga2_master_twilio_phone_enabled: False
+   
+The twilio phone number used to make calls
+icinga2_master_twilio_phone_from: '+41123456789'
+The twilio application sid on how to handle the call
+https://www.twilio.com/docs/voice/make-calls
+icinga2_master_twilio_phone_application_sid: 'application_sid'
+Icinga2 shorturl cmd
+The command which gets substituted when this variable is set
+Example:
+icinga2_master_twilio_shorturl_cmd: "curl -s -X POST https://urlshort.example.com/api/new -d url=${LONGURL} | jq -r .shorturl"
+
+.. code-block:: YAML
+
+   icinga2_master_twilio_shorturl_cmd: ""

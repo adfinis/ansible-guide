@@ -1,0 +1,355 @@
+=============
+ROLE POSTFIX
+=============
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-postfix.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-postfix/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-postfix.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-postfix
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.postfix-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/postfix
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.postfix }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-postfix/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+postfix role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+   
+
+Settings for main.cf
+
+postfix role.
+Default: root
+
+.. code-block:: YAML
+
+   postfix_role: root
+   
+The internet hostname of this mail system. The default is to use the
+fully-qualified domain name (FQDN) from ``gethostname()``, or to use the
+non-FQDN result from ``gethostname()`` and append ``.$mydomain``.
+``$myhostname`` is used as a default value for many other configuration
+parameters.
+
+.. code-block:: YAML
+
+   postfix_myhostname: '{{ ansible_fqdn }}'
+   
+The internet domain name of this mail system. The default is to use
+``$myhostname`` minus the first component, or ``localdomain`` (Postfix 2.3
+and later). ``$mydomain`` is used as a default value for many other
+configuration parameters.
+
+.. code-block:: YAML
+
+   postfix_mydomain: '{{ ansible_domain }}'
+   
+The domain name that locally-posted mail appears to come from, and that
+locally posted mail is delivered to. The default, ``$myhostname``, is
+adequate for small sites. If you run a domain with multiple machines, you
+should (1) change this to ``$mydomain`` and (2) set up a domain-wide alias
+database that aliases each user to ``user@that.users.mailhost``.
+
+.. code-block:: YAML
+
+   postfix_myorigin: '$myhostname'
+   
+The set of characters that can separate a user name from its extension
+(example: ``user+foo``), or a ``.forward`` file name from its extension
+(example: ``.forward+foo``). Basically, the software tries ``user+foo`` and
+``.forward+foo`` before trying user and ``.forward``. This implementation
+recognizes one delimiter character and one extension per email address or
+``.forward`` file name.
+
+.. code-block:: YAML
+
+   postfix_recipient_delimiter: ''
+   
+The network interface addresses that this mail system receives mail on.
+Specify ``all`` to receive mail on all network interfaces (default), and
+``loopback-only`` to receive mail on loopback network interfaces only
+(Postfix version 2.2 and later). The parameter also controls delivery of
+mail to ``user@[ip.address]``.
+
+.. code-block:: YAML
+
+   postfix_inet_interfaces:
+     - all
+   
+The list of domains that are delivered via the ``$local_transport`` mail
+delivery transport. By default this is the Postfix local(8) delivery agent
+which looks up all recipients in ``/etc/passwd`` and ``/etc/aliases``. The
+SMTP server validates recipient addresses with ``$local_recipient_maps``
+and rejects non-existent recipients. See also the local domain class in the
+ADDRESS_CLASS_README file.
+
+.. code-block:: YAML
+
+   postfix_mydestination: []
+   
+The list of "trusted" remote SMTP clients that have more privileges than
+"strangers".
+
+.. code-block:: YAML
+
+   postfix_mynetworks: []
+   
+The method to generate the default value for the ``mynetworks`` parameter.
+This is the list of trusted networks for relay access control etc. Specify
+``mynetworks_style = host`` when Postfix should "trust" only the local
+machine. Specify ``mynetworks_style = subnet`` when Postfix should "trust"
+remote SMTP clients in the same IP subnetworks as the local machine. On
+Linux, this works correctly only with interfaces specified with the
+``ifconfig`` command. Specify ``mynetworks_style = class`` when Postfix
+should "trust" remote SMTP clients in the same IP class A/B/C networks as
+the local machine. Caution: this may cause Postfix to "trust" your entire
+provider's network. Instead, specify an explicit ``mynetworks`` list by
+hand, as described with the ``mynetworks`` configuration parameter.
+
+.. code-block:: YAML
+
+   postfix_mynetworks_style: host
+   
+The numerical Postfix SMTP server response code when a recipient address is
+local, and ``$local_recipient_maps`` specifies a list of lookup tables that
+does not match the recipient. A recipient address is local when its domain
+matches ``$mydestination``, ``$proxy_interfaces`` or ``$inet_interfaces``.
+
+.. code-block:: YAML
+
+   postfix_unknown_local_recipient_reject_code: 550
+   
+Optional lookup tables that alias specific mail addresses or domains to other
+local or remote address. The table format and lookups are documented in
+virtual(5). For an overview of Postfix address manipulations see the
+ADDRESS_REWRITING_README document.
+
+.. code-block:: YAML
+
+   postfix_virtual_alias_maps: ''
+   
+Postfix is final destination for the specified list of virtual alias domains,
+that is, domains for which all addresses are aliased to addresses in other
+local or remote domains. The SMTP server validates recipient addresses with
+``$virtual_alias_maps`` and rejects non-existent recipients. See also the
+virtual alias domain class in the ADDRESS_CLASS_README file
+
+.. code-block:: YAML
+
+   postfix_virtual_alias_domains: ''
+   
+List of TLS protocols that the Postfix SMTP client will exclude or include
+with opportunistic TLS encryption. The default value is ``!SSLv2, !SSLv3``
+for Postfix releases after the middle of 2015, ``!SSLv2`` for older
+releases. Before Postfix 2.6, the Postfix SMTP client would use all
+protocols with opportunistic TLS.
+
+.. code-block:: YAML
+
+   postfix_ssl_protocols:
+     - TLSv1
+     - TLSv1.1
+     - TLSv1.2
+     - '!SSLv2'
+     - '!SSLv3'
+   
+   postfix_tls_mandatory_protocols:
+     - TLSv1
+     - TLSv1.1
+     - TLSv1.2
+     - '!SSLv2'
+     - '!SSLv3'
+     
+   postfix_tls_loglevel: 0
+   
+Activate peer debugging
+default is false
+
+.. code-block:: YAML
+
+   postfix_debug_peer: False
+   
+Define the increment in verbose logging level when a remote client or 
+server matches a pattern in the debug_peer_list parameter.
+default is 1
+
+.. code-block:: YAML
+
+   postfix_debug_peer_level: 1
+   
+Define Optional list of remote client or server hostname or network
+address patterns that cause the verbose logging level to increase by the 
+amount specified in $debug_peer_level.
+Specify domain names, network/netmask patterns, "/file/name" patterns
+or "type:table" lookup tables. The right-hand side result from "type:table" 
+lookups is ignored.
+
+.. code-block:: YAML
+
+   postfix_debug_peer_list: []
+   
+A possible peer debugging list can look like this:
+
+.. code-block:: YAML
+
+  postfix_debug_peer_list:
+    - "127.0.0.1"
+    - "example.com"
+Define a list of aliases, they will be written to the ``/etc/aliases`` file.
+Default is an empty list.
+
+.. code-block:: YAML
+
+   postfix_aliases: []
+   
+A possible alias list can look like this:
+
+.. code-block:: YAML
+
+  postfix_aliases:
+    - name: root
+      alias: root@example.com
+
+.. code-block:: YAML
+
+   postfix_virtual_aliases: []
+   
+A possible alias list can look like this:
+
+.. code-block:: YAML
+
+postfix_virtual_alias_maps: hash:/etc/postfix/virtual
+postfix_virtual_alias_domains: example.com
+
+postfix_virtual_aliases:
+  - name: root
+    alias: foobar@example.com
+  - name: test
+    alias: sysop@example.com
+
+.. code-block:: YAML
+
+   postfix_helo_required: "yes"
+   
+
+Settings for master.cf
+
+Define if services in main.cf should run in chroot
+default is false
+
+.. code-block:: YAML
+
+   postfix_smtp_chroot: False
+   
+activate submisson service
+default is false
+
+.. code-block:: YAML
+
+   postfix_submisson: False
+   
+activate smtps service
+default is false
+
+.. code-block:: YAML
+
+   postfix_smtps: False
+   
+activate ifmail service
+default is false
+
+.. code-block:: YAML
+
+   postfix_ifmail: False
+   
+activate bsmtp service
+default is false
+
+.. code-block:: YAML
+
+   postfix_bsmtp: False
+   
+activate scalemail-backend service
+default is false
+
+.. code-block:: YAML
+
+   postfix_scalemail_backend: False
+   
+activate mailman service
+default is false
+
+.. code-block:: YAML
+
+   postfix_mailman: False
+   
+activate cyrus service
+default is false
+
+.. code-block:: YAML
+
+   postfix_cyrus: False
+   
+activate amavis-lmtp service
+default is false
+
+.. code-block:: YAML
+
+   postfix_amavis_lmtp: False

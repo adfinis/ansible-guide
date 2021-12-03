@@ -1,0 +1,248 @@
+===========
+ROLE NGINX
+===========
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-nginx.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-nginx/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-nginx.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-nginx
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.nginx-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/nginx
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.nginx }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-nginx/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+nginx role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+   
+nginx upstream repository signing key
+
+.. code-block:: YAML
+
+   nginx_upstream_repo_key: https://nginx.org/keys/nginx_signing.key
+   
+nginx upstream repository
+
+.. code-block:: YAML
+
+   nginx_upstream_repo_baseurl: https://nginx.org/packages
+   
+number of worker processes of nginx
+as many cores as your system has, you should start worker processes
+
+.. code-block:: YAML
+
+   nginx_worker_processes: '{{ ansible_processor_cores }}'
+   
+number of worker connections
+this should be a value around ``ulimit -n``. The nginx default is 768.
+
+.. code-block:: YAML
+
+   nginx_worker_connections: '{{ nginx_fact_file_descriptors }}'
+   
+gzip compression level
+
+.. code-block:: YAML
+
+   nginx_gzip_comp_level: 2
+   
+nginx gzip min length
+
+.. code-block:: YAML
+
+   nginx_gzip_min_length: 1000
+   
+nginx gzip proxied
+
+.. code-block:: YAML
+
+   nginx_gzip_proxied:
+     - expired
+     - no-cache
+     - no-store
+     - private
+     - auth
+   
+nginx gzip compress mime types
+
+.. code-block:: YAML
+
+   nginx_gzip_types:
+     - text/plain
+     - text/css
+     - text/xml
+     - application/json
+     - application/javascript
+     - application/xml
+     - application/xml+rss
+     - text/javascript
+   
+nginx ssl protocols to support
+
+.. code-block:: YAML
+
+   nginx_ssl_protocols:
+     - TLSv1
+     - TLSv1.1
+     - TLSv1.2
+   
+nginx ssl ciphersuite
+
+.. code-block:: YAML
+
+   nginx_ssl_ciphers:
+     - ECDHE-ECDSA-CHACHA20-POLY1305
+     - ECDHE-RSA-CHACHA20-POLY1305
+     - ECDHE-ECDSA-AES128-GCM-SHA256
+     - ECDHE-RSA-AES128-GCM-SHA256
+     - ECDHE-ECDSA-AES256-GCM-SHA384
+     - ECDHE-RSA-AES256-GCM-SHA384
+     - DHE-RSA-AES128-GCM-SHA256
+     - DHE-RSA-AES256-GCM-SHA384
+     - ECDHE-ECDSA-AES128-SHA256
+     - ECDHE-RSA-AES128-SHA256
+     - ECDHE-ECDSA-AES128-SHA
+     - ECDHE-RSA-AES256-SHA384
+     - ECDHE-RSA-AES128-SHA
+     - ECDHE-ECDSA-AES256-SHA384
+     - ECDHE-ECDSA-AES256-SHA
+     - ECDHE-RSA-AES256-SHA
+     - DHE-RSA-AES128-SHA256
+     - DHE-RSA-AES128-SHA
+     - DHE-RSA-AES256-SHA256
+     - DHE-RSA-AES256-SHA
+     - ECDHE-ECDSA-DES-CBC3-SHA
+     - ECDHE-RSA-DES-CBC3-SHA
+     - EDH-RSA-DES-CBC3-SHA
+     - AES128-GCM-SHA256
+     - AES256-GCM-SHA384
+     - AES128-SHA256
+     - AES256-SHA256
+     - AES128-SHA
+     - AES256-SHA
+     - DES-CBC3-SHA
+     - '!DSS'
+   
+A list of nignx virtual hosts. Default is an empty list.
+
+.. code-block:: YAML
+
+   nginx_vhosts: []
+   
+Following are some examples how to define virtual hosts.
+The name of a virtualhost is used as filename and as servername.
+The value of type is used to choose the virtualhost config template.
+
+.. code-block:: YAML
+
+  nginx_vhosts:
+    # this example shows how to confiugre a standard website with a
+    # documentroot and php
+    - name: www.example.com
+      default: true
+      type: standard
+      acme: True
+      ssl_dhparam: /etc/ssl/dh4096.pem
+      ssl_crt: /etc/ssl/certs/www.example.com_fullchain.pem
+      ssl_key: /etc/ssl/local/www.example.com_key.pem
+      ssl_hsts: true
+      ssl_hsts_age: 15768000
+      ssl_stapling: true
+      document_root: /var/www/www.example.com
+      index: index.html
+      php_enabled: true
+    # this example shows how to create a reverse proxy with an upstream server
+    - name: proxy.example.com
+      type: proxy
+      ssl_dhparam: /etc/ssl/dh4096.pem
+      ssl_crt: /etc/ssl/certs/proxy.example.com_fullchain.pem
+      ssl_key: /etc/ssl/local/proxy.example.com_key.pem
+      proxy:
+        - src: /
+          dest: http://localhost:8080/
+    # this example shows how to configure a website with cgi-bin
+    - name: icinga.example.com
+      type: standard
+      ssl_dhparam: /etc/ssl/dh4096.pem
+      ssl_crt: /etc/ssl/certs/icinga.example.com_fullchain.pem
+      ssl_key: /etc/ssl/local/icinga.example.com_key.pem
+      document_root: /usr/share/icinga/htdocs
+      alias:
+        - src: /icinga
+          dest: /usr/share/icinga/htdocs
+        - src: /stylesheets
+          dest: /etc/icinga/stylesheets
+        - src: /icinga/stylesheets
+          dest: /etc/icinga/stylesheets
+      cgi_bin:
+        - location: /cgi-bin/icinga
+          root: /usr/lib/cgi-bin/icinga
+          document_root: /usr/lib
+    # this example shows how to configure nginx with autoindex for listing a directory
+    - name: mirror.example.com
+      default: true
+      type: standard-with-http
+      acme: false
+      document_root: /var/lib/mirror
+      alias:
+        - src: /
+          dest: /var/lib/mirror/
+          autoindex: true

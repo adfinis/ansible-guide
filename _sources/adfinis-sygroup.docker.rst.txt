@@ -1,0 +1,56 @@
+
+
+Default values
+==============
+
+   
+Specify what volume to put the docker vg on EL systems
+
+.. code-block:: YAML
+
+   docker_storage_device: ~
+   
+Let the cleanup job run on every sunday at 7 am.
+
+.. code-block:: YAML
+
+   docker_cleanup_cronjob_minute: 0
+   docker_cleanup_cronjob_hour: 7
+   docker_cleanup_cronjob_day: '*'
+   docker_cleanup_cronjob_month: '*'
+   docker_cleanup_cronjob_weekday: 0
+   
+Whether the cleanup cronjob is enabled or not
+
+.. code-block:: YAML
+
+   docker_cleanup_cronjob_enable: false
+   
+docker daemon remote access
+
+.. code-block:: YAML
+
+   docker_daemon_remote_access_tls: false
+   
+docker daemon hostname (FQDN)
+
+.. code-block:: YAML
+
+   docker_common_name: '{{ ansible_fqdn }}'
+   
+docker client hostname
+
+.. code-block:: YAML
+
+   docker_client_common_name: client
+   
+CA cert informations
+
+.. code-block:: YAML
+
+   docker_ca_country: CH
+   docker_ca_state_or_province: Bern
+   docker_ca_locality: Bern
+   docker_ca_organization: Example
+   docker_ca_organizational_unit: SYS
+   docker_ca_email_address: root@example.com

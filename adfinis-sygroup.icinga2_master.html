@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Default values &mdash; Ansible Guide</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/adsy.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ROLE ICINGA2_WEB" href="adfinis-sygroup.icinga2_web.html" />
+    <link rel="prev" title="Default values" href="adfinis-sygroup.icinga2_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Ansible Guide
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styling_guide.html">Styling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roles.html">Roles</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="role_overview.html">Role Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.ansible.html">ROLE ANSIBLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.apache.html">ROLE APACHE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.azure_linux_image.html">ROLE AZURE LINUX IMAGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.console.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.docker.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.epel.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.firewalld.html">ROLE firewalld</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.gitlab_runner.html">ROLE GITLAB_RUNNER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.graphite.html">ROLE GRAPHITE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.groups.html">ROLE GROUPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.grub.html">ROLE GRUB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.hostname.html">ROLE HOSTNAME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.hw_vm_tools.html">ROLE HW_VM_TOOLS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.hwraid.html">ROLE HWRAID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.icinga2_agent.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.icinga2_client.html">Default values</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.icinga2_web.html">ROLE ICINGA2_WEB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.ipmi.html">ROLE IPMI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.iptables.html">ROLE IPTABLES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.isc_dhcp_server.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.libvirt.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.mariadb.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.motd.html">ROLE MOTD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.network.html">ROLE NETWORK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.nginx.html">ROLE NGINX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.nodejs.html">ROLE NODEJS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.ntp.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.openshift_backup.html">ROLE openshift_backup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.php_fpm.html">ROLE PHP_FPM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.pkg_mirror.html">ROLE PKG_MIRROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.pki.html">ROLE PKI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.postfix.html">ROLE POSTFIX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.redis.html">ROLE REDIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.repo_mirror.html">ROLE REPO MIRROR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rpcbind.html">ROLE RPCBIND</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rsyslog.html">ROLE RSYSLOG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.snmp.html">ROLE SNMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.sqlite.html">ROLE SQLITE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.ssh.html">ROLE SSH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.systemd_journald.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.telegraf.html">ROLE TELEGRAF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.upgrade.html">ROLE UPGRADE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.users.html">ROLE USERS</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ansible Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="role_overview.html">Role Overview</a> &raquo;</li>
+      <li>Default values</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/adfinis-sygroup.icinga2_master.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="default-values">
+<h1>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h1>
+<p>The icinga2 master zone</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_master_zone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monitoring-master</span>
+</pre></div>
+</div>
+<p>The parent zone of a client. Needed if a client is behind a satellite</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_client_parent_zone</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">icinga2_master_master_zone</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+<p>All users which icinga2 should know. Containing the mailaddress and phone number
+Check the official Icinga2 documentation for further information
+<a class="reference external" href="https://icinga.com/docs/icinga2/latest/doc/09-object-types/#user">https://icinga.com/docs/icinga2/latest/doc/09-object-types/#user</a></p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_users</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icingaadmin</span>
+    <span class="nt">email</span><span class="p">:</span> <span class="s">&#39;alertme@example.com&#39;</span>
+    <span class="nt">groups</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">icingaadmins</span>
+</pre></div>
+</div>
+<dl>
+<dt>icinga2_master_users:</dt><dd><ul>
+<li><p>name: username
+displayname: ‘User Name’ # optional, defaults to an empty string
+email: <a class="reference external" href="mailto:'mail&#37;&#52;&#48;example&#46;com">‘mail<span>&#64;</span>example<span>&#46;</span>com</a>’ # optional, defaults to an empty string
+pager: ‘+41123456789’ # optional, defaults to an empty string
+groups: [] # optional, defaults to an empty list</p>
+<blockquote>
+<div><p># - group1
+# - group2</p>
+</div></blockquote>
+<p>enable_notifications: (true|false) # optional, defaults to true
+period: ‘24x7’ # optional, not set by default
+types: [] # optional, not set by default</p>
+<blockquote>
+<div><p># - DowntimeStart
+# - DowntimeEnd
+# - DowntimeRemoved
+# - Custom
+# - Acknowledgement
+# - Problem
+# - Recovery
+# - FlappingStart
+# - FlappingEnd</p>
+</div></blockquote>
+<dl class="simple">
+<dt>states: [] # optional, not set by default</dt><dd><p># - OK
+# - Warning
+# - Critical
+# - Unknown
+# - Up
+# - Down</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>All groups which icinga2 should know.
+Check the official icinga2 documentation for further information
+<a class="reference external" href="https://icinga.com/docs/icinga2/latest/doc/09-object-types/#usergroup">https://icinga.com/docs/icinga2/latest/doc/09-object-types/#usergroup</a></p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_usergroups</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icingaadmins</span>
+    <span class="nt">displayname</span><span class="p">:</span> <span class="s">&#39;Icinga2</span><span class="nv"> </span><span class="s">Admins&#39;</span>
+</pre></div>
+</div>
+<dl>
+<dt>icinga2_master_usergroups:</dt><dd><ul>
+<li><p>name: groupname
+displayname: ‘Group Name’ # optional, defaults to an empty string
+groups: [] # optional, not set by default</p>
+<blockquote>
+<div><p># - group1
+# - group2</p>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Icinga2 Hostgroups</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_hostgroups</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+</pre></div>
+</div>
+<dl>
+<dt>icinga2_master_hostgroups:</dt><dd><ul>
+<li><p>name: linux-servers
+display_name: ‘Linux Servers’
+assignments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>var: ‘host.vars.os’
+value: ‘Linux’</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>name: windows-servers
+display_name: ‘Windows Servers’
+assignments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>var: ‘host.vars.os’
+value: ‘Windows’</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<p>Icinga2 ServiceGroups</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_servicegroups</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+</pre></div>
+</div>
+<dl>
+<dt>icinga2_master_servicegroups:</dt><dd><ul>
+<li><p>name: ping
+display_name: ‘Ping Checks’
+assignments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>match: ‘ping*’
+value: ‘service.name’</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>name: http
+display_name: ‘HTTP Checks’
+assignments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>match: ‘http*’
+value: ‘service.check_command’</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>name: disk
+display_name: ‘Disk Checks’
+assignments:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>match: ‘disk*’
+value: ‘service.check_command’</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+<p>A list of all icinga2 api users</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span>  <span class="nt">icinga2_master_api_users</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<span class="p p-Indicator">-</span> <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+  <span class="nt">password</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
+  <span class="nt">permissions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
+<span class="p p-Indicator">-</span> <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">token-generator</span>
+  <span class="nt">password</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
+  <span class="nt">permissions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;actions/generate-ticket&#39;</span>
+<span class="p p-Indicator">-</span> <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
+  <span class="nt">password</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
+  <span class="nt">permissions</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;actions/generate-ticket&#39;</span>
+    <span class="nt">filter</span><span class="p">:</span> <span class="s">&#39;&quot;host.name&quot;</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&quot;bar&quot;&#39;</span>
+</pre></div>
+</div>
+<p>Icinga2 timeperiods</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_timeperiods</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">holidays</span>
+    <span class="nt">display_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Holidays</span>
+    <span class="nt">ranges</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="s">&quot;december</span><span class="nv"> </span><span class="s">25&quot;</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">premium</span>
+    <span class="nt">display_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SLA Premium</span>
+    <span class="nt">ranges</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tuesday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wednesday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">thursday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">friday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">saturday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sunday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">standard</span>
+    <span class="nt">display_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SLA Standard</span>
+    <span class="nt">ranges</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tuesday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wednesday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">thursday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
+      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">friday</span>
+        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
+    <span class="nt">excludes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">holidays</span>
+</pre></div>
+</div>
+<p>Enable the graphite writer feature</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+</pre></div>
+</div>
+<p>The Host graphite is running on</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+</pre></div>
+</div>
+<p>The port graphite is listening on</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2003</span>
+</pre></div>
+</div>
+<p># Icinga2 ido database settings
+Enable ido feature</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_ido_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+</pre></div>
+</div>
+<p>icinga2 database name</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icinga2</span>
+</pre></div>
+</div>
+<p>icinga2 database host</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+</pre></div>
+</div>
+<p>icinga2 database port</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3306</span>
+</pre></div>
+</div>
+<p>icinga2 database user</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icinga2</span>
+</pre></div>
+</div>
+<p>icinga2 database password</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_pass</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
+</pre></div>
+</div>
+<p>if the database connection uses ssl or not (true or false)</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_ssl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</pre></div>
+</div>
+<p>the hostpattern which can access and login with the icinga2 user</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_hostpattern</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span>
+</pre></div>
+</div>
+<p>icinga2 database root user</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_db_root_user</span><span class="p">:</span> <span class="s">&quot;user&quot;</span>
+</pre></div>
+</div>
+<p>icinga2 database root password</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_db_root_pass</span><span class="p">:</span> <span class="s">&quot;passw0rd&quot;</span>
+</pre></div>
+</div>
+<p># Template settings
+If you have own templates for the configuration files in /etc/icinga2/conf.d
+consider adjusting the names here and add your template to
+templates/etc/icinga2/conf.d in the root of your playbook folder.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_template_confd_apiusers</span><span class="p">:</span> <span class="s">&quot;api-users.conf&quot;</span>
+<span class="nt">icinga2_master_template_confd_notifications</span><span class="p">:</span> <span class="s">&quot;notifications.conf&quot;</span>
+<span class="nt">icinga2_master_template_confd_templates</span><span class="p">:</span> <span class="s">&quot;templates.conf&quot;</span>
+<span class="nt">icinga2_master_template_confd_commands</span><span class="p">:</span> <span class="s">&quot;commands.conf&quot;</span>
+<span class="nt">icinga2_master_template_confd_groups</span><span class="p">:</span> <span class="s">&quot;groups.conf&quot;</span>
+<span class="nt">icinga2_master_template_confd_timeperiods</span><span class="p">:</span> <span class="s">&quot;timeperiods.conf&quot;</span>
+<span class="nt">icinga2_master_template_confd_users</span><span class="p">:</span> <span class="s">&quot;users.conf&quot;</span>
+</pre></div>
+</div>
+<p>These variables can be adjusted if you have custom templates for the global
+templates directory which gets synced to all clients.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_template_globaltemplates</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;services.conf&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="s">&quot;templates.conf&quot;</span>
+</pre></div>
+</div>
+<p>Global Zones to be added to zones.conf</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_global_zones</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">global-templates</span>
+</pre></div>
+</div>
+<p># Global alerting settings
+The URL from icingaweb2. Will be attached to the alerts
+icinga2_master_alerting_icingaweb2url = “<a class="reference external" href="https://icinga2.example.com/icingaweb2">https://icinga2.example.com/icingaweb2</a>”
+The adress from which mails should be sent
+icinga2_master_mail_from: “<a class="reference external" href="mailto:mail&#37;&#52;&#48;example&#46;com">mail<span>&#64;</span>example<span>&#46;</span>com</a>”
+# Twilio alerting
+The account sid from <a class="reference external" href="https://www.twilio.com/console">https://www.twilio.com/console</a>
+icinga2_master_twilio_account_sid: ‘account_sid’
+The auth token from <a class="reference external" href="https://www.twilio.com/console">https://www.twilio.com/console</a>
+icinga2_master_twilio_auth_token: ‘auth_token’
+Whether twilio sms are enabled or not</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_sms_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+</pre></div>
+</div>
+<p>The twilio phone numer used to send sms
+icinga2_master_twilio_sms_from: ‘+41123456789’
+Twilio SMS scripts additional commands
+Can be used to execute custom scripts after the SMS is sent
+defaults to an empty list, add command lines as necessary
+Example:
+icinga2_master_twilio_sms_additional_commands:</p>
+<blockquote>
+<div><p># Execute a custom script after the sms has been sent to also send
+# the notification to mattermost
+- “/etc/icinga2/scripts/mattermost.sh “${NOTIFICATION_MESSAGE}””</p>
+</div></blockquote>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_sms_additional_commands</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+</pre></div>
+</div>
+<p>Whether twilio calls are enabled or not</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_phone_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+</pre></div>
+</div>
+<p>The twilio phone number used to make calls
+icinga2_master_twilio_phone_from: ‘+41123456789’
+The twilio application sid on how to handle the call
+<a class="reference external" href="https://www.twilio.com/docs/voice/make-calls">https://www.twilio.com/docs/voice/make-calls</a>
+icinga2_master_twilio_phone_application_sid: ‘application_sid’
+Icinga2 shorturl cmd
+The command which gets substituted when this variable is set
+Example:
+icinga2_master_twilio_shorturl_cmd: “curl -s -X POST <a class="reference external" href="https://urlshort.example.com/api/new">https://urlshort.example.com/api/new</a> -d url=${LONGURL} | jq -r .shorturl”</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_shorturl_cmd</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="adfinis-sygroup.icinga2_client.html" class="btn btn-neutral float-left" title="Default values" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adfinis-sygroup.icinga2_web.html" class="btn btn-neutral float-right" title="ROLE ICINGA2_WEB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Adfinis AG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

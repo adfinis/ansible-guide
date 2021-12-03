@@ -1,0 +1,30 @@
+
+
+Default values
+==============
+
+   
+a list of ntp servers
+
+.. code-block:: YAML
+
+   ntp_servers:
+     - 0.pool.ntp.org
+     - 1.pool.ntp.org
+     - 2.pool.ntp.org
+     - 3.pool.ntp.org
+   
+NTP clients that are allowed to query this server. If non-empty, this host is
+assumed to be an NTP server itself.
+
+Example:
+
+ntp_clients:
+ - ip4addr: 1.2.3.0
+   ip4mask: 255.255.255.0
+ - ip4addr: 4.3.2.64
+   ip4mask: 255.255.255.240
+
+.. code-block:: YAML
+
+   ntp_clients: []

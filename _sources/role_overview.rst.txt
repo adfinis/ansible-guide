@@ -1,0 +1,54 @@
+=============
+Role Overview
+=============
+
+.. toctree::
+  :glob:
+  :titlesonly:
+  :maxdepth: 1
+
+
+  adfinis-sygroup.ansible.rst
+  adfinis-sygroup.apache.rst
+  adfinis-sygroup.azure_linux_image.rst
+  adfinis-sygroup.console.rst
+  adfinis-sygroup.docker.rst
+  adfinis-sygroup.epel.rst
+  adfinis-sygroup.firewalld.rst
+  adfinis-sygroup.gitlab_runner.rst
+  adfinis-sygroup.graphite.rst
+  adfinis-sygroup.groups.rst
+  adfinis-sygroup.grub.rst
+  adfinis-sygroup.hostname.rst
+  adfinis-sygroup.hw_vm_tools.rst
+  adfinis-sygroup.hwraid.rst
+  adfinis-sygroup.icinga2_agent.rst
+  adfinis-sygroup.icinga2_client.rst
+  adfinis-sygroup.icinga2_master.rst
+  adfinis-sygroup.icinga2_web.rst
+  adfinis-sygroup.ipmi.rst
+  adfinis-sygroup.iptables.rst
+  adfinis-sygroup.isc_dhcp_server.rst
+  adfinis-sygroup.libvirt.rst
+  adfinis-sygroup.mariadb.rst
+  adfinis-sygroup.motd.rst
+  adfinis-sygroup.network.rst
+  adfinis-sygroup.nginx.rst
+  adfinis-sygroup.nodejs.rst
+  adfinis-sygroup.ntp.rst
+  adfinis-sygroup.openshift_backup.rst
+  adfinis-sygroup.php_fpm.rst
+  adfinis-sygroup.pkg_mirror.rst
+  adfinis-sygroup.pki.rst
+  adfinis-sygroup.postfix.rst
+  adfinis-sygroup.redis.rst
+  adfinis-sygroup.repo_mirror.rst
+  adfinis-sygroup.rpcbind.rst
+  adfinis-sygroup.rsyslog.rst
+  adfinis-sygroup.snmp.rst
+  adfinis-sygroup.sqlite.rst
+  adfinis-sygroup.ssh.rst
+  adfinis-sygroup.systemd_journald.rst
+  adfinis-sygroup.telegraf.rst
+  adfinis-sygroup.upgrade.rst
+  adfinis-sygroup.users.rst

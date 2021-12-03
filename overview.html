@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; Ansible Guide</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/adsy.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+    <link rel="prev" title="Ansible Guide" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Ansible Guide
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styling_guide.html">Styling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roles.html">Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role_overview.html">Role Overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ansible Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<p>If you don’t know what <a class="reference external" href="https://www.ansible.com/">ansible</a> is, check out the
+<a class="reference external" href="http://docs.ansible.com/ansible/intro.html">intro</a>.  For general
+information, check out the
+<a class="reference external" href="http://docs.ansible.com/ansible/index.html">documentation index</a>.</p>
+<section id="directory-and-file-structure">
+<h2>Directory and file structure<a class="headerlink" href="#directory-and-file-structure" title="Permalink to this headline"></a></h2>
+<p>The Ansible Project publishes a <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_best_practices.html">Best Practices</a>
+our guideline is an extension to that guide.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── README.rst
+├── doc/
+├── ansible.cfg
+├── hosts
+├── site.yml
+├── vault-pass
+├── defaults/
+│   └── main.yml
+├── files/
+│   ├── file1.txt
+│   └── file2.txt
+├── group_vars/
+│   └── all/
+│       ├── ntp.yml
+│       └── ssh.yml
+├── host_vars/
+│   ├── www.example.com/
+│   │   ├── ntp.yml
+│   │   └── ssh.yml
+│   └── mail.example.org/
+│       ├── ntp.yml
+│       └── ssh.yml
+├── roles/
+├── adfinis-roles/
+│   ├── ntp/
+│   │   ├── defaults/
+│   │   │   └── main.yml
+│   │   ├── files/
+│   │   ├── handlers/
+│   │   │   └── main.yml
+│   │   ├── meta/
+│   │   │   └── main.yml
+│   │   ├── tasks/
+│   │   │   ├── configuration.yml
+│   │   │   ├── installation.yml
+│   │   │   └── main.yml
+│   │   ├── templates/
+│   │   │   └── etc/
+│   │   │       └── ntp.conf.j2
+│   │   └── vars/
+│   │       ├── Debian.yml
+│   │       └── RedHat.yml
+│   └── ssh/
+│       ├── defaults/
+│       │   └── main.yml
+│       ├── files/
+│       │   └── etc/
+│       │       └── default/
+│       │           └── ssh
+│       ├── handlers/
+│       │   └── main.yml
+│       ├── meta/
+│       │   └── main.yml
+│       ├── tasks/
+│       │   ├── configuration.yml
+│       │   ├── installation.yml
+│       │   └── main.yml
+│       ├── templates/
+│       │   └── etc/
+│       │       └── ssh/
+│       │           └── sshd_config.j2
+│       └── vars/
+│            ├── Debian.yml
+│            └── RedHat.yml
+└── vars/
+    ├── Debian.yml
+    └── RedHat.yml
+</pre></div>
+</div>
+</section>
+<section id="inventory">
+<h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline"></a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">hosts</span></code> in the project directory contains a list of each server,
+if needed with the depending connection information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jumphost</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+
+<span class="p">[</span><span class="n">webservers</span><span class="p">]</span>
+<span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>  <span class="n">ansible_host</span><span class="o">=</span><span class="mf">192.0.2.50</span> <span class="n">ansible_port</span><span class="o">=</span><span class="mi">2222</span> <span class="n">ansible_user</span><span class="o">=</span><span class="n">root</span>
+<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+
+<span class="p">[</span><span class="n">databases</span><span class="p">]</span>
+<span class="n">db</span><span class="o">-</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+<p>You can define groups of hosts with <code class="docutils literal notranslate"><span class="pre">[]</span></code>. There is a group called <code class="docutils literal notranslate"><span class="pre">all</span></code>,
+each server in the hosts file is automatically in that group! Hostgroups can be used to
+define special roles only for one hostgroup or to define some special
+variables for this group.</p>
+</section>
+<section id="task-structure">
+<h2>Task structure<a class="headerlink" href="#task-structure" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Playbooks</dt><dd><p>A playbook is a set of roles. For each playbook it can be defined in which
+hostgroup it should be run, default is [all].
+<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_intro.html">Intro to Playbooks</a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Roles</dt><dd><p>Each role configures one application and consists of multiple tasks.
+<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_roles.html">Playbook Roles and Include Statements</a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Tasks</dt><dd><p>Each tasks uses one module (e.g. template, file, copy, service).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="variable-structure">
+<h2>Variable structure<a class="headerlink" href="#variable-structure" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>roles/$ROLE/defaults/main.yml</dt><dd><p>Each variable in a role should have a default value. Default values are
+specified in this file.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>roles/$ROLE/vars/*.yml</dt><dd><p>We use multiple variable files per role. Define only constant data here,
+like package names. Store all data here not in the tasks.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>group_vars/$HOSTGROUPS/*.yml</dt><dd><p>Each host can be in multiple hostgroups, create hostgroups as many as
+you need and as few as possible. Possible variables per hostgroup
+could be ntp servers per datacenter or nameservers per net.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>host_vars/$FQDN/*.yml</dt><dd><p>Host specific data, e.g. webserver virtualhost configurations or ip
+configuration.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="variable-precedence">
+<h2>Variable Precedence<a class="headerlink" href="#variable-precedence" title="Permalink to this headline"></a></h2>
+<p>This list shows different locations and their precendence of variables.
+The last valid rule has winning prioritization.</p>
+<ul class="simple">
+<li><p>role defaults (<code class="docutils literal notranslate"><span class="pre">roles/$ROLE/defaults/main.yml</span></code>)</p></li>
+<li><p>inventory vars (<code class="docutils literal notranslate"><span class="pre">vars/main.yml</span></code>)</p></li>
+<li><p>inventory group_vars (<code class="docutils literal notranslate"><span class="pre">group_vars/$HOSTGROUP/*.yml</span></code>)</p></li>
+<li><p>inventory host_vars (<code class="docutils literal notranslate"><span class="pre">host_vars/$FQDN/*.yml</span></code>)</p></li>
+<li><p>playbook group_vars (we don’t make a difference to inventory group_vars)</p></li>
+<li><p>playbook host_vars (we don’t make a difference to inventory host_vars)</p></li>
+<li><p>host facts (default facts of a host <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts">Information discovered from system
+facts</a>)</p></li>
+<li><p>play vars (?)</p></li>
+<li><p>play vars_prompt (<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_prompts.html">Prompts</a>)</p></li>
+<li><p>play vars_files (?)</p></li>
+<li><p>registered vars (<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables">Register Variables</a>)</p></li>
+<li><p>set_facts (<a class="reference external" href="http://docs.ansible.com/ansible/set_fact_module.html">Module set_fact</a>)</p></li>
+<li><p>role and include vars (<code class="docutils literal notranslate"><span class="pre">roles/$ROLE/vars/main.yml</span></code>)</p></li>
+<li><p>block vars (only for tasks in block; <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_blocks.html">Blocks</a>)</p></li>
+<li><p>task vars (only for the task)</p></li>
+<li><p>extra vars (always win precedence; <code class="docutils literal notranslate"><span class="pre">ansible</span> <span class="pre">--extra-vars='foo=bar'</span></code>)</p></li>
+</ul>
+<p>We don’t use all of the above locations, mostly the following locations are
+used.</p>
+<ul class="simple">
+<li><p>role defaults (<code class="docutils literal notranslate"><span class="pre">roles/$ROLE/defaults/main.yml</span></code>)</p></li>
+<li><p>inventory group_vars (<code class="docutils literal notranslate"><span class="pre">group_vars/$HOSTGROUP/*.yml</span></code>)</p></li>
+<li><p>inventory host_vars (<code class="docutils literal notranslate"><span class="pre">host_vars/$FQDN/*.yml</span></code>)</p></li>
+<li><p>host facts (default facts of a host <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts">Information discovered from system
+facts</a>)</p></li>
+<li><p>registered vars (<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables">Register Variables</a>)</p></li>
+<li><p>set_facts (<a class="reference external" href="http://docs.ansible.com/ansible/set_fact_module.html">Module set_fact</a>)</p></li>
+<li><p>role and include vars (<code class="docutils literal notranslate"><span class="pre">roles/$ROLE/vars/main.yml</span></code>)</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Ansible Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting Started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Adfinis AG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

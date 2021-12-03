@@ -1,0 +1,84 @@
+============
+ROLE HWRAID
+============
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-hwraid.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-hwraid/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-hwraid.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-hwraid
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.hwraid-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/hwraid
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+- **hwraid_hp_repository_version**: Specify the version of HPE's Management
+  Component Pack (MCP) repository to be used. The default value ``current``
+  includes the latest available version available for the distribution
+  version. Override if you need specific releases of HPE binary-only utilities.
+  For details see `HPE's description about the MCP repository<https://downloads.linux.hpe.com/SDR/project/mcp/>`_.
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.hwraid }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-hwraid/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+hwraid role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+   
+Release version in the repository definition
+
+.. code-block:: YAML
+
+   hwraid_hp_repository_version: 'current'

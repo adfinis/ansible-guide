@@ -1,0 +1,30 @@
+
+
+Default values
+==============
+
+   
+OMAPI synchronization port
+
+.. code-block:: YAML
+
+   isc_dhcp_server_omapi_port: 7911
+   
+DHCP server subnet configuration. Default is not to configure any subnets.
+
+.. code-block:: YAML
+
+   isc_dhcp_server_subnet: []
+   
+A possible list of subnets and their configuration look like this:
+
+.. code-block:: YAML
+
+  isc_dhcp_server_subnet:
+    - netaddress: 192.168.121.0
+      netmask: 255.255.255.0
+      routers: 192.168.121.1
+      domain: lab.local
+      domain_search: lab.local
+      dns: 192.168.121.1
+      range: 192.168.121.20 192.168.121.100

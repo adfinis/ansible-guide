@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started &mdash; Ansible Guide</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/adsy.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Styling Guide" href="styling_guide.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Ansible Guide
+          </a>
+              <div class="version">
+                1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styling_guide.html">Styling Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roles.html">Roles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="role_overview.html">Role Overview</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ansible Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/getting_started.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline"></a></h1>
+<section id="project-repository">
+<h2>Project Repository<a class="headerlink" href="#project-repository" title="Permalink to this headline"></a></h2>
+<p>First of all, you need a project repository. For that, you can just clone
+this repository or start a new one. As a Git Submodule you should add the
+<a class="reference external" href="https://github.com/adfinis-sygroup/ansible-roles">ansible-roles</a> as <code class="docutils literal notranslate"><span class="pre">roles/</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;Intial commit.&#39;</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">empty</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">adfinis</span><span class="o">-</span><span class="n">sygroup</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">roles</span> <span class="n">adfinis</span><span class="o">-</span><span class="n">roles</span>
+</pre></div>
+</div>
+<p>Create the main playbook <code class="docutils literal notranslate"><span class="pre">site.yml</span></code> with content along the following
+example. Add your roles as needed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+
+<span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="nb">all</span>
+  <span class="n">roles</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">ansible</span>
+    <span class="o">-</span> <span class="n">console</span>
+    <span class="o">-</span> <span class="n">ssh</span>
+</pre></div>
+</div>
+<p>Create an inventory file <code class="docutils literal notranslate"><span class="pre">hosts</span></code>, create as many hostgroups as you need. A
+host can be in multiple hostgroups. Each host is in the hostgroup <code class="docutils literal notranslate"><span class="pre">all</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="n">db1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+
+<span class="p">[</span><span class="n">webservers</span><span class="p">]</span>
+<span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+
+<span class="p">[</span><span class="n">mysql_servers</span><span class="p">]</span>
+<span class="n">db1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+
+<span class="p">[</span><span class="n">ssh_servers</span><span class="p">]</span>
+<span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="n">db1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+<p>You can now start Ansible, and Ansible will connect to each host with ssh.
+If you can’t login with public keys, you can use ssh controlmaster with
+sockets, for that, create a file called <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> in the root of your
+project directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">defaults</span><span class="p">]</span>
+<span class="n">ansible_managed</span>     <span class="o">=</span> <span class="ne">Warning</span><span class="p">:</span> <span class="n">File</span> <span class="ow">is</span> <span class="n">managed</span> <span class="n">by</span> <span class="n">Ansible</span> <span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">adfinis</span><span class="o">-</span><span class="n">sygroup</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">roles</span><span class="p">]</span>
+<span class="n">retry_files_enabled</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">hostfile</span>            <span class="o">=</span> <span class="o">./</span><span class="n">hosts</span>
+<span class="n">roles_path</span>          <span class="o">=</span> <span class="o">./</span><span class="n">adfinis</span><span class="o">-</span><span class="n">roles</span>
+
+<span class="p">[</span><span class="n">ssh_connection</span><span class="p">]</span>
+<span class="n">ssh_args</span>            <span class="o">=</span> <span class="o">-</span><span class="n">o</span> <span class="n">ControlMaster</span><span class="o">=</span><span class="n">auto</span> <span class="o">-</span><span class="n">o</span> <span class="n">ControlPersist</span><span class="o">=</span><span class="mi">30</span><span class="n">s</span>
+<span class="c1">#control_path       = ~/.ssh/sockets/%C</span>
+</pre></div>
+</div>
+<p>You need to create the directory <code class="docutils literal notranslate"><span class="pre">~/.ssh/sockets</span></code> and you should
+manually establish a connection to each host (with a command like <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-o</span>
+<span class="pre">ControlMaster=auto</span> <span class="pre">-o</span> <span class="pre">ControlPath='~/.ssh/sockets/%C'</span> <span class="pre">-o</span> <span class="pre">ControlPersist=30s</span>
+<span class="pre">-l</span> <span class="pre">root</span> <span class="pre">$FQDN</span></code>). While the connection is established (and 30 seconds
+after that) a socket file in <code class="docutils literal notranslate"><span class="pre">~/.ssh/sockets/</span></code> is generated. Ansible will use this
+socket file to connect to the hosts, and doesn’t’ need to reauthenticate.
+This speeds up Ansible operations considerably especially with many hosts.</p>
+</section>
+<section id="run-ansible">
+<h2>Run Ansible<a class="headerlink" href="#run-ansible" title="Permalink to this headline"></a></h2>
+<p>To run Ansible with your playbook and your hosts, just start
+<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">hosts</span> <span class="pre">site.yml</span></code>. If you want to know what has
+changed, you can add the option <code class="docutils literal notranslate"><span class="pre">--diff</span></code> and if you want to know that
+before you change anything, you can add <code class="docutils literal notranslate"><span class="pre">--check</span></code>. With the checkmode
+enabled, nothing gets changed on any of the systems!</p>
+<p>As a possible way to go, start Ansible with diff and checkmode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">--</span><span class="n">diff</span> <span class="o">--</span><span class="n">check</span> <span class="n">site</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>If you think the changes do what you intend to do, you can start Ansible without the checkmode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">--</span><span class="n">diff</span> <span class="n">site</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</section>
+<section id="special-roles">
+<h2>Special Roles<a class="headerlink" href="#special-roles" title="Permalink to this headline"></a></h2>
+<p>If you need new roles, which aren’t created yet, create them and make a
+pull-requests to the <a class="reference external" href="https://github.com/adfinis-sygroup/ansible-roles">ansible-roles</a> repository. Only generic roles will
+be accepted. Follow the guidelines for new roles.</p>
+<p>To create special roles for one project (e.g. not possible as a generic
+role or never needed in another project) put them inside the directory
+<code class="docutils literal notranslate"><span class="pre">roles/</span></code>. Each role in this directory will override roles in the directory
+<code class="docutils literal notranslate"><span class="pre">adfinis-roles/</span></code>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="styling_guide.html" class="btn btn-neutral float-right" title="Styling Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Adfinis AG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

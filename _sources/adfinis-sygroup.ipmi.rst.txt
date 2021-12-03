@@ -1,0 +1,124 @@
+==========
+ROLE IPMI
+==========
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-ipmi.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-ipmi/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-ipmi.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-ipmi
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.ipmi-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/ipmi
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.ipmi }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-ipmi/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+ipmi role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+   
+IPMI module device path
+
+.. code-block:: YAML
+
+   ipmi_device_path: /dev/ipmi0
+   
+IPMI kernel modules to load
+
+.. code-block:: YAML
+
+   ipmi_kernel_modules:
+     - ipmi_poweroff
+     - ipmi_watchdog
+     - ipmi_si
+     - ipmi_devintf
+     - ipmi_msghandler
+   
+IPMI channel
+
+.. code-block:: YAML
+
+   ipmi_channel: 1
+   
+IPMI network configuration
+
+.. code-block:: YAML
+
+   ipmi_network: {}
+   
+The following example shows how to configure your IPMI device.
+
+.. code-block:: YAML
+
+  ipmi_network:
+    address: 192.0.2.2
+    netmask: 255.0.0.0
+    gateway: 192.0.2.1
+
+IPMI SNMPv2 community
+
+.. code-block:: YAML
+
+   ipmi_snmp_community: False
+   
+An example would be:
+
+.. code-block:: YAML
+
+  ipmi_snmp_community: 'public'
+

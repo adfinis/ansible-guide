@@ -1,0 +1,169 @@
+=========
+ROLE SSH
+=========
+
+.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-ssh.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-ssh/blob/master/LICENSE
+
+.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-ssh.svg?style=flat-square
+  :target: https://github.com/adfinis-sygroup/ansible-role-ssh
+
+.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.ssh-660198.svg?style=flat-square
+  :target: https://galaxy.ansible.com/adfinis-sygroup/ssh
+
+A brief description of the role goes here.
+
+
+Requirements
+=============
+
+Any pre-requisites that may not be covered by Ansible itself or the role
+should be mentioned here. For instance, if the role uses the EC2 module, it
+may be a good idea to mention in this section that the boto package is required.
+
+
+Role Variables
+===============
+
+A description of the settable variables for this role should go here, including
+any variables that are in defaults/main.yml, vars/main.yml, and any variables
+that can/should be set via parameters to the role. Any variables that are read
+from other roles and/or the global scope (ie. hostvars, group vars, etc.)
+should be mentioned here as well.
+
+
+Dependencies
+=============
+
+A list of other roles hosted on Galaxy should go here, plus any details in
+regards to parameters that may need to be set for other roles, or variables
+that are used from other roles.
+
+
+Example Playbook
+=================
+
+Including an example of how to use your role (for instance, with variables
+passed in as parameters) is always nice for users too:
+
+.. code-block:: yaml
+
+  - hosts: servers
+    roles:
+       - { role: adfinis-sygroup.ssh }
+
+
+License
+========
+
+`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-ssh/blob/master/LICENSE>`_
+
+
+Author Information
+===================
+
+ssh role was written by:
+
+* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
+
+
+
+Default values
+==============
+
+   
+A list of all host key files (rsa and ed25519 are recommended).
+Default is only rsa; ed25519 is recommended if supported by sshd.
+
+.. code-block:: YAML
+
+   ssh_host_keys:
+     - /etc/ssh/ssh_host_rsa_key
+     - /etc/ssh/ssh_host_ed25519_key
+   
+A list of all ports for sshd to listen on.
+
+.. code-block:: YAML
+
+   ssh_daemon_ports:
+     - 22
+   
+Allow root login.
+choices:
+
+  - yes (password and publickey)
+  - no (not allowed)
+  - without-password (only allowed with publickey)
+
+.. code-block:: YAML
+
+   ssh_daemon_permit_root_login: 'yes'
+   
+Allow password authentication.
+
+.. code-block:: YAML
+
+   ssh_daemon_password_authentication: 'yes'
+   
+Enable or disable the sshd X11 forwarding.
+
+.. code-block:: YAML
+
+   ssh_daemon_x11_forwarding: 'no'
+   
+Environment variables to accept by sshd.
+
+.. code-block:: YAML
+
+   ssh_daemon_accept_env:
+     - 'LANG'
+     - 'LC_*'
+   
+A list of places to search for authorized keys files.
+CentOS 6 doesn't support multiple places, so default is just
+``$HOME/.ssh/authorized_keys``.
+
+.. code-block:: YAML
+
+   ssh_daemon_authorized_keys:
+     - '/etc/ssh/authorized_keys/%u'
+     - '%h/.ssh/authorized_keys'
+   
+A list of ciphers used by sshd.
+
+.. code-block:: YAML
+
+   ssh_daemon_ciphers:
+     - chacha20-poly1305@openssh.com
+     - aes256-gcm@openssh.com
+     - aes128-gcm@openssh.com
+     - aes256-ctr
+     - aes192-ctr
+     - aes128-ctr
+   
+A list of KexAlgorithms used by sshd.
+
+.. code-block:: YAML
+
+   ssh_daemon_kex_algorithms:
+     - curve25519-sha256@libssh.org
+     - diffie-hellman-group-exchange-sha256
+   
+A list of MACs used by sshd.
+
+.. code-block:: YAML
+
+   ssh_daemon_macs:
+     - hmac-sha2-512-etm@openssh.com
+     - hmac-sha2-256-etm@openssh.com
+     - umac-128-etm@openssh.com
+   
+Host key algorithms.
+
+.. code-block:: YAML
+
+   ssh_host_key_algorithms:
+     - ssh-ed25519-cert-v01@openssh.com
+     - ssh-rsa-cert-v01@openssh.com
+     - ssh-ed25519
+     - ssh-rsa

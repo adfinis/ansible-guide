@@ -1,0 +1,161 @@
+
+
+Default values
+==============
+
+   
+mariadb data location
+
+.. code-block:: YAML
+
+   mariadb_datadir: /var/lib/mysql
+   
+mariadb bind address
+
+.. code-block:: YAML
+
+   mariadb_bind_address: 127.0.0.1
+   
+mariadb bind port
+
+.. code-block:: YAML
+
+   mariadb_bind_port: 3306
+   
+
+Fine Tuning
+
+Size of the index buffers held in memory:
+
+.. code-block:: YAML
+
+   mariadb_key_buffer_size: 16M
+   
+Maximum size of a packet or a generated/intermediate string:
+
+.. code-block:: YAML
+
+   mariadb_max_allowed_packet: 16M
+   
+   
+
+Query Cache Configuration
+
+Size for which results larger than this are not stored in the query cache:
+
+.. code-block:: YAML
+
+   mariadb_query_cache_limit: 1M
+   
+Size available to the query cache:
+
+.. code-block:: YAML
+
+   mariadb_query_cache_size: 16M
+   
+   
+MariaDB default character set.
+
+.. code-block:: YAML
+
+  mariadb_character_set: utf8mb4
+
+Mariadb database list. Default is empty, no databases will be created.
+
+.. code-block:: YAML
+
+   mariadb_databases: []
+   
+A possible structure looks like this:
+
+.. code-block:: YAML
+
+  mariadb_databases:
+    - name: database1
+      encoding: utf8
+    - name: database2
+    - name: database3
+      encoding: latin1_swedish_ci
+
+Mariadb user list. Default is empty, no users will be created.
+
+.. code-block:: YAML
+
+   mariadb_users: []
+   
+A posssible structure looks like this:
+
+.. code-block:: YAML
+
+  mariadb_users:
+    - name: john
+      host: localhost
+      password: fixme
+      priv: 'database1.*:ALL'
+    - name: hans
+      host: www.example.com
+      password: s3cr3t
+      priv: '*.*:ALL,GRANT'
+    - name: replication
+      password: 12345
+      priv: '*.*:REPLICATION CLIENT'
+    - name: web
+      password: secure
+      priv: 'mydb.*:INSERT,UPDATE/anotherdb.*:SELECT/yetanotherdb.*:ALL'
+
+Mariadb server id.
+
+.. code-block:: YAML
+
+  mariadb_server_id: 1
+
+Mariadb binary logs.
+
+.. code-block:: YAML
+
+  mariadb_log_bin: /var/log/mysql/mysql-bin.log
+
+Mariadb replicate-wild-do-table.
+Replicate only some tables (wildcard allowed).
+
+.. code-block:: YAML
+
+  mariadb_replicate_wild_do_table: ykksm.%
+
+Mariadb innodb_file_per_table
+
+Use seperate InnoDB tablespaces for each database (the ibdata files in the
+MariaDB libdir).
+
+This flag needs to be activated before creating a database. If you want to
+change this setting on an already provisioned instance you need to rebuild
+the affected databases
+
+See https://dev.mysql.com/doc/refman/5.6/en/tablespace-enabling.html for more
+details on the innodb_file_per_table configuration.
+
+.. code-block:: YAML
+
+  mariadb_innodb_file_per_table: true
+
+Chunk size for InnoDB buffer pool resizing operations:
+mariadb_innodb_buffer_pool_chunk_size: 128M
+Size of the InnoDB buffer pool, where InnoDB caches table and index data (must
+be a multiple of
+mariadb_innodb_buffer_pool_chunk_size * mariadb_innodb_buffer_pool_instances):
+mariadb_innodb_buffer_pool_size: 128M
+Number of regions that the InnoDB buffer pool is divided into:
+mariadb_innodb_buffer_pool_instances: {{ 1 if mariadb_innodb_buffer_pool_size < 1*1024*1024*1024 else 8 }}
+Size of each log file in a log group:
+mariadb_innodb_log_file_size: 5M
+Passphrase for SSL CA private key.
+
+.. code-block:: YAML
+
+   mariadb_ca_privatekey_passphrase: ''
+   
+Enable mariadb SSL encryption.
+
+.. code-block:: YAML
+
+   mariadb_ssl: False

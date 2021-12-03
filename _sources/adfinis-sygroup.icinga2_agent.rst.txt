@@ -1,0 +1,67 @@
+
+
+Default values
+==============
+
+   
+The yum repository and key from Icinga
+
+.. code-block:: YAML
+
+   icinga2_agent_yum:
+     repo: "http://packages.icinga.com/epel/$releasever/release/"
+     key: "http://packages.icinga.com/icinga.key"
+   
+The apt repository and key from Icinga
+
+.. code-block:: YAML
+
+   icinga2_agent_apt:
+     repo: "deb http://packages.icinga.com/{{ ansible_distribution|lower }} icinga-{{ ansible_distribution_release }} main"
+     key: "http://packages.icinga.com/icinga.key"
+   
+The suse repository and key from Icinga
+
+.. code-block:: YAML
+
+   icinga2_agent_suse:
+     repo: "http://packages.icinga.com/SUSE/ICINGA-release.repo"
+   
+The apt repository for stretch-backports
+
+.. code-block:: YAML
+
+   stretch_backports_apt:
+     repo: "deb http://deb.debian.org/debian stretch-backports main"
+   
+Override agent packages
+
+.. code-block:: YAML
+
+   icinga2_agent_packages_override: []
+   
+Override enable repo for agent packages
+
+.. code-block:: YAML
+
+   icinga2_agent_packages_enablerepo_override: []
+   
+Base url of the epel repository
+
+.. code-block:: YAML
+
+   icinga2_agent_yum_epel_baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+   
+Extra yum repositories to be added
+Example:
+icinga2_agent_yum_extra_repos:
+ - name: base
+   file: centos-base
+   baseurl: https://example.com/centos/7/os/$basearch
+   enabled: no
+   gpgkey: https://www.centos.org/keys/RPM-GPG-KEY-CentOS-7
+   description: CentOS-7 - Base
+
+.. code-block:: YAML
+
+   icinga2_agent_yum_extra_repos: []

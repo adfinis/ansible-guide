@@ -1,0 +1,12 @@
+
+
+Default values
+==============
+
+   
+Storage control (journald.conf(5), `Storage=` option)
+If empty, use journald default (`auto`):
+
+.. code-block:: YAML
+
+   systemd_journald_storage:
