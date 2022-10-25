@@ -24,8 +24,8 @@ Tasks
 
 - Each file starts with ``---`` and a empty line after that.
 - Each task has a empty line above the task
-- Tasks have a name which contains only lower case letters, numbers
-  and spaces
+- Tasks have a name which contains only letters, numbers
+  and spaces.  Task names start with an uppercase.
 - Each argument of a module is on its own line
 - Key and value are separated by colon and space.
 - Values don't need to be quoted if they are single words
