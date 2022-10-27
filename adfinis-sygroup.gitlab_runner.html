@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,73 +122,73 @@
            <div itemprop="articleBody">
              
   <section id="role-gitlab-runner">
-<h1>ROLE GITLAB_RUNNER<a class="headerlink" href="#role-gitlab-runner" title="Permalink to this headline"></a></h1>
+<h1>ROLE GITLAB_RUNNER<a class="headerlink" href="#role-gitlab-runner" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-gitlab_runner/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-gitlab_runner.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-gitlab_runner.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://travis-ci.org/adfinis-sygroup/ansible-role-gitlab_runner"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-gitlab_runner.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-gitlab_runner.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/gitlab_runner"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.gitlab_runner-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.gitlab_runner-660198.svg?style=flat-square" /></a>
 <p>This role is used to install a new gitlab runner and register it.</p>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this headline"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
 <p>The following variables are available:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># The URL of the GitLab to register to</span>
-<span class="nt">gitlab_runner_ci_url</span><span class="p">:</span> <span class="s">&#39;https://git.example.com&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># The URL of the GitLab to register to</span><span class="w"></span>
+<span class="nt">gitlab_runner_ci_url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://git.example.com&#39;</span><span class="w"></span>
 
-<span class="c1"># The token needed for registering the runner</span>
-<span class="c1"># https://git.adfinis-sygroup.ch/admin/runners</span>
-<span class="nt">gitlab_runner_ci_token</span><span class="p">:</span> <span class="s">&#39;my_ci_token&#39;</span>
+<span class="c1"># The token needed for registering the runner</span><span class="w"></span>
+<span class="c1"># https://git.adfinis-sygroup.ch/admin/runners</span><span class="w"></span>
+<span class="nt">gitlab_runner_ci_token</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;my_ci_token&#39;</span><span class="w"></span>
 
-<span class="c1"># The docker images used as default image</span>
-<span class="nt">gitlab_runner_docker_image</span><span class="p">:</span> <span class="s">&#39;docker:stable&#39;</span>
+<span class="c1"># The docker images used as default image</span><span class="w"></span>
+<span class="nt">gitlab_runner_docker_image</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;docker:stable&#39;</span><span class="w"></span>
 
-<span class="c1"># Run the container in priviledged mode or not</span>
-<span class="nt">gitlab_runner_docker_privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+<span class="c1"># Run the container in priviledged mode or not</span><span class="w"></span>
+<span class="nt">gitlab_runner_docker_privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
 
-<span class="c1"># The default package list</span>
-<span class="nt">gitlab_runner_package_list</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ca-certificates</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">gitlab-runner</span>
+<span class="c1"># The default package list</span><span class="w"></span>
+<span class="nt">gitlab_runner_package_list</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ca-certificates</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitlab-runner</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this headline"></a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gitlab-runners</span>
-  <span class="nt">vars</span><span class="p">:</span>
-    <span class="nt">gitlab_runner_ci_url</span><span class="p">:</span> <span class="s">&#39;https://git.example.com&#39;</span>
-    <span class="nt">gitlab_runner_ci_token</span><span class="p">:</span> <span class="s">&#39;thisismytoken&#39;</span>
-  <span class="nt">roles</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span> <span class="nv">adfinis-sygroup.gitlab_runner</span> <span class="p p-Indicator">}</span>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gitlab-runners</span><span class="w"></span>
+<span class="w">  </span><span class="nt">vars</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">gitlab_runner_ci_url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://git.example.com&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">gitlab_runner_ci_token</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;thisismytoken&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.gitlab_runner</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-gitlab_runner/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this headline"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
 <p>gitlab_runner role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
 <p>The URL of the GitLab to register to</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_ci_url</span><span class="p">:</span> <span class="s">&#39;https://git.example.com&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_ci_url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;https://git.example.com&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The token needed for registering the runner
 <a class="reference external" href="https://git.adfinis-sygroup.ch/admin/runners">https://git.adfinis-sygroup.ch/admin/runners</a></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_ci_token</span><span class="p">:</span> <span class="s">&#39;my_ci_token&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_ci_token</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;my_ci_token&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The docker images used as default image</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_docker_image</span><span class="p">:</span> <span class="s">&#39;docker:stable&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_docker_image</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;docker:stable&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Run the container in priviledged mode or not</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_docker_privileged</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">gitlab_runner_docker_privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

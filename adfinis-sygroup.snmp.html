@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,19 +122,19 @@
            <div itemprop="articleBody">
              
   <section id="role-snmp">
-<h1>ROLE SNMP<a class="headerlink" href="#role-snmp" title="Permalink to this headline"></a></h1>
+<h1>ROLE SNMP<a class="headerlink" href="#role-snmp" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-snmp/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-snmp.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-snmp.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-snmp"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-snmp.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-snmp.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/snmp"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.snmp-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.snmp-660198.svg?style=flat-square" /></a>
 <p>A brief description of the role goes here.</p>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>Any pre-requisites that may not be covered by Ansible itself or the role
 should be mentioned here. For instance, if the role uses the EC2 module, it
 may be a good idea to mention in this section that the boto package is required.</p>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this headline"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
 <p>A description of the settable variables for this role should go here, including
 any variables that are in defaults/main.yml, vars/main.yml, and any variables
 that can/should be set via parameters to the role. Any variables that are read
@@ -140,115 +142,115 @@ from other roles and/or the global scope (ie. hostvars, group vars, etc.)
 should be mentioned here as well.</p>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>A list of other roles hosted on Galaxy should go here, plus any details in
 regards to parameters that may need to be set for other roles, or variables
 that are used from other roles.</p>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this headline"></a></h2>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
 <p>Including an example of how to use your role (for instance, with variables
 passed in as parameters) is always nice for users too:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">servers</span>
-  <span class="nt">roles</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span> <span class="nv">adfinis-sygroup.snmp</span> <span class="p p-Indicator">}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.snmp</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-snmp/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this headline"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
 <p>snmp role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
 <p>SNMP related packages (e.g. lm-sensors).</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_additional_packages</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_additional_packages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>String with <code class="docutils literal notranslate"><span class="pre">snmpd</span></code> log-related options, can be used to change log
 verbosity for debugging. E.g. <code class="docutils literal notranslate"><span class="pre">-LScd</span></code></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_logging_options</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_logging_options</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Path on the remote host where extension scripts are stored.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_extension_scripts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/local/lib/snmpd</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_extension_scripts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/local/lib/snmpd</span><span class="w"></span>
 </pre></div>
 </div>
 <section id="network-options-firewall-tcp-wrappers">
-<h3>Network options, firewall, TCP wrappers<a class="headerlink" href="#network-options-firewall-tcp-wrappers" title="Permalink to this headline"></a></h3>
+<h3>Network options, firewall, TCP wrappers<a class="headerlink" href="#network-options-firewall-tcp-wrappers" title="Permalink to this heading"></a></h3>
 <p>List of addresses on which to listen for incoming connections. By default
 <code class="docutils literal notranslate"><span class="pre">snmpd</span></code> listens on all interfaces and firewall / TCP wrappers are used to
 limit what remote hosts can connect.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_agent_address</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="s">&#39;udp:0.0.0.0:161&#39;</span>
-  <span class="p p-Indicator">-</span> <span class="s">&#39;udp6:[::]:161&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_agent_address</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;udp:0.0.0.0:161&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;udp6:[::]:161&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="syslocation-syscontact-sysname-snmp-variables">
-<h3>sysLocation, sysContact, sysName SNMP variables<a class="headerlink" href="#syslocation-syscontact-sysname-snmp-variables" title="Permalink to this headline"></a></h3>
+<h3>sysLocation, sysContact, sysName SNMP variables<a class="headerlink" href="#syslocation-syscontact-sysname-snmp-variables" title="Permalink to this heading"></a></h3>
 <p>Organization name used in <code class="docutils literal notranslate"><span class="pre">sysLocation</span></code> and <code class="docutils literal notranslate"><span class="pre">sysContact</span></code> SNMP variables.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_organization</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_domain.split(&quot;.&quot;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">capitalize</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_organization</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_domain.split(&quot;.&quot;)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">first</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">capitalize</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>String set as <code class="docutils literal notranslate"><span class="pre">sysLocation</span></code> SNMP variable.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_location</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_organization</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">snmp_sys_location_name</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_location</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_organization</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">snmp_sys_location_name</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Name of the “virtual” location, appended to the organization name derived
 from DNS domain name.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_location_name</span><span class="p">:</span> <span class="s">&#39;Data</span><span class="nv"> </span><span class="s">Center&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_location_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Data</span><span class="nv"> </span><span class="s">Center&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Contact information for a device set as <code class="docutils literal notranslate"><span class="pre">sysContact</span></code> SNMP variable.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_contact</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_sys_contact_name</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">&lt;&quot;</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">snmp_sys_contact_email</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;&gt;&quot;</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_contact</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_sys_contact_name</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">&lt;&quot;</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">snmp_sys_contact_email</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;&gt;&quot;</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Name of the contact set as <code class="docutils literal notranslate"><span class="pre">sysContact</span></code> variable.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_contact_name</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_organization</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">System</span><span class="nv"> </span><span class="s">Administrator&quot;</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_contact_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_organization</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">&quot;</span><span class="nv"> </span><span class="s">System</span><span class="nv"> </span><span class="s">Administrator&quot;</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>E-mail address of the contact set as <code class="docutils literal notranslate"><span class="pre">sysContact</span></code> variable.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_contact_email</span><span class="p">:</span> <span class="s">&#39;root@{{</span><span class="nv"> </span><span class="s">ansible_domain</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_contact_email</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;root@{{</span><span class="nv"> </span><span class="s">ansible_domain</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Host FQDN set as the <code class="docutils literal notranslate"><span class="pre">sysName</span></code> SNMP variable.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_name</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_fqdn</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_sys_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_fqdn</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="cpu-load-average-monitoring">
-<h3>CPU load average monitoring<a class="headerlink" href="#cpu-load-average-monitoring" title="Permalink to this headline"></a></h3>
+<h3>CPU load average monitoring<a class="headerlink" href="#cpu-load-average-monitoring" title="Permalink to this heading"></a></h3>
 <p>Enable or disable load average monitoring</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Name of the load average “profile” to use, see <code class="docutils literal notranslate"><span class="pre">snmp_load_percent_map</span></code> and
 <code class="docutils literal notranslate"><span class="pre">snmp_load_weight_map</span></code> variables for list of profiles.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_profile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Name of the profile used to define amount of available CPU power taken into
 account for load average profile calculation. See <code class="docutils literal notranslate"><span class="pre">snmp_load_percent_map</span></code>
 variable for list of available profiles.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_percent</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_load_profile</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_percent</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_load_profile</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Name of the profile used to scale the load average profile calculation for
 different time periods. See <code class="docutils literal notranslate"><span class="pre">snmp_load_percent_map</span></code> variable for list of
 available profiles.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_weight</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_load_profile</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_weight</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">snmp_load_profile</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Base value used to calculate load average profiles - number of vCPU cores.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_base</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_processor_vcpus</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_base</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_processor_vcpus</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dict with CPU percentage profiles.</p>
@@ -259,11 +261,11 @@ with 4 vCPUs, 100% means 4 vCPUs, 50% means ~2 vCPUs, 200% means ~8 vCPUs,
 and so on.</p>
 <p>Values lower than 100% mean that alerts will be fired earlier, values higher
 than 100% give processes more time to do the work before firing the alerts.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_percent_map</span><span class="p">:</span>
-  <span class="nt">default</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">90</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">90</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_percent_map</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Dict with load average weight profiles.</p>
@@ -274,76 +276,76 @@ scaled. You can use this parameter to make each value lower (with less than
 profile independently of the number of cores available.</p>
 <p>It’s hard to explain, essentially it’s another parameter which you can use to
 tune the load average monitoring.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_weight_map</span><span class="p">:</span>
-  <span class="nt">default</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.5</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.7</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.8</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_weight_map</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.7</span><span class="w"></span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.8</span><span class="w"></span>
 </pre></div>
 </div>
 <p>1 minute load average value which will trigger a SNMP trap.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_1min</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">(((snmp_load_base</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">*</span>
-                       <span class="s">(snmp_load_percent_map[snmp_load_percent][0]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span>
-                        <span class="s">snmp_load_weight_map[snmp_load_weight][0]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_1min</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">(((snmp_load_base</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">*</span><span class="w"></span>
+<span class="w">                       </span><span class="s">(snmp_load_percent_map[snmp_load_percent][0]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span><span class="w"></span>
+<span class="w">                        </span><span class="s">snmp_load_weight_map[snmp_load_weight][0]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>5 minute load average value which will trigger a SNMP trap.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_5min</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">(((snmp_load_base</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">*</span>
-                       <span class="s">(snmp_load_percent_map[snmp_load_percent][1]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span>
-                        <span class="s">snmp_load_weight_map[snmp_load_weight][1]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_5min</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">(((snmp_load_base</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">*</span><span class="w"></span>
+<span class="w">                       </span><span class="s">(snmp_load_percent_map[snmp_load_percent][1]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span><span class="w"></span>
+<span class="w">                        </span><span class="s">snmp_load_weight_map[snmp_load_weight][1]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>15 minute load average value which will trigger a SNMP trap.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_15min</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">(((snmp_load_base</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">*</span>
-                        <span class="s">(snmp_load_percent_map[snmp_load_percent][2]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span>
-                         <span class="s">snmp_load_weight_map[snmp_load_weight][2]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_load_15min</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">(((snmp_load_base</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">*</span><span class="w"></span>
+<span class="w">                        </span><span class="s">(snmp_load_percent_map[snmp_load_percent][2]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">/</span><span class="nv"> </span><span class="s">100)</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float</span><span class="nv"> </span><span class="s">*</span><span class="w"></span>
+<span class="w">                         </span><span class="s">snmp_load_weight_map[snmp_load_weight][2]</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">float)</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="snmpv2-communities">
-<h3>SNMPv2 communities<a class="headerlink" href="#snmpv2-communities" title="Permalink to this headline"></a></h3>
+<h3>SNMPv2 communities<a class="headerlink" href="#snmpv2-communities" title="Permalink to this heading"></a></h3>
 <p>Define snmp read only communities</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rocommunity</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rocommunity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>E.g.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rocommunity</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">passwd</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-    <span class="nt">source</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rocommunity</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">passwd</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Define snmp read write communities</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rwcommunity</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rwcommunity</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>E.g.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rwcommunity</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">passwd</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-    <span class="nt">source</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_rwcommunity</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">passwd</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="snmpv3-accounts">
-<h3>SNMPv3 accounts<a class="headerlink" href="#snmpv3-accounts" title="Permalink to this headline"></a></h3>
+<h3>SNMPv3 accounts<a class="headerlink" href="#snmpv3-accounts" title="Permalink to this heading"></a></h3>
 <p>Create a local account</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_account_local_username</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-<span class="nt">snmp_account_local_password</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_account_local_username</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
+<span class="nt">snmp_account_local_password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Accounts list</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_accounts_list</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_accounts_list</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>E.g.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_accounts_list</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user1</span>
-    <span class="nt">authProtocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">(MD5|SHA)</span>                <span class="c1"># optional</span>
-    <span class="nt">authPassword</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">authpassphrase</span>
-    <span class="nt">privProtocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">(DES|AES)</span>                <span class="c1"># optional</span>
-    <span class="nt">privPassword</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">privpassphrase</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">user2</span>
-    <span class="nt">authPassword</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">authpassphrase_user2</span>
-    <span class="nt">privPassword</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">privpassphrase_user2</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">snmp_accounts_list</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user1</span><span class="w"></span>
+<span class="w">    </span><span class="nt">authProtocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(MD5|SHA)</span><span class="w">                </span><span class="c1"># optional</span><span class="w"></span>
+<span class="w">    </span><span class="nt">authPassword</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">authpassphrase</span><span class="w"></span>
+<span class="w">    </span><span class="nt">privProtocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(DES|AES)</span><span class="w">                </span><span class="c1"># optional</span><span class="w"></span>
+<span class="w">    </span><span class="nt">privPassword</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">privpassphrase</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">authPassword</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">authpassphrase_user2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">privPassword</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">privpassphrase_user2</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

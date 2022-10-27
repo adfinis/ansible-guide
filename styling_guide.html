@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,13 +75,13 @@
            <div itemprop="articleBody">
              
   <section id="styling-guide">
-<h1>Styling Guide<a class="headerlink" href="#styling-guide" title="Permalink to this headline"></a></h1>
+<h1>Styling Guide<a class="headerlink" href="#styling-guide" title="Permalink to this heading"></a></h1>
 <section id="yaml-syntax">
-<h2>YAML Syntax<a class="headerlink" href="#yaml-syntax" title="Permalink to this headline"></a></h2>
+<h2>YAML Syntax<a class="headerlink" href="#yaml-syntax" title="Permalink to this heading"></a></h2>
 <p>There is a basic guide at <a class="reference external" href="http://docs.ansible.com/ansible/YAMLSyntax.html">ansible docs</a>.
 We use an indention of 2 spaces, no tabs.</p>
 <section id="tasks">
-<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline"></a></h3>
+<h3>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
 
 <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">task</span> <span class="mi">1</span>
@@ -93,8 +95,8 @@ We use an indention of 2 spaces, no tabs.</p>
 <ul class="simple">
 <li><p>Each file starts with <code class="docutils literal notranslate"><span class="pre">---</span></code> and a empty line after that.</p></li>
 <li><p>Each task has a empty line above the task</p></li>
-<li><p>Tasks have a name which contains only lower case letters, numbers
-and spaces</p></li>
+<li><p>Tasks have a name which contains only letters, numbers
+and spaces.  Task names start with an uppercase letter.</p></li>
 <li><p>Each argument of a module is on its own line</p></li>
 <li><p>Key and value are separated by colon and space.</p></li>
 <li><p>Values don’t need to be quoted if they are single words</p></li>
@@ -104,7 +106,7 @@ preference.</p></li>
 </ul>
 </section>
 <section id="handler-tasks">
-<h3>Handler Tasks<a class="headerlink" href="#handler-tasks" title="Permalink to this headline"></a></h3>
+<h3>Handler Tasks<a class="headerlink" href="#handler-tasks" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
 
 <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">role</span> <span class="n">handler</span> <span class="n">task</span> <span class="mi">1</span>
@@ -119,7 +121,7 @@ preference.</p></li>
 </ul>
 </section>
 <section id="variables">
-<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline"></a></h3>
+<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
 
 <span class="c1"># role_var1 description</span>
@@ -136,7 +138,7 @@ preference.</p></li>
 </ul>
 </section>
 <section id="registered-variables">
-<h3>Registered variables<a class="headerlink" href="#registered-variables" title="Permalink to this headline"></a></h3>
+<h3>Registered variables<a class="headerlink" href="#registered-variables" title="Permalink to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
 
 <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">task</span> <span class="mi">1</span>
@@ -155,7 +157,7 @@ variables).</p></li>
 </section>
 </section>
 <section id="vim-config">
-<h2>vim Config<a class="headerlink" href="#vim-config" title="Permalink to this headline"></a></h2>
+<h2>vim Config<a class="headerlink" href="#vim-config" title="Permalink to this heading"></a></h2>
 <p>For syntax highlighting there is a vim plugin on GitHub
 <a class="reference external" href="https://github.com/pearofducks/ansible-vim">pearofducks/ansible-vim</a>.
 This plugin will also make a better indention feeling in vim with yaml.</p>

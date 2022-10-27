@@ -479,7 +479,7 @@ icinga2_web_permissions:
        groups:
          - Administrators
        permissions:
-        - '*'
+         - '*'
    
 Director Resources configuration
 For further information, consult the official icingaweb2 documentation at

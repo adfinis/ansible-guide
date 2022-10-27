@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,23 +122,23 @@
            <div itemprop="articleBody">
              
   <section id="default-values">
-<h1>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h1>
+<h1>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h1>
 <p>The icinga2 master zone</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_master_zone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monitoring-master</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_master_zone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring-master</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The parent zone of a client. Needed if a client is behind a satellite</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_client_parent_zone</span><span class="p">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">icinga2_master_master_zone</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_client_parent_zone</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">icinga2_master_master_zone</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>All users which icinga2 should know. Containing the mailaddress and phone number
 Check the official Icinga2 documentation for further information
 <a class="reference external" href="https://icinga.com/docs/icinga2/latest/doc/09-object-types/#user">https://icinga.com/docs/icinga2/latest/doc/09-object-types/#user</a></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_users</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icingaadmin</span>
-    <span class="nt">email</span><span class="p">:</span> <span class="s">&#39;alertme@example.com&#39;</span>
-    <span class="nt">groups</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">icingaadmins</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_users</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icingaadmin</span><span class="w"></span>
+<span class="w">    </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;alertme@example.com&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icingaadmins</span><span class="w"></span>
 </pre></div>
 </div>
 <dl>
@@ -180,9 +182,9 @@ types: [] # optional, not set by default</p>
 <p>All groups which icinga2 should know.
 Check the official icinga2 documentation for further information
 <a class="reference external" href="https://icinga.com/docs/icinga2/latest/doc/09-object-types/#usergroup">https://icinga.com/docs/icinga2/latest/doc/09-object-types/#usergroup</a></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_usergroups</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icingaadmins</span>
-    <span class="nt">displayname</span><span class="p">:</span> <span class="s">&#39;Icinga2</span><span class="nv"> </span><span class="s">Admins&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_usergroups</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icingaadmins</span><span class="w"></span>
+<span class="w">    </span><span class="nt">displayname</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Icinga2</span><span class="nv"> </span><span class="s">Admins&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <dl>
@@ -199,7 +201,7 @@ groups: [] # optional, not set by default</p>
 </dd>
 </dl>
 <p>Icinga2 Hostgroups</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_hostgroups</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_hostgroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <dl>
@@ -228,7 +230,7 @@ value: ‘Windows’</p></li>
 </dd>
 </dl>
 <p>Icinga2 ServiceGroups</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_servicegroups</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_servicegroups</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <dl>
@@ -267,139 +269,139 @@ value: ‘service.check_command’</p></li>
 </dd>
 </dl>
 <p>A list of all icinga2 api users</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span>  <span class="nt">icinga2_master_api_users</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-<span class="p p-Indicator">-</span> <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
-  <span class="nt">password</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
-  <span class="nt">permissions</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;*&#39;</span>
-<span class="p p-Indicator">-</span> <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">token-generator</span>
-  <span class="nt">password</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
-  <span class="nt">permissions</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;actions/generate-ticket&#39;</span>
-<span class="p p-Indicator">-</span> <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
-  <span class="nt">password</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
-  <span class="nt">permissions</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;actions/generate-ticket&#39;</span>
-    <span class="nt">filter</span><span class="p">:</span> <span class="s">&#39;&quot;host.name&quot;</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&quot;bar&quot;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">icinga2_master_api_users</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span><span class="w"></span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;passw0rd&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">permissions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">token-generator</span><span class="w"></span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;passw0rd&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">permissions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;actions/generate-ticket&#39;</span><span class="w"></span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span><span class="w"></span>
+<span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;passw0rd&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">permissions</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;actions/generate-ticket&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">filter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&quot;host.name&quot;</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">&quot;bar&quot;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Icinga2 timeperiods</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_timeperiods</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">holidays</span>
-    <span class="nt">display_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Holidays</span>
-    <span class="nt">ranges</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="s">&quot;december</span><span class="nv"> </span><span class="s">25&quot;</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">premium</span>
-    <span class="nt">display_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SLA Premium</span>
-    <span class="nt">ranges</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tuesday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wednesday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">thursday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">friday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">saturday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sunday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">standard</span>
-    <span class="nt">display_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">SLA Standard</span>
-    <span class="nt">ranges</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">monday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tuesday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wednesday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">thursday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
-      <span class="p p-Indicator">-</span> <span class="nt">day</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">friday</span>
-        <span class="nt">time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span>
-    <span class="nt">excludes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">holidays</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_timeperiods</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">holidays</span><span class="w"></span>
+<span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Holidays</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ranges</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;december</span><span class="nv"> </span><span class="s">25&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">premium</span><span class="w"></span>
+<span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SLA Premium</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ranges</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tuesday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wednesday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thursday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">friday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">saturday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sunday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">00:00-24:00</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard</span><span class="w"></span>
+<span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SLA Standard</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ranges</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tuesday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wednesday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thursday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">friday</span><span class="w"></span>
+<span class="w">        </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">08:00-18:00</span><span class="w"></span>
+<span class="w">    </span><span class="nt">excludes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">holidays</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Enable the graphite writer feature</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The Host graphite is running on</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The port graphite is listening on</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2003</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_graphite_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2003</span><span class="w"></span>
 </pre></div>
 </div>
 <p># Icinga2 ido database settings
 Enable ido feature</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_ido_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_ido_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>icinga2 database name</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icinga2</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icinga2</span><span class="w"></span>
 </pre></div>
 </div>
 <p>icinga2 database host</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span><span class="w"></span>
 </pre></div>
 </div>
 <p>icinga2 database port</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3306</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306</span><span class="w"></span>
 </pre></div>
 </div>
 <p>icinga2 database user</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_user</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icinga2</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icinga2</span><span class="w"></span>
 </pre></div>
 </div>
 <p>icinga2 database password</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_pass</span><span class="p">:</span> <span class="s">&#39;passw0rd&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_pass</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;passw0rd&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>if the database connection uses ssl or not (true or false)</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_ssl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_ssl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </pre></div>
 </div>
 <p>the hostpattern which can access and login with the icinga2 user</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_hostpattern</span><span class="p">:</span> <span class="s">&#39;localhost&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_icinga2_database_hostpattern</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;localhost&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>icinga2 database root user</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_db_root_user</span><span class="p">:</span> <span class="s">&quot;user&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_db_root_user</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;user&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>icinga2 database root password</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_db_root_pass</span><span class="p">:</span> <span class="s">&quot;passw0rd&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_db_root_pass</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;passw0rd&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p># Template settings
 If you have own templates for the configuration files in /etc/icinga2/conf.d
 consider adjusting the names here and add your template to
 templates/etc/icinga2/conf.d in the root of your playbook folder.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_template_confd_apiusers</span><span class="p">:</span> <span class="s">&quot;api-users.conf&quot;</span>
-<span class="nt">icinga2_master_template_confd_notifications</span><span class="p">:</span> <span class="s">&quot;notifications.conf&quot;</span>
-<span class="nt">icinga2_master_template_confd_templates</span><span class="p">:</span> <span class="s">&quot;templates.conf&quot;</span>
-<span class="nt">icinga2_master_template_confd_commands</span><span class="p">:</span> <span class="s">&quot;commands.conf&quot;</span>
-<span class="nt">icinga2_master_template_confd_groups</span><span class="p">:</span> <span class="s">&quot;groups.conf&quot;</span>
-<span class="nt">icinga2_master_template_confd_timeperiods</span><span class="p">:</span> <span class="s">&quot;timeperiods.conf&quot;</span>
-<span class="nt">icinga2_master_template_confd_users</span><span class="p">:</span> <span class="s">&quot;users.conf&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_template_confd_apiusers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;api-users.conf&quot;</span><span class="w"></span>
+<span class="nt">icinga2_master_template_confd_notifications</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;notifications.conf&quot;</span><span class="w"></span>
+<span class="nt">icinga2_master_template_confd_templates</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;templates.conf&quot;</span><span class="w"></span>
+<span class="nt">icinga2_master_template_confd_commands</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;commands.conf&quot;</span><span class="w"></span>
+<span class="nt">icinga2_master_template_confd_groups</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;groups.conf&quot;</span><span class="w"></span>
+<span class="nt">icinga2_master_template_confd_timeperiods</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;timeperiods.conf&quot;</span><span class="w"></span>
+<span class="nt">icinga2_master_template_confd_users</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;users.conf&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>These variables can be adjusted if you have custom templates for the global
 templates directory which gets synced to all clients.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_template_globaltemplates</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="s">&quot;services.conf&quot;</span>
-  <span class="p p-Indicator">-</span> <span class="s">&quot;templates.conf&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_template_globaltemplates</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;services.conf&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;templates.conf&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Global Zones to be added to zones.conf</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_global_zones</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">global-templates</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_global_zones</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">global-templates</span><span class="w"></span>
 </pre></div>
 </div>
 <p># Global alerting settings
@@ -413,7 +415,7 @@ icinga2_master_twilio_account_sid: ‘account_sid’
 The auth token from <a class="reference external" href="https://www.twilio.com/console">https://www.twilio.com/console</a>
 icinga2_master_twilio_auth_token: ‘auth_token’
 Whether twilio sms are enabled or not</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_sms_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_sms_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The twilio phone numer used to send sms
@@ -428,11 +430,11 @@ icinga2_master_twilio_sms_additional_commands:</p>
 # the notification to mattermost
 - “/etc/icinga2/scripts/mattermost.sh “${NOTIFICATION_MESSAGE}””</p>
 </div></blockquote>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_sms_additional_commands</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_sms_additional_commands</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Whether twilio calls are enabled or not</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_phone_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_phone_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The twilio phone number used to make calls
@@ -444,7 +446,7 @@ Icinga2 shorturl cmd
 The command which gets substituted when this variable is set
 Example:
 icinga2_master_twilio_shorturl_cmd: “curl -s -X POST <a class="reference external" href="https://urlshort.example.com/api/new">https://urlshort.example.com/api/new</a> -d url=${LONGURL} | jq -r .shorturl”</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_shorturl_cmd</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_master_twilio_shorturl_cmd</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

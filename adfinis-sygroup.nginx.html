@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,19 +122,19 @@
            <div itemprop="articleBody">
              
   <section id="role-nginx">
-<h1>ROLE NGINX<a class="headerlink" href="#role-nginx" title="Permalink to this headline"></a></h1>
+<h1>ROLE NGINX<a class="headerlink" href="#role-nginx" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-nginx/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-nginx.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-nginx.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-nginx"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-nginx.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-nginx.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/nginx"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.nginx-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.nginx-660198.svg?style=flat-square" /></a>
 <p>A brief description of the role goes here.</p>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>Any pre-requisites that may not be covered by Ansible itself or the role
 should be mentioned here. For instance, if the role uses the EC2 module, it
 may be a good idea to mention in this section that the boto package is required.</p>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this headline"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
 <p>A description of the settable variables for this role should go here, including
 any variables that are in defaults/main.yml, vars/main.yml, and any variables
 that can/should be set via parameters to the role. Any variables that are read
@@ -140,183 +142,183 @@ from other roles and/or the global scope (ie. hostvars, group vars, etc.)
 should be mentioned here as well.</p>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>A list of other roles hosted on Galaxy should go here, plus any details in
 regards to parameters that may need to be set for other roles, or variables
 that are used from other roles.</p>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this headline"></a></h2>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
 <p>Including an example of how to use your role (for instance, with variables
 passed in as parameters) is always nice for users too:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">servers</span>
-  <span class="nt">roles</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span> <span class="nv">adfinis-sygroup.nginx</span> <span class="p p-Indicator">}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.nginx</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-nginx/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this headline"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
 <p>nginx role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
 <p>nginx upstream repository signing key</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_upstream_repo_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://nginx.org/keys/nginx_signing.key</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_upstream_repo_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://nginx.org/keys/nginx_signing.key</span><span class="w"></span>
 </pre></div>
 </div>
 <p>nginx upstream repository</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_upstream_repo_baseurl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://nginx.org/packages</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_upstream_repo_baseurl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://nginx.org/packages</span><span class="w"></span>
 </pre></div>
 </div>
 <p>number of worker processes of nginx
 as many cores as your system has, you should start worker processes</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_worker_processes</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_processor_cores</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_worker_processes</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_processor_cores</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>number of worker connections
 this should be a value around <code class="docutils literal notranslate"><span class="pre">ulimit</span> <span class="pre">-n</span></code>. The nginx default is 768.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_worker_connections</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">nginx_fact_file_descriptors</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_worker_connections</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">nginx_fact_file_descriptors</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>gzip compression level</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_comp_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_comp_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"></span>
 </pre></div>
 </div>
 <p>nginx gzip min length</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_min_length</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1000</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_min_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
 </pre></div>
 </div>
 <p>nginx gzip proxied</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_proxied</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">expired</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">no-cache</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">no-store</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">private</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">auth</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_proxied</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expired</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-cache</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no-store</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">private</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auth</span><span class="w"></span>
 </pre></div>
 </div>
 <p>nginx gzip compress mime types</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_types</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">text/plain</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">text/css</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">text/xml</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">application/javascript</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">application/xml</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">application/xml+rss</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">text/javascript</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_gzip_types</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text/plain</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text/css</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text/xml</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/json</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/javascript</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/xml</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">application/xml+rss</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text/javascript</span><span class="w"></span>
 </pre></div>
 </div>
 <p>nginx ssl protocols to support</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_ssl_protocols</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1.1</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1.2</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_ssl_protocols</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1.1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1.2</span><span class="w"></span>
 </pre></div>
 </div>
 <p>nginx ssl ciphersuite</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_ssl_ciphers</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-CHACHA20-POLY1305</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-CHACHA20-POLY1305</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES128-GCM-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES128-GCM-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES256-GCM-SHA384</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES256-GCM-SHA384</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES128-GCM-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES256-GCM-SHA384</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES128-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES128-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES128-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES256-SHA384</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES128-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES256-SHA384</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES256-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES256-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES128-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES128-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES256-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES256-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-DES-CBC3-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-DES-CBC3-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">EDH-RSA-DES-CBC3-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AES128-GCM-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AES256-GCM-SHA384</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AES128-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AES256-SHA256</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AES128-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">AES256-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">DES-CBC3-SHA</span>
-  <span class="p p-Indicator">-</span> <span class="s">&#39;!DSS&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_ssl_ciphers</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-CHACHA20-POLY1305</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-CHACHA20-POLY1305</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES128-GCM-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES128-GCM-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES256-GCM-SHA384</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES256-GCM-SHA384</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES128-GCM-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES256-GCM-SHA384</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES128-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES128-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES128-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES256-SHA384</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES128-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES256-SHA384</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-AES256-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-AES256-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES128-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES128-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES256-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DHE-RSA-AES256-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-ECDSA-DES-CBC3-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ECDHE-RSA-DES-CBC3-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">EDH-RSA-DES-CBC3-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES128-GCM-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES256-GCM-SHA384</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES128-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES256-SHA256</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES128-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AES256-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DES-CBC3-SHA</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;!DSS&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A list of nignx virtual hosts. Default is an empty list.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_vhosts</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_vhosts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Following are some examples how to define virtual hosts.
 The name of a virtualhost is used as filename and as servername.
 The value of type is used to choose the virtualhost config template.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_vhosts</span><span class="p">:</span>
-  <span class="c1"># this example shows how to confiugre a standard website with a</span>
-  <span class="c1"># documentroot and php</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">www.example.com</span>
-    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">standard</span>
-    <span class="nt">acme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-    <span class="nt">ssl_dhparam</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/dh4096.pem</span>
-    <span class="nt">ssl_crt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/certs/www.example.com_fullchain.pem</span>
-    <span class="nt">ssl_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/local/www.example.com_key.pem</span>
-    <span class="nt">ssl_hsts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">ssl_hsts_age</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15768000</span>
-    <span class="nt">ssl_stapling</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">document_root</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/www/www.example.com</span>
-    <span class="nt">index</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">index.html</span>
-    <span class="nt">php_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="c1"># this example shows how to create a reverse proxy with an upstream server</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">proxy.example.com</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">proxy</span>
-    <span class="nt">ssl_dhparam</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/dh4096.pem</span>
-    <span class="nt">ssl_crt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/certs/proxy.example.com_fullchain.pem</span>
-    <span class="nt">ssl_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/local/proxy.example.com_key.pem</span>
-    <span class="nt">proxy</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
-        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://localhost:8080/</span>
-  <span class="c1"># this example shows how to configure a website with cgi-bin</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">icinga.example.com</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">standard</span>
-    <span class="nt">ssl_dhparam</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/dh4096.pem</span>
-    <span class="nt">ssl_crt</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/certs/icinga.example.com_fullchain.pem</span>
-    <span class="nt">ssl_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/ssl/local/icinga.example.com_key.pem</span>
-    <span class="nt">document_root</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/share/icinga/htdocs</span>
-    <span class="nt">alias</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/icinga</span>
-        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/share/icinga/htdocs</span>
-      <span class="p p-Indicator">-</span> <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/stylesheets</span>
-        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/icinga/stylesheets</span>
-      <span class="p p-Indicator">-</span> <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/icinga/stylesheets</span>
-        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/etc/icinga/stylesheets</span>
-    <span class="nt">cgi_bin</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">location</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/cgi-bin/icinga</span>
-        <span class="nt">root</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/lib/cgi-bin/icinga</span>
-        <span class="nt">document_root</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/lib</span>
-  <span class="c1"># this example shows how to configure nginx with autoindex for listing a directory</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mirror.example.com</span>
-    <span class="nt">default</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">standard-with-http</span>
-    <span class="nt">acme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">document_root</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/lib/mirror</span>
-    <span class="nt">alias</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">src</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/</span>
-        <span class="nt">dest</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/var/lib/mirror/</span>
-        <span class="nt">autoindex</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">nginx_vhosts</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># this example shows how to confiugre a standard website with a</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># documentroot and php</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">www.example.com</span><span class="w"></span>
+<span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard</span><span class="w"></span>
+<span class="w">    </span><span class="nt">acme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_dhparam</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/dh4096.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_crt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/certs/www.example.com_fullchain.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/local/www.example.com_key.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_hsts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_hsts_age</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15768000</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_stapling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">document_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/www/www.example.com</span><span class="w"></span>
+<span class="w">    </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">index.html</span><span class="w"></span>
+<span class="w">    </span><span class="nt">php_enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># this example shows how to create a reverse proxy with an upstream server</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proxy.example.com</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">proxy</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_dhparam</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/dh4096.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_crt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/certs/proxy.example.com_fullchain.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/local/proxy.example.com_key.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">proxy</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8080/</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># this example shows how to configure a website with cgi-bin</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icinga.example.com</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_dhparam</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/dh4096.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_crt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/certs/icinga.example.com_fullchain.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ssl_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssl/local/icinga.example.com_key.pem</span><span class="w"></span>
+<span class="w">    </span><span class="nt">document_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/share/icinga/htdocs</span><span class="w"></span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/icinga</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/share/icinga/htdocs</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/stylesheets</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/icinga/stylesheets</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/icinga/stylesheets</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/icinga/stylesheets</span><span class="w"></span>
+<span class="w">    </span><span class="nt">cgi_bin</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/cgi-bin/icinga</span><span class="w"></span>
+<span class="w">        </span><span class="nt">root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/lib/cgi-bin/icinga</span><span class="w"></span>
+<span class="w">        </span><span class="nt">document_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/lib</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># this example shows how to configure nginx with autoindex for listing a directory</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mirror.example.com</span><span class="w"></span>
+<span class="w">    </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">standard-with-http</span><span class="w"></span>
+<span class="w">    </span><span class="nt">acme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">document_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/mirror</span><span class="w"></span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/</span><span class="w"></span>
+<span class="w">        </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/mirror/</span><span class="w"></span>
+<span class="w">        </span><span class="nt">autoindex</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

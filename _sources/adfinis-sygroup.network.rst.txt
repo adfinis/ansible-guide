@@ -130,3 +130,7 @@ A possible list of interfaces and their configuration look like this:
     - device: eth1
       tmpl: ethernet
       ipv4_dhcp: True
+    # a interface which configured automaticly
+    - device: eth1
+      tmpl: ethernet
+      ipv6_auto: True

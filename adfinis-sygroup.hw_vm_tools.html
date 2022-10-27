@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,19 +122,19 @@
            <div itemprop="articleBody">
              
   <section id="role-hw-vm-tools">
-<h1>ROLE HW_VM_TOOLS<a class="headerlink" href="#role-hw-vm-tools" title="Permalink to this headline"></a></h1>
+<h1>ROLE HW_VM_TOOLS<a class="headerlink" href="#role-hw-vm-tools" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-hw_vm_tools/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-hw_vm_tools.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-hw_vm_tools.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-hw_vm_tools"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-hw_vm_tools.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-hw_vm_tools.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/hw_vm_tools"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.hw_vm_tools-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.hw_vm_tools-660198.svg?style=flat-square" /></a>
 <p>A brief description of the role goes here.</p>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>Any pre-requisites that may not be covered by Ansible itself or the role
 should be mentioned here. For instance, if the role uses the EC2 module, it
 may be a good idea to mention in this section that the boto package is required.</p>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this headline"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
 <p>A description of the settable variables for this role should go here, including
 any variables that are in defaults/main.yml, vars/main.yml, and any variables
 that can/should be set via parameters to the role. Any variables that are read
@@ -140,34 +142,34 @@ from other roles and/or the global scope (ie. hostvars, group vars, etc.)
 should be mentioned here as well.</p>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>A list of other roles hosted on Galaxy should go here, plus any details in
 regards to parameters that may need to be set for other roles, or variables
 that are used from other roles.</p>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this headline"></a></h2>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
 <p>Including an example of how to use your role (for instance, with variables
 passed in as parameters) is always nice for users too:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">servers</span>
-  <span class="nt">roles</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span> <span class="nv">adfinis-sygroup.hw_vm_tools</span> <span class="p p-Indicator">}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.hw_vm_tools</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-hw_vm_tools/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this headline"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
 <p>hw_vm_tools role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 

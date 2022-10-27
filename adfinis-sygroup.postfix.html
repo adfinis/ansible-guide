@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,19 +122,19 @@
            <div itemprop="articleBody">
              
   <section id="role-postfix">
-<h1>ROLE POSTFIX<a class="headerlink" href="#role-postfix" title="Permalink to this headline"></a></h1>
+<h1>ROLE POSTFIX<a class="headerlink" href="#role-postfix" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-postfix/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-postfix.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-postfix.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-postfix"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-postfix.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-postfix.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/postfix"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.postfix-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.postfix-660198.svg?style=flat-square" /></a>
 <p>A brief description of the role goes here.</p>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>Any pre-requisites that may not be covered by Ansible itself or the role
 should be mentioned here. For instance, if the role uses the EC2 module, it
 may be a good idea to mention in this section that the boto package is required.</p>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this headline"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
 <p>A description of the settable variables for this role should go here, including
 any variables that are in defaults/main.yml, vars/main.yml, and any variables
 that can/should be set via parameters to the role. Any variables that are read
@@ -140,38 +142,38 @@ from other roles and/or the global scope (ie. hostvars, group vars, etc.)
 should be mentioned here as well.</p>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>A list of other roles hosted on Galaxy should go here, plus any details in
 regards to parameters that may need to be set for other roles, or variables
 that are used from other roles.</p>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this headline"></a></h2>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
 <p>Including an example of how to use your role (for instance, with variables
 passed in as parameters) is always nice for users too:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">servers</span>
-  <span class="nt">roles</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span> <span class="nv">adfinis-sygroup.postfix</span> <span class="p p-Indicator">}</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.postfix</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-postfix/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this headline"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
 <p>postfix role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
 <p>Settings for main.cf</p>
 <p>postfix role.
 Default: root</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The internet hostname of this mail system. The default is to use the
@@ -179,14 +181,14 @@ fully-qualified domain name (FQDN) from <code class="docutils literal notranslat
 non-FQDN result from <code class="docutils literal notranslate"><span class="pre">gethostname()</span></code> and append <code class="docutils literal notranslate"><span class="pre">.$mydomain</span></code>.
 <code class="docutils literal notranslate"><span class="pre">$myhostname</span></code> is used as a default value for many other configuration
 parameters.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_myhostname</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_fqdn</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_myhostname</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_fqdn</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The internet domain name of this mail system. The default is to use
 <code class="docutils literal notranslate"><span class="pre">$myhostname</span></code> minus the first component, or <code class="docutils literal notranslate"><span class="pre">localdomain</span></code> (Postfix 2.3
 and later). <code class="docutils literal notranslate"><span class="pre">$mydomain</span></code> is used as a default value for many other
 configuration parameters.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mydomain</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_domain</span><span class="nv"> </span><span class="s">}}&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mydomain</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ansible_domain</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The domain name that locally-posted mail appears to come from, and that
@@ -194,7 +196,7 @@ locally posted mail is delivered to. The default, <code class="docutils literal 
 adequate for small sites. If you run a domain with multiple machines, you
 should (1) change this to <code class="docutils literal notranslate"><span class="pre">$mydomain</span></code> and (2) set up a domain-wide alias
 database that aliases each user to <code class="docutils literal notranslate"><span class="pre">user&#64;that.users.mailhost</span></code>.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_myorigin</span><span class="p">:</span> <span class="s">&#39;$myhostname&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_myorigin</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;$myhostname&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The set of characters that can separate a user name from its extension
@@ -203,7 +205,7 @@ database that aliases each user to <code class="docutils literal notranslate"><s
 <code class="docutils literal notranslate"><span class="pre">.forward+foo</span></code> before trying user and <code class="docutils literal notranslate"><span class="pre">.forward</span></code>. This implementation
 recognizes one delimiter character and one extension per email address or
 <code class="docutils literal notranslate"><span class="pre">.forward</span></code> file name.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_recipient_delimiter</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_recipient_delimiter</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The network interface addresses that this mail system receives mail on.
@@ -211,8 +213,8 @@ Specify <code class="docutils literal notranslate"><span class="pre">all</span><
 <code class="docutils literal notranslate"><span class="pre">loopback-only</span></code> to receive mail on loopback network interfaces only
 (Postfix version 2.2 and later). The parameter also controls delivery of
 mail to <code class="docutils literal notranslate"><span class="pre">user&#64;[ip.address]</span></code>.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_inet_interfaces</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_inet_interfaces</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The list of domains that are delivered via the <code class="docutils literal notranslate"><span class="pre">$local_transport</span></code> mail
@@ -221,12 +223,12 @@ which looks up all recipients in <code class="docutils literal notranslate"><spa
 SMTP server validates recipient addresses with <code class="docutils literal notranslate"><span class="pre">$local_recipient_maps</span></code>
 and rejects non-existent recipients. See also the local domain class in the
 ADDRESS_CLASS_README file.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mydestination</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mydestination</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The list of “trusted” remote SMTP clients that have more privileges than
 “strangers”.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mynetworks</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mynetworks</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The method to generate the default value for the <code class="docutils literal notranslate"><span class="pre">mynetworks</span></code> parameter.
@@ -240,21 +242,21 @@ should “trust” remote SMTP clients in the same IP class A/B/C networks as
 the local machine. Caution: this may cause Postfix to “trust” your entire
 provider’s network. Instead, specify an explicit <code class="docutils literal notranslate"><span class="pre">mynetworks</span></code> list by
 hand, as described with the <code class="docutils literal notranslate"><span class="pre">mynetworks</span></code> configuration parameter.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mynetworks_style</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">host</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mynetworks_style</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The numerical Postfix SMTP server response code when a recipient address is
 local, and <code class="docutils literal notranslate"><span class="pre">$local_recipient_maps</span></code> specifies a list of lookup tables that
 does not match the recipient. A recipient address is local when its domain
 matches <code class="docutils literal notranslate"><span class="pre">$mydestination</span></code>, <code class="docutils literal notranslate"><span class="pre">$proxy_interfaces</span></code> or <code class="docutils literal notranslate"><span class="pre">$inet_interfaces</span></code>.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_unknown_local_recipient_reject_code</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">550</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_unknown_local_recipient_reject_code</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">550</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Optional lookup tables that alias specific mail addresses or domains to other
 local or remote address. The table format and lookups are documented in
 virtual(5). For an overview of Postfix address manipulations see the
 ADDRESS_REWRITING_README document.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_virtual_alias_maps</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_virtual_alias_maps</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Postfix is final destination for the specified list of virtual alias domains,
@@ -262,7 +264,7 @@ that is, domains for which all addresses are aliased to addresses in other
 local or remote domains. The SMTP server validates recipient addresses with
 <code class="docutils literal notranslate"><span class="pre">$virtual_alias_maps</span></code> and rejects non-existent recipients. See also the
 virtual alias domain class in the ADDRESS_CLASS_README file</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_virtual_alias_domains</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_virtual_alias_domains</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>List of TLS protocols that the Postfix SMTP client will exclude or include
@@ -270,32 +272,32 @@ with opportunistic TLS encryption. The default value is <code class="docutils li
 for Postfix releases after the middle of 2015, <code class="docutils literal notranslate"><span class="pre">!SSLv2</span></code> for older
 releases. Before Postfix 2.6, the Postfix SMTP client would use all
 protocols with opportunistic TLS.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_ssl_protocols</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1.1</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1.2</span>
-  <span class="p p-Indicator">-</span> <span class="s">&#39;!SSLv2&#39;</span>
-  <span class="p p-Indicator">-</span> <span class="s">&#39;!SSLv3&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_ssl_protocols</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1.1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1.2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;!SSLv2&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;!SSLv3&#39;</span><span class="w"></span>
 
-<span class="nt">postfix_tls_mandatory_protocols</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1.1</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">TLSv1.2</span>
-  <span class="p p-Indicator">-</span> <span class="s">&#39;!SSLv2&#39;</span>
-  <span class="p p-Indicator">-</span> <span class="s">&#39;!SSLv3&#39;</span>
+<span class="nt">postfix_tls_mandatory_protocols</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1.1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TLSv1.2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;!SSLv2&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;!SSLv3&#39;</span><span class="w"></span>
 
-<span class="nt">postfix_tls_loglevel</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="nt">postfix_tls_loglevel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Activate peer debugging
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Define the increment in verbose logging level when a remote client or
 server matches a pattern in the debug_peer_list parameter.
 default is 1</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Define Optional list of remote client or server hostname or network
@@ -304,27 +306,27 @@ amount specified in $debug_peer_level.
 Specify domain names, network/netmask patterns, “/file/name” patterns
 or “type:table” lookup tables. The right-hand side result from “type:table”
 lookups is ignored.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer_list</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer_list</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A possible peer debugging list can look like this:</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer_list</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="s">&quot;127.0.0.1&quot;</span>
-  <span class="p p-Indicator">-</span> <span class="s">&quot;example.com&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_debug_peer_list</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;127.0.0.1&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;example.com&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Define a list of aliases, they will be written to the <code class="docutils literal notranslate"><span class="pre">/etc/aliases</span></code> file.
 Default is an empty list.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_aliases</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_aliases</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A possible alias list can look like this:</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_aliases</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root</span>
-    <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">root@example.com</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_aliases</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span><span class="w"></span>
+<span class="w">    </span><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root@example.com</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_virtual_aliases</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_virtual_aliases</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A possible alias list can look like this:</p>
@@ -342,53 +344,53 @@ alias: <a class="reference external" href="mailto:sysop&#37;&#52;&#48;example&#4
 </ul>
 </dd>
 </dl>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_helo_required</span><span class="p">:</span> <span class="s">&quot;yes&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_helo_required</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;yes&quot;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Settings for master.cf</p>
 <p>Define if services in main.cf should run in chroot
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_smtp_chroot</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_smtp_chroot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate submisson service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_submisson</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_submisson</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate smtps service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_smtps</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_smtps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate ifmail service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_ifmail</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_ifmail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate bsmtp service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_bsmtp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_bsmtp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate scalemail-backend service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_scalemail_backend</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_scalemail_backend</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate mailman service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mailman</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_mailman</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate cyrus service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_cyrus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_cyrus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 <p>activate amavis-lmtp service
 default is false</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_amavis_lmtp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">postfix_amavis_lmtp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

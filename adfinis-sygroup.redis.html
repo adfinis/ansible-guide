@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,17 +122,17 @@
            <div itemprop="articleBody">
              
   <section id="role-redis">
-<h1>ROLE REDIS<a class="headerlink" href="#role-redis" title="Permalink to this headline"></a></h1>
+<h1>ROLE REDIS<a class="headerlink" href="#role-redis" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-redis/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-redis.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-redis.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://travis-ci.org/adfinis-sygroup/ansible-role-redis"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-redis.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-redis.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/redis"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.redis-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.redis-660198.svg?style=flat-square" /></a>
 <p>This role installs Redis, an in-memory data store.</p>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
 <p>none to date</p>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this headline"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>redis_packages: redis installation package</p></li>
 <li><p>redis_service: service name</p></li>
@@ -151,30 +153,30 @@
 </ul>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>none to date</p>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this headline"></a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">servers</span>
-  <span class="nt">roles</span><span class="p">:</span>
-     <span class="p p-Indicator">-</span> <span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span> <span class="nv">adfinis-sygroup.redis</span> <span class="p p-Indicator">}</span>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.redis</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-redis/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this headline"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
 <p>redis role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><dl class="simple">
 <dt>redis_packages:</dt><dd><ul class="simple">
@@ -184,42 +186,42 @@
 </dl>
 </div></blockquote>
 <p>service name</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w"></span>
 </pre></div>
 </div>
 <p>user owner for files</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_owner</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w"></span>
 </pre></div>
 </div>
 <p>group owner for files</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_group</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">redis</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">redis</span><span class="w"></span>
 </pre></div>
 </div>
 <p>service port</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6379</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6379</span><span class="w"></span>
 </pre></div>
 </div>
 <p>bind interface for redis connections</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">eth0</span>
-<span class="nt">redis_interface_fact_var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_{{ redis_interface }}</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_interface</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">eth0</span><span class="w"></span>
+<span class="nt">redis_interface_fact_var</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ansible_{{ redis_interface }}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>bind on external ip of the redis bind interface and on localhost;
 this variable can be used to define a custom (space separated) list
 of ip addresses, for instance, to amend a virtual ip</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_bind</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">hostvars[inventory_hostname][redis_interface_fact_var][&quot;ipv4&quot;][&quot;address&quot;]</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">127.0.0.1&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_bind</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">hostvars[inventory_hostname][redis_interface_fact_var][&quot;ipv4&quot;][&quot;address&quot;]</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">127.0.0.1&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>pid file</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_pidfile</span><span class="p">:</span> <span class="s">&#39;/var/run/redis_{{</span><span class="nv"> </span><span class="s">redis_port</span><span class="nv"> </span><span class="s">}}.pid&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_pidfile</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/run/redis_{{</span><span class="nv"> </span><span class="s">redis_port</span><span class="nv"> </span><span class="s">}}.pid&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>log level, any of debug, verbose, notice, warning</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_log_level</span><span class="p">:</span> <span class="s">&#39;notice&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_log_level</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;notice&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>log file, empty string to log to stdout</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_logfile</span><span class="p">:</span> <span class="s">&#39;/var/log/redis/redis.log&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_logfile</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/log/redis/redis.log&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>brute-force safe password, &lt; 512 chars
@@ -249,15 +251,15 @@ enable snapshotting by uncommenting desired entries, for instance</p>
 </dd>
 </dl>
 <p>db will be written inside this directory</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_db_dir</span><span class="p">:</span> <span class="s">&#39;/var/lib/redis&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_db_dir</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/lib/redis&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>filename of db dump</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_db_filename</span><span class="p">:</span> <span class="s">&#39;dump.rdb&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_db_filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;dump.rdb&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>location of redis config file</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_config_file</span><span class="p">:</span> <span class="s">&#39;/etc/redis.conf&#39;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">redis_config_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/etc/redis.conf&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>

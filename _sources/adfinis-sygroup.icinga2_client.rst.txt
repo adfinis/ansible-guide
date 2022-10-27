@@ -19,30 +19,12 @@ The default icinga2 parent zone
 
    icinga2_client_parent_zone: "monitoring-master"
    
-The API url of the icinga2 master
+The signing master where the signing ticket creation will be delegated to.
 
 .. code-block:: YAML
 
-   icinga2_client_api_url: "https://{{ icinga2_client_monitoring_parents[0] }}:5665"
+   icinga2_client_csr_signing_master: "{{ icinga2_client_monitoring_parents[0] }}"
    
-The API user of the icinga2 master
-
-.. code-block:: YAML
-
-   icinga2_client_api_user: "root"
-   
-The API password of the icinga2 master
-
-.. code-block:: YAML
-
-   icinga2_client_api_pass: ""
-   
-If the client can't reach the config master directly, set this to the
-next host which can reach the config master. unset by default
-icinga2_client_master_reachable_host: ''
-The signing master where the cert signing will be delegated
-to if icinga2_client_master_reachable_host is set.
-icinga2_client_csr_signing_master: ''
 Packages which should be installed additionally for custom check commands
 Defaults to an empty list
 

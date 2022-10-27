@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -73,13 +75,13 @@
            <div itemprop="articleBody">
              
   <section id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h1>
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
 <p>If you don’t know what <a class="reference external" href="https://www.ansible.com/">ansible</a> is, check out the
 <a class="reference external" href="http://docs.ansible.com/ansible/intro.html">intro</a>.  For general
 information, check out the
 <a class="reference external" href="http://docs.ansible.com/ansible/index.html">documentation index</a>.</p>
 <section id="directory-and-file-structure">
-<h2>Directory and file structure<a class="headerlink" href="#directory-and-file-structure" title="Permalink to this headline"></a></h2>
+<h2>Directory and file structure<a class="headerlink" href="#directory-and-file-structure" title="Permalink to this heading"></a></h2>
 <p>The Ansible Project publishes a <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_best_practices.html">Best Practices</a>
 our guideline is an extension to that guide.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
@@ -154,7 +156,7 @@ our guideline is an extension to that guide.</p>
 </div>
 </section>
 <section id="inventory">
-<h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this headline"></a></h2>
+<h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this heading"></a></h2>
 <p>The file <code class="docutils literal notranslate"><span class="pre">hosts</span></code> in the project directory contains a list of each server,
 if needed with the depending connection information.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jumphost</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
@@ -173,7 +175,7 @@ define special roles only for one hostgroup or to define some special
 variables for this group.</p>
 </section>
 <section id="task-structure">
-<h2>Task structure<a class="headerlink" href="#task-structure" title="Permalink to this headline"></a></h2>
+<h2>Task structure<a class="headerlink" href="#task-structure" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Playbooks</dt><dd><p>A playbook is a set of roles. For each playbook it can be defined in which
@@ -196,7 +198,7 @@ hostgroup it should be run, default is [all].
 </ul>
 </section>
 <section id="variable-structure">
-<h2>Variable structure<a class="headerlink" href="#variable-structure" title="Permalink to this headline"></a></h2>
+<h2>Variable structure<a class="headerlink" href="#variable-structure" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>roles/$ROLE/defaults/main.yml</dt><dd><p>Each variable in a role should have a default value. Default values are
@@ -226,7 +228,7 @@ configuration.</p>
 </ul>
 </section>
 <section id="variable-precedence">
-<h2>Variable Precedence<a class="headerlink" href="#variable-precedence" title="Permalink to this headline"></a></h2>
+<h2>Variable Precedence<a class="headerlink" href="#variable-precedence" title="Permalink to this heading"></a></h2>
 <p>This list shows different locations and their precendence of variables.
 The last valid rule has winning prioritization.</p>
 <ul class="simple">

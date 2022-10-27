@@ -14,7 +14,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -120,59 +122,45 @@
            <div itemprop="articleBody">
              
   <section id="default-values">
-<h1>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline"></a></h1>
+<h1>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h1>
 <p>The icinga2 parent hosts. Only 2 allowed.
 <a class="reference external" href="https://github.com/Icinga/icinga2/issues/3533">https://github.com/Icinga/icinga2/issues/3533</a></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_monitoring_parents</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">monitoring-master1.example.com</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">monitoring-master2.example.com</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_monitoring_parents</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring-master1.example.com</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">monitoring-master2.example.com</span><span class="w"></span>
 </pre></div>
 </div>
 <p>The default icinga2 parent zone</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_parent_zone</span><span class="p">:</span> <span class="s">&quot;monitoring-master&quot;</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_parent_zone</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;monitoring-master&quot;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The API url of the icinga2 master</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_api_url</span><span class="p">:</span> <span class="s">&quot;https://{{</span><span class="nv"> </span><span class="s">icinga2_client_monitoring_parents[0]</span><span class="nv"> </span><span class="s">}}:5665&quot;</span>
+<p>The signing master where the signing ticket creation will be delegated to.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_csr_signing_master</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">icinga2_client_monitoring_parents[0]</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The API user of the icinga2 master</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_api_user</span><span class="p">:</span> <span class="s">&quot;root&quot;</span>
-</pre></div>
-</div>
-<p>The API password of the icinga2 master</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_api_pass</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
-</pre></div>
-</div>
-<p>If the client can’t reach the config master directly, set this to the
-next host which can reach the config master. unset by default
-icinga2_client_master_reachable_host: ‘’
-The signing master where the cert signing will be delegated
-to if icinga2_client_master_reachable_host is set.
-icinga2_client_csr_signing_master: ‘’
-Packages which should be installed additionally for custom check commands
+<p>Packages which should be installed additionally for custom check commands
 Defaults to an empty list</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_custom_check_packages</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_custom_check_packages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>List of repos to enable when installing custom check packages (rhel only)
 Defaults to an empty list</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_custom_check_packages_enable_repo</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_custom_check_packages_enable_repo</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Global Zones to be added to zones.conf</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_global_zones</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">global-templates</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_global_zones</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">global-templates</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Specify if the host config &amp; zone are managed by director
 and therefore should not be written by the master playbook</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_director_managed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_director_managed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Specify whether the client should actively try to connect (false)
 to its parent(s) or not (true)</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_passive</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">icinga2_client_passive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
