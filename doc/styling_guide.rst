@@ -15,7 +15,7 @@ Tasks
 
   ---
 
-  - name: task 1
+  - name: Task 1
     module:
       arg1: Foo
       arg2: Bar
@@ -40,7 +40,7 @@ Handler Tasks
 
   ---
 
-  - name: role handler task 1
+  - name: Role handler task 1
     module:
       arg1: Foo
       arg2: '{{ role_service }}'
@@ -72,7 +72,7 @@ Registered variables
 
   ---
 
-  - name: task 1
+  - name: Task 1
     module:
       arg1: Foo
       arg2: Bar
