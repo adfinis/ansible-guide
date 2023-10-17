@@ -6,7 +6,7 @@ YAML Syntax
 ===========
 
 There is a basic guide at `ansible docs
-<http://docs.ansible.com/ansible/YAMLSyntax.html>`_.
+<https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html>`_.
 We use an indention of 2 spaces, no tabs.
 
 Tasks
