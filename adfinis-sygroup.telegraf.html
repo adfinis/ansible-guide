@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROLE TELEGRAF &mdash; Ansible Guide</title>
@@ -11,12 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -29,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Ansible Guide
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ansible Guide
           </a>
               <div class="version">
                 1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -82,7 +85,6 @@
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.pki.html">ROLE PKI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.postfix.html">ROLE POSTFIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.redis.html">ROLE REDIS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.repo_mirror.html">ROLE REPO MIRROR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rpcbind.html">ROLE RPCBIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rsyslog.html">ROLE RSYSLOG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.snmp.html">ROLE SNMP</a></li>
@@ -91,7 +93,10 @@
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.systemd_journald.html">Default values</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">ROLE TELEGRAF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.upgrade.html">ROLE UPGRADE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.users.html">ROLE USERS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.users.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis.repo_mirror.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible-role-systemd.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robertdebock.bootstrap.html">Default values</a></li>
 </ul>
 </li>
 </ul>
@@ -109,9 +114,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="role_overview.html">Role Overview</a> &raquo;</li>
-      <li>ROLE TELEGRAF</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="role_overview.html">Role Overview</a></li>
+      <li class="breadcrumb-item active">ROLE TELEGRAF</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/adfinis-sygroup.telegraf.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,19 +127,19 @@
            <div itemprop="articleBody">
              
   <section id="role-telegraf">
-<h1>ROLE TELEGRAF<a class="headerlink" href="#role-telegraf" title="Permalink to this heading"></a></h1>
+<h1>ROLE TELEGRAF<a class="headerlink" href="#role-telegraf" title="Link to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-telegraf/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-telegraf.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-telegraf.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-telegraf"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-telegraf.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-telegraf.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/telegraf"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.telegraf-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.telegraf-660198.svg?style=flat-square" /></a>
 <p>A brief description of the role goes here.</p>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
 <p>Any pre-requisites that may not be covered by Ansible itself or the role
 should be mentioned here. For instance, if the role uses the EC2 module, it
 may be a good idea to mention in this section that the boto package is required.</p>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Link to this heading"></a></h2>
 <p>A description of the settable variables for this role should go here, including
 any variables that are in defaults/main.yml, vars/main.yml, and any variables
 that can/should be set via parameters to the role. Any variables that are read
@@ -142,86 +147,86 @@ from other roles and/or the global scope (ie. hostvars, group vars, etc.)
 should be mentioned here as well.</p>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
 <p>A list of other roles hosted on Galaxy should go here, plus any details in
 regards to parameters that may need to be set for other roles, or variables
 that are used from other roles.</p>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Link to this heading"></a></h2>
 <p>Including an example of how to use your role (for instance, with variables
 passed in as parameters) is always nice for users too:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
-<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.telegraf</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.telegraf</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-telegraf/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Link to this heading"></a></h2>
 <p>telegraf role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Link to this heading"></a></h2>
 <p>Default data collection interval for all inputs</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10s&quot;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10s&quot;</span>
 </pre></div>
 </div>
 <p>Rounds collection interval to ‘interval’
 ie, if <code class="docutils literal notranslate"><span class="pre">interval=&quot;10s&quot;</span></code> then always collect on :00, :10, :20, etc.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_round_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_round_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p>Default flushing interval for all outputs. You shouldn’t set this below
 interval. Maximum flush_interval will be flush_interval + flush_jitter.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_flush_interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10s&quot;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_flush_interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;10s&quot;</span>
 </pre></div>
 </div>
 <p>Telegraf output plugins to load.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_output</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">influxdb</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_output</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">influxdb</span>
 </pre></div>
 </div>
 <p>Telegraf influxdb configuration.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_output_influxdb</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">urls</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8086</span><span class="w"></span>
-<span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">telegraf</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_output_influxdb</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">urls</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8086</span>
+<span class="w">  </span><span class="nt">database</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">telegraf</span>
 </pre></div>
 </div>
 <p>Telegraf service input plugins to load.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_service_input</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_service_input</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 </pre></div>
 </div>
 <p>Telegraf plugins.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_plugins_global</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpu</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">disk</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diskio</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kernel</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mem</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">net</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">netstat</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ntpq</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">processes</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swap</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_plugins_global</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cpu</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">disk</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diskio</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kernel</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mem</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">net</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">netstat</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ntpq</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">processes</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">swap</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system</span>
 </pre></div>
 </div>
 <p>Set global tags to the metrics.
 E.g. <code class="docutils literal notranslate"><span class="pre">hypervisor:</span> <span class="pre">hs.example.com</span></code></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_global_tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_global_tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 </pre></div>
 </div>
 <p>Configure rsyslog to log lesser.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_rsyslog</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_rsyslog</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span>
 </pre></div>
 </div>
 <p>Rsyslog severity:</p>
@@ -235,79 +240,79 @@ E.g. <code class="docutils literal notranslate"><span class="pre">hypervisor:</s
 <li><p>6 Informational: informational messages</p></li>
 <li><p>7 Debug: debug-level messages</p></li>
 </ul>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_rsyslog_severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_rsyslog_severity</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </pre></div>
 </div>
 <p>define plugin structure variables</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_plugin_aerospike</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_apache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_bcache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_cassandra</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_ceph</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_cgroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_cloudwatch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_consul</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_couchbase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_couchdb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_diskio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_disk</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_disque</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_dns_query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_docker</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_dovecot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_elasticsearch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_exec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_filestat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_graylog</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_haproxy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_httpjson</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_http_response</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_influxdb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_ipmi_sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_jolokia</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_kernel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_leofs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_lustre2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_mailchimp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_memcached</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_mem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_mesos</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_mongodb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_mysql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_net</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_net_response</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_netstat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_nginx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_nsq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_nstat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_ntpq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_passenger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_pgbouncer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_phpfpm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_ping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_postgresql_extensible</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_postgresql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_powerdns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_processes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_procstat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_prometheus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_puppetagent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_rabbitmq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_raindrops</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_redis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_rethinkdb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_riak</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_sensors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_snmp_legacy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_sqlserver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_swap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_system</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_trig</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_twemproxy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_varnish</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_zfs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="nt">telegraf_plugin_zookeeper</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">telegraf_plugin_aerospike</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_apache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_bcache</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_cassandra</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_ceph</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_cgroup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_cloudwatch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_consul</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_couchbase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_couchdb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_cpu</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_diskio</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_disk</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_disque</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_dns_query</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_docker</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_dovecot</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_elasticsearch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_exec</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_filestat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_graylog</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_haproxy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_httpjson</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_http_response</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_influxdb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_ipmi_sensor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_jolokia</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_kernel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_leofs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_lustre2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_mailchimp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_memcached</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_mem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_mesos</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_mongodb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_mysql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_net</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_net_response</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_netstat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_nginx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_nsq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_nstat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_ntpq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_passenger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_pgbouncer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_phpfpm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_ping</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_postgresql_extensible</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_postgresql</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_powerdns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_processes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_procstat</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_prometheus</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_puppetagent</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_rabbitmq</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_raindrops</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_redis</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_rethinkdb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_riak</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_sensors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_snmp_legacy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_sqlserver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_swap</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_system</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_trig</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_twemproxy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_varnish</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_zfs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">telegraf_plugin_zookeeper</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
 </pre></div>
 </div>
 </section>

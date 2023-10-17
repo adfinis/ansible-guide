@@ -1,134 +1,21 @@
-===========
-ROLE USERS
-===========
-
-.. image:: https://img.shields.io/github/license/adfinis-sygroup/ansible-role-users.svg?style=flat-square
-  :target: https://github.com/adfinis-sygroup/ansible-role-users/blob/master/LICENSE
-
-.. image:: https://img.shields.io/travis/adfinis-sygroup/ansible-role-users.svg?style=flat-square
-  :target: https://github.com/adfinis-sygroup/ansible-role-users
-
-.. image:: https://img.shields.io/badge/galaxy-adfinis--sygroup.users-660198.svg?style=flat-square
-  :target: https://galaxy.ansible.com/adfinis-sygroup/users
-
-A brief description of the role goes here.
-
-
-Requirements
-=============
-
-Any pre-requisites that may not be covered by Ansible itself or the role
-should be mentioned here. For instance, if the role uses the EC2 module, it
-may be a good idea to mention in this section that the boto package is required.
-
-
-Role Variables
-===============
-
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.)
-should be mentioned here as well.
-
-
-Dependencies
-=============
-
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables
-that are used from other roles.
-
-
-Example Playbook
-=================
-
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
-
-.. code-block:: yaml
-
-  - hosts: servers
-    roles:
-       - { role: adfinis-sygroup.users }
-
-
-License
-========
-
-`GPL-3.0 <https://github.com/adfinis-sygroup/ansible-role-users/blob/master/LICENSE>`_
-
-
-Author Information
-===================
-
-users role was written by:
-
-* Adfinis SyGroup AG | `Website <https://www.adfinis-sygroup.ch/>`_ | `Twitter <https://twitter.com/adfinissygroup>`_ | `GitHub <https://github.com/adfinis-sygroup>`_
-
 
 
 Default values
 ==============
 
    
-Password for user root, default is undefined.
-
-.. code-block:: YAML
-
-  users_root_password: 'password'
-
-Update strategy for user root password.
-Possible values are: ``always``, ``on_create``
-
-.. code-block:: YAML
-
-   users_root_password_update: always
+   users_root_password_is_hashed: false
+   users_root_authorized_keys: []
    
-List of users managed by ansible. E.g.
-
-.. code-block:: YAML
-
-  users_user:
-    - name: JohnDoe
-      uid: 1000
-      gid: 1000
-      group: users
-      groups:
-        - foo
-        - bar
-      append: no
-      comment: "John Doe"
-      password: "!"
-      update_password: always
-      system: True
-      shell: /bin/bash
-      home: /home/johndoe
-      createhome: True
-      remove: False
-      state: present
-
-The default user list is empty.
-
-.. code-block:: YAML
-
-   users_user: []
+   users_adfinis: []
+   users_adfinis_group: adfinis
+   users_adfinis_homedir_mode: "0700"
+   users_adfinis_unrestricted_sudo: true
+   users_adfinis_user_remove_home: false
    
-List of ssh keys. E.g.
-
-.. code-block:: YAML
-
-  users_ssh_keys:
-    - user: ''
-      key: '{{ lookup("file", "ssh/johndoe.pub") }}'
-      exclusive: no
-      key_options: ''
-      manage_dir: no
-      path: '{{ ssh_daemon_authorized_keys }}/{{ item.user }}'
-      state: present
-
-The default ssh key list is empty.
-
-.. code-block:: YAML
-
-   users_ssh_keys: []
+   users_customer: []
+   users_customer_homedir_mode: "0755"
+   users_customer_unrestricted_sudo: false
+   
+   users_default_user: adfinis
+   users_default_user_remove_home: false

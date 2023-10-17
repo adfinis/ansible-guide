@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROLE APACHE &mdash; Ansible Guide</title>
@@ -11,12 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -29,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Ansible Guide
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ansible Guide
           </a>
               <div class="version">
                 1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -82,7 +85,6 @@
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.pki.html">ROLE PKI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.postfix.html">ROLE POSTFIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.redis.html">ROLE REDIS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.repo_mirror.html">ROLE REPO MIRROR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rpcbind.html">ROLE RPCBIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rsyslog.html">ROLE RSYSLOG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.snmp.html">ROLE SNMP</a></li>
@@ -91,7 +93,10 @@
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.systemd_journald.html">Default values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.telegraf.html">ROLE TELEGRAF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.upgrade.html">ROLE UPGRADE</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.users.html">ROLE USERS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.users.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis.repo_mirror.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible-role-systemd.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robertdebock.bootstrap.html">Default values</a></li>
 </ul>
 </li>
 </ul>
@@ -109,9 +114,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="role_overview.html">Role Overview</a> &raquo;</li>
-      <li>ROLE APACHE</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="role_overview.html">Role Overview</a></li>
+      <li class="breadcrumb-item active">ROLE APACHE</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/adfinis-sygroup.apache.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -122,19 +127,19 @@
            <div itemprop="articleBody">
              
   <section id="role-apache">
-<h1>ROLE APACHE<a class="headerlink" href="#role-apache" title="Permalink to this heading"></a></h1>
+<h1>ROLE APACHE<a class="headerlink" href="#role-apache" title="Link to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-apache/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-apache.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-apache.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-apache"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-apache.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-apache.svg?style=flat-square" /></a>
 <a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/apache"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.apache-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.apache-660198.svg?style=flat-square" /></a>
 <p>A brief description of the role goes here.</p>
 <section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
 <p>Any pre-requisites that may not be covered by Ansible itself or the role
 should be mentioned here. For instance, if the role uses the EC2 module, it
 may be a good idea to mention in this section that the boto package is required.</p>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Link to this heading"></a></h2>
 <p>Listen IP and port:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">apache_listen_ip</span></code>: The IP to listen on</p></li>
@@ -168,7 +173,7 @@ global variable <code class="docutils literal notranslate"><span class="pre">apa
 <li><p><code class="docutils literal notranslate"><span class="pre">serveradmin</span></code>: Email address of server admin</p></li>
 </ul>
 <section id="ssl-variables">
-<h3>SSL Variables<a class="headerlink" href="#ssl-variables" title="Permalink to this heading"></a></h3>
+<h3>SSL Variables<a class="headerlink" href="#ssl-variables" title="Link to this heading"></a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">apache_vhosts_ssl</span></code> defines all SSL-enabled Apache virtual hosts, supporting
 the same variables as <code class="docutils literal notranslate"><span class="pre">apache_vhosts</span></code> (except for <code class="docutils literal notranslate"><span class="pre">redirect_ssl</span></code>).
 Additionally, SSL key and certificate need to be specified.</p>
@@ -185,7 +190,7 @@ Additionally, SSL key and certificate need to be specified.</p>
 </ul>
 </section>
 <section id="modules">
-<h3>Modules<a class="headerlink" href="#modules" title="Permalink to this heading"></a></h3>
+<h3>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h3>
 <p>The playbook creates module symlinks into the <code class="docutils literal notranslate"><span class="pre">/etc/apache2/mods-enabled/</span></code>
 directory for Debian based hosts. Modules listed in <code class="docutils literal notranslate"><span class="pre">apache_mods_enabled</span></code> ar
 enabled by default:</p>
@@ -195,16 +200,16 @@ enabled by default:</p>
 </ul>
 </section>
 <section id="additional-parameters">
-<h3>Additional Parameters<a class="headerlink" href="#additional-parameters" title="Permalink to this heading"></a></h3>
+<h3>Additional Parameters<a class="headerlink" href="#additional-parameters" title="Link to this heading"></a></h3>
 <p>Any configuration directive not covered by the variables above can be appended
 to the <code class="docutils literal notranslate"><span class="pre">apache_vhosts.extra_options</span></code> and <code class="docutils literal notranslate"><span class="pre">apache_vhosts_ssl.extra_options</span></code>
 variables using a <a class="reference external" href="https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">literal block scalar</a>
 as follows:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">extra_options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">  </span><span class="no">&lt;Location &quot;/status&quot;&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="no">SetHandler server-status</span><span class="w"></span>
-<span class="w">    </span><span class="no">Require host example.com</span><span class="w"></span>
-<span class="w">  </span><span class="no">&lt;/Location&gt;</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">extra_options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">&lt;Location &quot;/status&quot;&gt;</span>
+<span class="w">    </span><span class="no">SetHandler server-status</span>
+<span class="w">    </span><span class="no">Require host example.com</span>
+<span class="w">  </span><span class="no">&lt;/Location&gt;</span>
 </pre></div>
 </div>
 <p>These extra options are appended right before the closing
@@ -212,69 +217,69 @@ as follows:</p>
 </section>
 </section>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Role: <a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-pki">adfinis-sygroup.pki</a></p></li>
 </ul>
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Link to this heading"></a></h2>
 <p>Including an example of how to use your role (for instance, with variables
 passed in as parameters) is always nice for users too:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
-<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.apache</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.apache</span><span class="w"> </span><span class="p p-Indicator">}</span>
 </pre></div>
 </div>
 </section>
 <section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/in0rdr/ansible-role-apache/blob/master/LICENSE">GPL-3.0</a></p>
 </section>
 <section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
+<h2>Author Information<a class="headerlink" href="#author-information" title="Link to this heading"></a></h2>
 <p>apache role was written by:</p>
 <ul class="simple">
 <li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
 </ul>
 </section>
 <section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
+<h2>Default values<a class="headerlink" href="#default-values" title="Link to this heading"></a></h2>
 <p>listen ip for vhosts</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_listen_ip</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_listen_ip</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;*&#39;</span>
 </pre></div>
 </div>
 <p>listen port for non-ssl vhosts</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_listen_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_listen_port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
 </pre></div>
 </div>
 <p>listen port vor ssl vhosts</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_listen_port_ssl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_listen_port_ssl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">443</span>
 </pre></div>
 </div>
 <p>apache version to distinguish access control directives</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts_version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2.4&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts_version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2.4&#39;</span>
 </pre></div>
 </div>
 <p>vhost configuration file, created on the ansible host</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts_filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;vhosts.conf&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts_filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;vhosts.conf&#39;</span>
 </pre></div>
 </div>
 <p>vhost configuration template in the ansible ‘templates’ directory</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts_template</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;vhosts.conf.j2&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts_template</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;vhosts.conf.j2&#39;</span>
 </pre></div>
 </div>
 <p>default allow_override setting to allow overrides in .htaccess</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_allow_override</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;All&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_allow_override</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;All&#39;</span>
 </pre></div>
 </div>
 <p>default apache options, overridden in vhosts config below</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_options</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;-Indexes</span><span class="nv"> </span><span class="s">+FollowSymLinks&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_options</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;-Indexes</span><span class="nv"> </span><span class="s">+FollowSymLinks&#39;</span>
 </pre></div>
 </div>
 <p>settings for all vhosts</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_global_vhost_settings</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">  </span><span class="no">DirectoryIndex index.php index.html</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_global_vhost_settings</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">DirectoryIndex index.php index.html</span>
 </pre></div>
 </div>
 <p>list of vhosts, localhost enabled by default</p>
@@ -291,65 +296,65 @@ passed in as parameters) is always nice for users too:</p>
 </ul>
 </dd>
 </dl>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># vhost name (required)</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">servername</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;localhost&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># # vhost alias, alternative name for the host (optional)</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># server admin email</span><span class="w"></span>
-<span class="w">    </span><span class="nt">serveradmin</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;www-admin@foo.example.com&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># serveralias: &#39;localhost&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># document root, main document tree (optional)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">documentroot</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/www/html&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># # redirect to SSL enabled vhost below (optional)</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># redirect_ssl: false</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># If you don&#39;t have an listen_ip configured, you can manually set the vhost to redirect to here</span><span class="w"></span>
-<span class="w">    </span><span class="c1">#redirect_ssl_vhost: &#39;https://example.com&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># # vhost options, override &#39;apache_options&#39; (optional)</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># options: &#39;+FollowSymLinks&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># add directives not covered by any variables</span><span class="w"></span>
-<span class="w">    </span><span class="c1">#   extra_options: |</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_vhosts</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># vhost name (required)</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">servername</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;localhost&#39;</span>
+<span class="w">    </span><span class="c1"># # vhost alias, alternative name for the host (optional)</span>
+<span class="w">    </span><span class="c1"># server admin email</span>
+<span class="w">    </span><span class="nt">serveradmin</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;www-admin@foo.example.com&#39;</span>
+<span class="w">    </span><span class="c1"># serveralias: &#39;localhost&#39;</span>
+<span class="w">    </span><span class="c1"># document root, main document tree (optional)</span>
+<span class="w">    </span><span class="nt">documentroot</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/www/html&#39;</span>
+<span class="w">    </span><span class="c1"># # redirect to SSL enabled vhost below (optional)</span>
+<span class="w">    </span><span class="c1"># redirect_ssl: false</span>
+<span class="w">    </span><span class="c1"># If you don&#39;t have an listen_ip configured, you can manually set the vhost to redirect to here</span>
+<span class="w">    </span><span class="c1">#redirect_ssl_vhost: &#39;https://example.com&#39;</span>
+<span class="w">    </span><span class="c1"># # vhost options, override &#39;apache_options&#39; (optional)</span>
+<span class="w">    </span><span class="c1"># options: &#39;+FollowSymLinks&#39;</span>
+<span class="w">    </span><span class="c1"># add directives not covered by any variables</span>
+<span class="w">    </span><span class="c1">#   extra_options: |</span>
 </pre></div>
 </div>
 <p>ssl vhosts, none by default</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">apache_vhosts_ssl</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># vhost name (required)</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">servername</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;localhost&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># server admin email</span><span class="w"></span>
-<span class="w">  </span><span class="nt">serveradmin</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;www-admin@foo.example.com&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># document root, main document tree (optional)</span><span class="w"></span>
-<span class="w">  </span><span class="nt">documentroot</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/www/html&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># certificate file (required)</span><span class="w"></span>
-<span class="w">  </span><span class="nt">certificate_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/etc/ssl/certs/wildcard_chain.crt&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># certificate key (required)</span><span class="w"></span>
-<span class="w">  </span><span class="nt">certificate_key_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/etc/ssl/private/adfinis-sygroup.ch.key&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># certificate chain (optional, deprecated)</span><span class="w"></span>
-<span class="w">  </span><span class="nt">certificate_chain_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/etc/ssl/certs/chain.pem&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># add directives not covered by any variables</span><span class="w"></span>
-<span class="w">  </span><span class="nt">extra_options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">apache_vhosts_ssl</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">  </span><span class="c1"># vhost name (required)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">servername</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;localhost&#39;</span>
+<span class="w">  </span><span class="c1"># server admin email</span>
+<span class="w">  </span><span class="nt">serveradmin</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;www-admin@foo.example.com&#39;</span>
+<span class="w">  </span><span class="c1"># document root, main document tree (optional)</span>
+<span class="w">  </span><span class="nt">documentroot</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/var/www/html&#39;</span>
+<span class="w">  </span><span class="c1"># certificate file (required)</span>
+<span class="w">  </span><span class="nt">certificate_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/etc/ssl/certs/wildcard_chain.crt&#39;</span>
+<span class="w">  </span><span class="c1"># certificate key (required)</span>
+<span class="w">  </span><span class="nt">certificate_key_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/etc/ssl/private/adfinis-sygroup.ch.key&#39;</span>
+<span class="w">  </span><span class="c1"># certificate chain (optional, deprecated)</span>
+<span class="w">  </span><span class="nt">certificate_chain_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/etc/ssl/certs/chain.pem&#39;</span>
+<span class="w">  </span><span class="c1"># add directives not covered by any variables</span>
+<span class="w">  </span><span class="nt">extra_options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 </pre></div>
 </div>
 <p>allowed ssl protocol versions</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_ssl_protocol</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;All</span><span class="nv"> </span><span class="s">-SSLv2</span><span class="nv"> </span><span class="s">-SSLv3&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_ssl_protocol</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;All</span><span class="nv"> </span><span class="s">-SSLv2</span><span class="nv"> </span><span class="s">-SSLv3&#39;</span>
 </pre></div>
 </div>
 <p>allowed cipher suites</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_ssl_cipher_suite</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;AES256+EECDH:AES256+EDH&#39;</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_ssl_cipher_suite</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;AES256+EECDH:AES256+EDH&#39;</span>
 </pre></div>
 </div>
 <p>apache mods for debian based distros</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_mods_enabled</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rewrite.load</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssl.load</span><span class="w"></span>
-<span class="nt">apache_mods_disabled</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_mods_enabled</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rewrite.load</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssl.load</span>
+<span class="nt">apache_mods_disabled</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 </pre></div>
 </div>
 <p>Set initial apache state. Recommended values: <cite>started</cite> or <cite>stopped</cite></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span>
 </pre></div>
 </div>
 <p>Apache package state; use <cite>present</cite> to make sure it’s installed, or <cite>latest</cite>
 if you want to upgrade or switch versions using a new repo.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_packages_state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_packages_state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
 </pre></div>
 </div>
 <p>additional packages to install (defaults to an empty list)
@@ -360,7 +365,7 @@ apache_additional_packages:</p>
 <li><p>mod_auth_openidc</p></li>
 </ul>
 </div></blockquote>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_additional_packages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">apache_additional_packages</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
 </pre></div>
 </div>
 </section>

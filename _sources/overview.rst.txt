@@ -3,17 +3,17 @@ Overview
 ========
 
 
-If you don't know what `ansible <https://www.ansible.com/>`_ is, check out the
-`intro <http://docs.ansible.com/ansible/intro.html>`_.  For general
+If you don't know what `Ansible <https://www.ansible.com/>`_ is, check out the
+`intro <https://docs.ansible.com/ansible/latest/getting_started/index.html>`_.  For general
 information, check out the
-`documentation index <http://docs.ansible.com/ansible/index.html>`_.
+`documentation index <https://docs.ansible.com/ansible/latest/index.html>`_.
 
 
 Directory and file structure
 ============================
-The Ansible Project publishes a `Best Practices
-<http://docs.ansible.com/ansible/playbooks_best_practices.html>`_
-our guideline is an extension to that guide.
+The Ansible Project publishes a set of `Best Practices
+<https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html>`_.
+Our guideline is an extension to that guide.
 
 ::
 
@@ -114,12 +114,12 @@ Task structure
 - Playbooks
     A playbook is a set of roles. For each playbook it can be defined in which
     hostgroup it should be run, default is [all].
-    `Intro to Playbooks
-    <http://docs.ansible.com/ansible/playbooks_intro.html>`_
+    `Ansible Playbooks
+    <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html>`_
 - Roles
     Each role configures one application and consists of multiple tasks.
-    `Playbook Roles and Include Statements
-    <http://docs.ansible.com/ansible/playbooks_roles.html>`_
+    `Playbooks Reuse
+    <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse.html>`_
 - Tasks
     Each tasks uses one module (e.g. template, file, copy, service).
 
@@ -152,20 +152,19 @@ The last valid rule has winning prioritization.
 - inventory host_vars (``host_vars/$FQDN/*.yml``)
 - playbook group_vars (we don't make a difference to inventory group_vars)
 - playbook host_vars (we don't make a difference to inventory host_vars)
-- host facts (default facts of a host `Information discovered from system
-  facts
-  <http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts>`_)
+- host facts (default facts of a host: `Ansible facts
+  <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html#ansible-facts>`_)
 - play vars (?)
-- play vars_prompt (`Prompts
-  <http://docs.ansible.com/ansible/playbooks_prompts.html>`_)
+- play vars_prompt (`Interactive Input: Prompts
+  <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_prompts.html>`_)
 - play vars_files (?)
 - registered vars (`Register Variables
-  <http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables>`_)
-- set_facts (`Module set_fact
-  <http://docs.ansible.com/ansible/set_fact_module.html>`_)
+  <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#conditions-based-on-registered-variables>`_)
+- set_facts (`ansible.builtin.set_fact module
+  <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/set_fact_module.html>`_)
 - role and include vars (``roles/$ROLE/vars/main.yml``)
 - block vars (only for tasks in block; `Blocks
-  <http://docs.ansible.com/ansible/playbooks_blocks.html>`_)
+  <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_blocks.html>`_)
 - task vars (only for the task)
 - extra vars (always win precedence; ``ansible --extra-vars='foo=bar'``)
 
@@ -175,13 +174,12 @@ used.
 - role defaults (``roles/$ROLE/defaults/main.yml``)
 - inventory group_vars (``group_vars/$HOSTGROUP/*.yml``)
 - inventory host_vars (``host_vars/$FQDN/*.yml``)
-- host facts (default facts of a host `Information discovered from system
-  facts
-  <http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts>`_)
+- host facts (default facts of a host: `Ansible facts
+  <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html#ansible-facts>`_)
 - registered vars (`Register Variables
-  <http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables>`_)
-- set_facts (`Module set_fact
-  <http://docs.ansible.com/ansible/set_fact_module.html>`_)
+  <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#conditions-based-on-registered-variables>`_)
+- set_facts (`ansible.builtin.set_fact module
+  <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/set_fact_module.html>`_)
 - role and include vars (``roles/$ROLE/vars/main.yml``)
 
 

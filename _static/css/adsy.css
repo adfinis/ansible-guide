@@ -1,18 +1,16 @@
 @import url('theme.css');
 
 @font-face {
-  font-family: 'TheSansOffice Regular';
+  font-family: 'SourceSans3 Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('TheSansOffice Regular'),
-       url('../fonts/TheSansOffice.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/TheSansOffice.svg#TheSansOffice-Regular') format('svg'),
-       url('../fonts/TheSansOffice.woff') format('woff'),
-       url('../fonts/TheSansOffice.ttf') format('truetype');
+  src: local('SourceSans3 Regular'),
+       url('../fonts/SourceSans3-Regular.woff') format('woff'),
+       url('../fonts/SourceSans3-Regular.ttf') format('truetype');
 }
 
 *, h1, h2, h3, h4, h5, .btn {
-  font-family: 'TheSansOffice Regular', 'OpenSans', sans-serif;
+  font-family: 'SourceSans3 Regular', 'OpenSans', sans-serif;
 }
 
 code,

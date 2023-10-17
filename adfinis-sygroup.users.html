@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROLE USERS &mdash; Ansible Guide</title>
+  <title>Default values &mdash; Ansible Guide</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/adsy.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Default values" href="adfinis.repo_mirror.html" />
     <link rel="prev" title="ROLE UPGRADE" href="adfinis-sygroup.upgrade.html" /> 
 </head>
 
@@ -28,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Ansible Guide
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ansible Guide
           </a>
               <div class="version">
                 1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -81,7 +85,6 @@
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.pki.html">ROLE PKI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.postfix.html">ROLE POSTFIX</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.redis.html">ROLE REDIS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.repo_mirror.html">ROLE REPO MIRROR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rpcbind.html">ROLE RPCBIND</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.rsyslog.html">ROLE RSYSLOG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.snmp.html">ROLE SNMP</a></li>
@@ -90,7 +93,10 @@
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.systemd_journald.html">Default values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.telegraf.html">ROLE TELEGRAF</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adfinis-sygroup.upgrade.html">ROLE UPGRADE</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">ROLE USERS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adfinis.repo_mirror.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ansible-role-systemd.html">Default values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robertdebock.bootstrap.html">Default values</a></li>
 </ul>
 </li>
 </ul>
@@ -108,9 +114,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="role_overview.html">Role Overview</a> &raquo;</li>
-      <li>ROLE USERS</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="role_overview.html">Role Overview</a></li>
+      <li class="breadcrumb-item active">Default values</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/adfinis-sygroup.users.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -120,105 +126,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="role-users">
-<h1>ROLE USERS<a class="headerlink" href="#role-users" title="Permalink to this heading"></a></h1>
-<a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-users/blob/master/LICENSE"><img alt="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-users.svg?style=flat-square" src="https://img.shields.io/github/license/adfinis-sygroup/ansible-role-users.svg?style=flat-square" /></a>
-<a class="reference external image-reference" href="https://github.com/adfinis-sygroup/ansible-role-users"><img alt="https://img.shields.io/travis/adfinis-sygroup/ansible-role-users.svg?style=flat-square" src="https://img.shields.io/travis/adfinis-sygroup/ansible-role-users.svg?style=flat-square" /></a>
-<a class="reference external image-reference" href="https://galaxy.ansible.com/adfinis-sygroup/users"><img alt="https://img.shields.io/badge/galaxy-adfinis--sygroup.users-660198.svg?style=flat-square" src="https://img.shields.io/badge/galaxy-adfinis--sygroup.users-660198.svg?style=flat-square" /></a>
-<p>A brief description of the role goes here.</p>
-<section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
-<p>Any pre-requisites that may not be covered by Ansible itself or the role
-should be mentioned here. For instance, if the role uses the EC2 module, it
-may be a good idea to mention in this section that the boto package is required.</p>
-</section>
-<section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
-<p>A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.)
-should be mentioned here as well.</p>
-</section>
-<section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
-<p>A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables
-that are used from other roles.</p>
-</section>
-<section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
-<p>Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">servers</span><span class="w"></span>
-<span class="w">  </span><span class="nt">roles</span><span class="p">:</span><span class="w"></span>
-<span class="w">     </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt"> role</span><span class="p">:</span><span class="w"> </span><span class="nv">adfinis-sygroup.users</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
-<p><a class="reference external" href="https://github.com/adfinis-sygroup/ansible-role-users/blob/master/LICENSE">GPL-3.0</a></p>
-</section>
-<section id="author-information">
-<h2>Author Information<a class="headerlink" href="#author-information" title="Permalink to this heading"></a></h2>
-<p>users role was written by:</p>
-<ul class="simple">
-<li><p>Adfinis SyGroup AG | <a class="reference external" href="https://www.adfinis-sygroup.ch/">Website</a> | <a class="reference external" href="https://twitter.com/adfinissygroup">Twitter</a> | <a class="reference external" href="https://github.com/adfinis-sygroup">GitHub</a></p></li>
-</ul>
-</section>
-<section id="default-values">
-<h2>Default values<a class="headerlink" href="#default-values" title="Permalink to this heading"></a></h2>
-<p>Password for user root, default is undefined.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">users_root_password</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;password&#39;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Update strategy for user root password.
-Possible values are: <code class="docutils literal notranslate"><span class="pre">always</span></code>, <code class="docutils literal notranslate"><span class="pre">on_create</span></code></p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">users_root_password_update</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-</pre></div>
-</div>
-<p>List of users managed by ansible. E.g.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">users_user</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">JohnDoe</span><span class="w"></span>
-<span class="w">    </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">    </span><span class="nt">gid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span><span class="w"></span>
-<span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">users</span><span class="w"></span>
-<span class="w">    </span><span class="nt">groups</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">foo</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bar</span><span class="w"></span>
-<span class="w">    </span><span class="nt">append</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
-<span class="w">    </span><span class="nt">comment</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;John</span><span class="nv"> </span><span class="s">Doe&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;!&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">update_password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-<span class="w">    </span><span class="nt">system</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="w">    </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/bash</span><span class="w"></span>
-<span class="w">    </span><span class="nt">home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/johndoe</span><span class="w"></span>
-<span class="w">    </span><span class="nt">createhome</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="w">    </span><span class="nt">remove</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The default user list is empty.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">users_user</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
-</pre></div>
-</div>
-<p>List of ssh keys. E.g.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">users_ssh_keys</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">lookup(&quot;file&quot;,</span><span class="nv"> </span><span class="s">&quot;ssh/johndoe.pub&quot;)</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">exclusive</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
-<span class="w">    </span><span class="nt">key_options</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">manage_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">no</span><span class="w"></span>
-<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{</span><span class="nv"> </span><span class="s">ssh_daemon_authorized_keys</span><span class="nv"> </span><span class="s">}}/{{</span><span class="nv"> </span><span class="s">item.user</span><span class="nv"> </span><span class="s">}}&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span><span class="w"></span>
-</pre></div>
-</div>
-<p>The default ssh key list is empty.</p>
-<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">users_ssh_keys</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
+  <section id="default-values">
+<h1>Default values<a class="headerlink" href="#default-values" title="Link to this heading"></a></h1>
+<blockquote>
+<div><p>users_root_password_is_hashed: false
+users_root_authorized_keys: []</p>
+<p>users_adfinis: []
+users_adfinis_group: adfinis
+users_adfinis_homedir_mode: “0700”
+users_adfinis_unrestricted_sudo: true
+users_adfinis_user_remove_home: false</p>
+<p>users_customer: []
+users_customer_homedir_mode: “0755”
+users_customer_unrestricted_sudo: false</p>
+<p>users_default_user: adfinis
+users_default_user_remove_home: false</p>
+</div></blockquote>
 </section>
 
 
@@ -226,6 +149,7 @@ Possible values are: <code class="docutils literal notranslate"><span class="pre
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="adfinis-sygroup.upgrade.html" class="btn btn-neutral float-left" title="ROLE UPGRADE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="adfinis.repo_mirror.html" class="btn btn-neutral float-right" title="Default values" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

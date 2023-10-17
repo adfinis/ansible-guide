@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Overview &mdash; Ansible Guide</title>
@@ -11,12 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -29,14 +28,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> Ansible Guide
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ansible Guide
           </a>
               <div class="version">
                 1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -63,8 +66,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Overview</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/overview.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -75,15 +78,15 @@
            <div itemprop="articleBody">
              
   <section id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h1>
-<p>If you don’t know what <a class="reference external" href="https://www.ansible.com/">ansible</a> is, check out the
-<a class="reference external" href="http://docs.ansible.com/ansible/intro.html">intro</a>.  For general
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>If you don’t know what <a class="reference external" href="https://www.ansible.com/">Ansible</a> is, check out the
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/getting_started/index.html">intro</a>.  For general
 information, check out the
-<a class="reference external" href="http://docs.ansible.com/ansible/index.html">documentation index</a>.</p>
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/index.html">documentation index</a>.</p>
 <section id="directory-and-file-structure">
-<h2>Directory and file structure<a class="headerlink" href="#directory-and-file-structure" title="Permalink to this heading"></a></h2>
-<p>The Ansible Project publishes a <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_best_practices.html">Best Practices</a>
-our guideline is an extension to that guide.</p>
+<h2>Directory and file structure<a class="headerlink" href="#directory-and-file-structure" title="Link to this heading"></a></h2>
+<p>The Ansible Project publishes a set of <a class="reference external" href="https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html">Best Practices</a>.
+Our guideline is an extension to that guide.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
 ├── README.rst
 ├── doc/
@@ -156,7 +159,7 @@ our guideline is an extension to that guide.</p>
 </div>
 </section>
 <section id="inventory">
-<h2>Inventory<a class="headerlink" href="#inventory" title="Permalink to this heading"></a></h2>
+<h2>Inventory<a class="headerlink" href="#inventory" title="Link to this heading"></a></h2>
 <p>The file <code class="docutils literal notranslate"><span class="pre">hosts</span></code> in the project directory contains a list of each server,
 if needed with the depending connection information.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jumphost</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
@@ -175,18 +178,18 @@ define special roles only for one hostgroup or to define some special
 variables for this group.</p>
 </section>
 <section id="task-structure">
-<h2>Task structure<a class="headerlink" href="#task-structure" title="Permalink to this heading"></a></h2>
+<h2>Task structure<a class="headerlink" href="#task-structure" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>Playbooks</dt><dd><p>A playbook is a set of roles. For each playbook it can be defined in which
 hostgroup it should be run, default is [all].
-<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_intro.html">Intro to Playbooks</a></p>
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html">Ansible Playbooks</a></p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt>Roles</dt><dd><p>Each role configures one application and consists of multiple tasks.
-<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_roles.html">Playbook Roles and Include Statements</a></p>
+<a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse.html">Playbooks Reuse</a></p>
 </dd>
 </dl>
 </li>
@@ -198,7 +201,7 @@ hostgroup it should be run, default is [all].
 </ul>
 </section>
 <section id="variable-structure">
-<h2>Variable structure<a class="headerlink" href="#variable-structure" title="Permalink to this heading"></a></h2>
+<h2>Variable structure<a class="headerlink" href="#variable-structure" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>roles/$ROLE/defaults/main.yml</dt><dd><p>Each variable in a role should have a default value. Default values are
@@ -228,7 +231,7 @@ configuration.</p>
 </ul>
 </section>
 <section id="variable-precedence">
-<h2>Variable Precedence<a class="headerlink" href="#variable-precedence" title="Permalink to this heading"></a></h2>
+<h2>Variable Precedence<a class="headerlink" href="#variable-precedence" title="Link to this heading"></a></h2>
 <p>This list shows different locations and their precendence of variables.
 The last valid rule has winning prioritization.</p>
 <ul class="simple">
@@ -238,15 +241,14 @@ The last valid rule has winning prioritization.</p>
 <li><p>inventory host_vars (<code class="docutils literal notranslate"><span class="pre">host_vars/$FQDN/*.yml</span></code>)</p></li>
 <li><p>playbook group_vars (we don’t make a difference to inventory group_vars)</p></li>
 <li><p>playbook host_vars (we don’t make a difference to inventory host_vars)</p></li>
-<li><p>host facts (default facts of a host <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts">Information discovered from system
-facts</a>)</p></li>
+<li><p>host facts (default facts of a host: <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html#ansible-facts">Ansible facts</a>)</p></li>
 <li><p>play vars (?)</p></li>
-<li><p>play vars_prompt (<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_prompts.html">Prompts</a>)</p></li>
+<li><p>play vars_prompt (<a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_prompts.html">Interactive Input: Prompts</a>)</p></li>
 <li><p>play vars_files (?)</p></li>
-<li><p>registered vars (<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables">Register Variables</a>)</p></li>
-<li><p>set_facts (<a class="reference external" href="http://docs.ansible.com/ansible/set_fact_module.html">Module set_fact</a>)</p></li>
+<li><p>registered vars (<a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#conditions-based-on-registered-variables">Register Variables</a>)</p></li>
+<li><p>set_facts (<a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/set_fact_module.html">ansible.builtin.set_fact module</a>)</p></li>
 <li><p>role and include vars (<code class="docutils literal notranslate"><span class="pre">roles/$ROLE/vars/main.yml</span></code>)</p></li>
-<li><p>block vars (only for tasks in block; <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_blocks.html">Blocks</a>)</p></li>
+<li><p>block vars (only for tasks in block; <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_blocks.html">Blocks</a>)</p></li>
 <li><p>task vars (only for the task)</p></li>
 <li><p>extra vars (always win precedence; <code class="docutils literal notranslate"><span class="pre">ansible</span> <span class="pre">--extra-vars='foo=bar'</span></code>)</p></li>
 </ul>
@@ -256,10 +258,9 @@ used.</p>
 <li><p>role defaults (<code class="docutils literal notranslate"><span class="pre">roles/$ROLE/defaults/main.yml</span></code>)</p></li>
 <li><p>inventory group_vars (<code class="docutils literal notranslate"><span class="pre">group_vars/$HOSTGROUP/*.yml</span></code>)</p></li>
 <li><p>inventory host_vars (<code class="docutils literal notranslate"><span class="pre">host_vars/$FQDN/*.yml</span></code>)</p></li>
-<li><p>host facts (default facts of a host <a class="reference external" href="http://docs.ansible.com/ansible/playbooks_variables.html#information-discovered-from-systems-facts">Information discovered from system
-facts</a>)</p></li>
-<li><p>registered vars (<a class="reference external" href="http://docs.ansible.com/ansible/playbooks_conditionals.html#register-variables">Register Variables</a>)</p></li>
-<li><p>set_facts (<a class="reference external" href="http://docs.ansible.com/ansible/set_fact_module.html">Module set_fact</a>)</p></li>
+<li><p>host facts (default facts of a host: <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html#ansible-facts">Ansible facts</a>)</p></li>
+<li><p>registered vars (<a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#conditions-based-on-registered-variables">Register Variables</a>)</p></li>
+<li><p>set_facts (<a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/set_fact_module.html">ansible.builtin.set_fact module</a>)</p></li>
 <li><p>role and include vars (<code class="docutils literal notranslate"><span class="pre">roles/$ROLE/vars/main.yml</span></code>)</p></li>
 </ul>
 </section>

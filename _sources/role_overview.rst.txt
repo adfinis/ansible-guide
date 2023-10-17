@@ -42,7 +42,6 @@ Role Overview
   adfinis-sygroup.pki.rst
   adfinis-sygroup.postfix.rst
   adfinis-sygroup.redis.rst
-  adfinis-sygroup.repo_mirror.rst
   adfinis-sygroup.rpcbind.rst
   adfinis-sygroup.rsyslog.rst
   adfinis-sygroup.snmp.rst
@@ -52,3 +51,6 @@ Role Overview
   adfinis-sygroup.telegraf.rst
   adfinis-sygroup.upgrade.rst
   adfinis-sygroup.users.rst
+  adfinis.repo_mirror.rst
+  ansible-role-systemd.rst
+  robertdebock.bootstrap.rst

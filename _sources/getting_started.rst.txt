@@ -6,6 +6,10 @@ Getting Started
 Project Repository
 ==================
 
+.. warning::
+    This section is vastly outdated and will be rewritten in the near future.
+    Rather than adding a submodule, you should install roles and collections via `Ansible Galaxy <https://docs.ansible.com/ansible/latest/galaxy/user_guide.html>`_.
+
 First of all, you need a project repository. For that, you can just clone
 this repository or start a new one. As a Git Submodule you should add the
 `ansible-roles`_ as ``roles/``:
@@ -14,7 +18,7 @@ this repository or start a new one. As a Git Submodule you should add the
 
   git init
   git commit -m 'Intial commit.' --allow-empty
-  git submodule add https://github.com/adfinis-sygroup/ansible-roles adfinis-roles
+  git submodule add https://github.com/adfinis/ansible-roles adfinis-roles
 
 Create the main playbook ``site.yml`` with content along the following
 example. Add your roles as needed:
@@ -58,7 +62,7 @@ project directory.
 ::
 
   [defaults]
-  ansible_managed     = Warning: File is managed by Ansible [https://github.com/adfinis-sygroup/ansible-roles]
+  ansible_managed     = Warning: File is managed by Ansible [https://github.com/adfinis/ansible-roles]
   retry_files_enabled = False
   hostfile            = ./hosts
   roles_path          = ./adfinis-roles
@@ -111,7 +115,7 @@ role or never needed in another project) put them inside the directory
 ``adfinis-roles/``.
 
 
-.. _ansible-roles: https://github.com/adfinis-sygroup/ansible-roles
+.. _ansible-roles: https://github.com/adfinis/ansible-roles
 
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
