@@ -9,7 +9,7 @@ available in the Adfinis Galaxy namespace.
 
 The rendered documentation is available here:
 
-* https://docs.adfinis.com/ansible-guide
+* https://adfinis.github.io/ansible-guide
 
 ## Dependencies
 
