@@ -26,6 +26,14 @@ Roles
 The following recommendations apply to both roles within collections
 as well as single-role repositories.
 
+A new role with all its boilerplate can be created using the command
+``ansible-galaxy role init <rolename>``.  This can be used both within
+the ``roles/`` folder of a collection and for a standalone role
+repository.
+
+
+Role Directory Layout
+---------------------
 
 ::
 
@@ -56,7 +64,7 @@ as well as single-role repositories.
 Tasks
 -----
 
-The ``main.yml`` file is just used to include the other YAML files.
+We use ``main.yml`` only to import other YAML files and to assign tags to the imported tasks:
 
 .. code-block:: Yaml
 
@@ -85,12 +93,12 @@ The ``main.yml`` file is just used to include the other YAML files.
       - "role::sshd:config"
 
 Role tagging helps later while running Ansible. When ``ansible-playbook`` is
-called with tags, only matching tasks will be executed.
+called with ``--tags``, only matching tasks will be executed.
 
 The actual tasks are split up into individual logical units, each
 within one task file.  The example above e.g. splits the tasks into
 installation and configuration components.  Tasks inside the
-``installation.yml`` file are to install all related packages:
+``install.yml`` file are used to install all related packages:
 
 .. code-block:: Yaml
 
@@ -101,7 +109,7 @@ installation and configuration components.  Tasks inside the
       name: "{{ ssh_packages }}"
       state: present
 
-The configuration files are rendered in ``configuration.yml``:
+The configuration files are rendered in ``config.yml``:
 
 .. code-block:: Yaml
 
@@ -134,8 +142,10 @@ The configuration files are rendered in ``configuration.yml``:
     notify:
       - Restart sshd
 
-Add additional tags to installation and configuration tasks if needed, but
-be aware to add also the base tags like in the ``main.yml``.
+If necessary, you can add additional tags to individual tasks inside
+the imported files.  However, since this ad-hoc tag list overrides the
+one defined in ``main.yml``, you must also provide all the tags from
+``main.yml`` again for the single task:
 
 Good example:
 
@@ -146,9 +156,11 @@ Good example:
       name: "{{ ssh_packages }}"
       state: present
     tags:
+      # This tag is added only for this task
+      - "role::sshd:packages"
+      # These two tags must  be provided again, as the tag list from main.yml is overwritten by this tag list.
       - "role::sshd"
       - "role::sshd:install"
-      - "role::sshd:packages"
 
 Bad example:
 
@@ -161,12 +173,14 @@ Bad example:
     tags:
       - "role::sshd:packages"
 
+This task is no longer executed when run via ``--tags role::sshd``.
 
 Variables
 ---------
 
-Variables are used for static data, e.g. package-, service- and filenames.
-Don't use variables for data which can change, for that use the defaults!
+Variables in ``vars/`` are used for static data, e.g. package-, service-
+and filenames.  Only use ``vars/`` for data that does not change on a
+host-by-host basis, for that use the defaults!
 
 The variables stored in ``vars/`` can be loaded dynamically.  This can
 be used to e.g. load OS-dependent variables.  The example above uses
@@ -190,8 +204,13 @@ those in the files named:
 * ``Ubuntu_22.yml``
 * ...
 
-Each variable name start with ``<rolename>_`` and the name contains only lower
-case, numbers and underline ``_``:
+This logic is implemented using the ``with_first_found`` iterator in
+the example above.  For more information, check out the documentation
+on `Loops <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html>`_.
+  
+By our convention, each variable name start with ``<rolename>_`` and
+the name contains only lower case letters, numbers and underline
+``_``:
 
 .. code-block:: Yaml
 
@@ -222,13 +241,18 @@ Every variable which is used inside a template or for tasks, and which
 is not defined in the vars, needs to be defined as defaults.  If there
 is no reasonable default value, the README should make it clear that
 the value must be provided via host vars.  Defaults can be used for
-example for cipher suites, ntp server names or default ports.
+example for default ports and hostnames (e.g. binding a service to
+`localhost:80` unless overwritten via host vars).
 
-There is only one defaults file, called ``main.yml``.
+There is only one defaults file, called ``main.yml``:
 
 .. code-block:: Yaml
 
   ---
+
+  # The ports to bind sshd on
+  ssh_ports:
+    - 22
 
   # a list of ssh host keys
   ssh_host_keys:
@@ -242,10 +266,8 @@ Handlers
 Handlers are used to perform additional tasks required to apply
 changed configuration, such as restarting services.  That way a
 service does not get restarted with every playbook run, but only when
-only required. Another advantage of handlers is that they can be
-notified by multiple tasks, yet only get executed once per playbook
-run.  Use handlers instead of a check when a previous task has
-changed.
+required. Another advantage of handlers is that they can be notified
+by multiple tasks, yet only get executed once per playbook run..
 
 .. code-block:: Yaml
 
@@ -260,16 +282,35 @@ This handler gets notified by a task called ``Configure SSHd``. it
 will call the handler ``Restart SSHd``, but only if the task has
 effected a change.
 
+Using handlers should always be preferred over implementing your own
+conditional restart logic, unless the restart requires additional
+logic that can't be covered by handlers.
+
+Bad example:
+
+.. code-block:: Yaml
+
+  ---
+
+  - name: Render /etc/ssh/sshd_config
+    ansible.builtin.template: ...
+    register: ssh_register_sshd_config
+
+  - name: Restart SSHd
+    ansible.builtin.service:
+      name: "{{ ssh_service }}"
+      state: restarted
+    when: "{{ ssh_register_sshd_config.changed }}"
+
 
 Files
 -----
 
 If some static files have to be copied, they can be stored
-in the directory ``files``. Files are rarely used, they are mostly replaced
-with templates. E.g. a binary or a compressed file can be copied with file.
+in the directory ``files/``.
 
 Within this directory, we rebuild the path structure of a target system. We
-do not store files in a flattened directory.
+do not store files in a flattened directory:
 
 Good example:
 
@@ -292,64 +333,35 @@ Bad example:
       ├── ssh
       └── ssh_config
 
-
-Meta
-----
-
-Meta information of a role are defined here. I.e. requirements for a role.
-
-.. code-block:: Yaml
-
-  ---
-
-  dependencies:
-    - role: pki
-
-  galaxy_info:
-    author: 'Adfinis AG'
-    description: 'Install and manage ssh and sshd'
-    company: 'Adfinis AG'
-    license: 'GNU General Public License v3'
-    min_ansible_version: '2.0.0'
-    platforms:
-      - name: Archlinux
-      - name: Debian
-        versions:
-          - wheezy
-          - jessie
-          - stretch
-      - name: Ubuntu
-        versions:
-          - trusty
-          - xenial
-      - name: CentOS
-        versions:
-          - 6
-          - 7
-    galaxy_tags:
-      - ssh
-      - sshd
+We usually only use ``files/`` for binary files, e.g. executables or
+archives.  Most text files would usually go into ``templates/``
+instead (see below); even if you don't need to put any dynamic content
+into a text file, we recommend to use a template and add an
+``{{ ansible_managed | comment }}`` header whenever possible.
 
 
 Templates
 ---------
 
-Within this directory, template files are stored with a `.j2` extension as the
-files are treated as `Jinja2 <http://jinja.pocoo.org/>`_ templates. This
-allows to customize files.
+Within this directory, template files are stored with a ``.j2``
+extension as the files are treated as `Jinja
+<https://jinja.palletsprojects.com/en/3.1.x/>`_ templates. This allows
+file contents to be modified based on Ansible variables, host vars and
+system facts.
 
-Templates should have a comment with ``{{ ansible_managed }}`` as the
-very beginning. This generates a comment header inside the file,
-warning a potential user that changes to the file may be overwritten.
-We recommend to use ``{{ ansible_managed | comment }}`` rather than
-``# {{ ansible_managed }}``, as the latter does not work with
-multiline ansible_managed comments.  For customization of the comment,
-check out the `documentation of the comment filter
+Templates should have a comment with ``{{ ansible_managed |
+comment }}`` at the very beginning.  This generates a comment header
+inside the file, warning a potential user that changes to the file may
+be overwritten.  We recommend to use ``{{ ansible_managed | comment
+}}`` rather than ``# {{ ansible_managed }}``, as the latter does not
+work with multiline ansible_managed comments.  For customization of
+the comment, check out the `documentation of the comment filter
 <https://docs.ansible.com/ansible/latest/collections/ansible/builtin/comment_filter.html>`_.
 
-If possible, validate the template before copying it into place. This will
-guarantee that configuration will work after restarting the corresponding
-service.
+If possible, validate the template before copying it into place. This
+will guarantee that configuration will work after restarting the
+corresponding service.  A lot of daemon binaries come with a config
+test flag intended for exactly this purpose.
 
 Good example:
 
@@ -372,11 +384,7 @@ Good example:
     notify:
       - "Restart SSHd"
 
-If not a single configuration file is used and it isn't possible to validate
-the configuration file, then do it with a handler which checks the
-configuration before calling another handler which will restart the service.
-
-Within this directory, we rebuild the path structure of a target system. We
+Within the ``template/`` directory, we rebuild the path structure of a target system. We
 do not store templates in a flattened directory.
 
 Good example:
@@ -400,5 +408,137 @@ Bad example:
       ├── ssh.j2
       └── ssh_config.j2
 
+
+      
+
+Meta
+----
+
+The file ``meta/main.yml`` contains metadata about a role.  For
+standalone roles, this file is required in order to be submitted to
+Ansible Galaxy.  For roles in a collection, this file is optional, but
+recommmended.
+
+.. code-block:: Yaml
+
+  ---
+
+  galaxy_info:
+    author: 'Adfinis AG'
+    description: 'Install and manage ssh and sshd'
+    company: 'Adfinis AG'
+    license: GPL-3.0-only
+    min_ansible_version: 2.10
+    platforms:
+      - name: Debian
+        versions:
+          - buster
+          - bullseye
+          - bookworm
+      - name: Ubuntu
+        versions:
+          - jammy
+          - lunar
+          - mantic
+      - name: CentOS
+        versions:
+          - 7
+          - 8
+          - 9
+    galaxy_tags:
+      - ssh
+      - sshd
+
+  # The roles listed here are automatically applied before applying this role.
+  dependencies:
+    - role: adfinis.linux
+
+
+Collections
+===========
+
+Collections are the new format for packaging roles, plugins, playbooks
+and other Ansible artifacts.
+
+A new collection can be created using the command ``ansible-galaxy
+collection init <namespace>.<collection>``.  The collection will be
+created in the directory ``./<namespace>/<collection/``.
+
+For more in-detail information, please refer to the upstream
+documentation: `Developing collections
+<https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html>`_.
+
+Artifacts in a collection should always be referred to by their FQCN
+(fully-qualified collection name) consisting of
+``<namespace>.<collection>.<artifact>``.  For example, the role
+``ssh`` in the collection ``adfinis.linux`` is referred to as
+``adfinis.linux.ssh``.  The same applies to other artifacts such as
+plugins or playbooks as well.
+
+Collection Directory Layout
+---------------------------
+
+::
+
+  .
+  ├── docs/
+  ├── galaxy.yml
+  ├── meta/
+  │   └── runtime.yml
+  ├── plugins/
+  │   ├── callback/
+  │   ├── inventory/
+  │   └── modules/
+  │       └── example.py
+  ├── README.md
+  ├── roles/
+  │   ├── ssh/
+  │   └── pki/
+  ├── playbooks/
+  │   ├── playbook.yml
+  │   ├── templates/
+  │   └── tasks/
+  └── tests/
+
+
+galaxy.yml
+----------
+
+The ``galaxy.yml`` file at the root of your collection contains the
+metadata required in order to publish your collection to Ansible
+Galaxy:
+
+.. code-block:: Yaml
+
+  ---
+  namespace: adfinis
+  name: linux
+  version: "1.0.0"
+  readme: README.md
+  authors:
+    - Adfinis AG <support@adfinis.com>
+  repository: http
+  description: Collection of roles for basic configuration of a Linux server
+  license: GPL-3.0-only
+  tags:
+    - linux
+  dependencies:
+    community.general: "7.5.0"
+    community.crypto: "2.15.1"
+  repository: https://github.com/adfinis/linux
+  documentation: https://adfinis.github.io/...
+  homepage: https://adfinis.com
+  issues: https://github.com/adfinis/linux/issues
+  build_ignore: []
+
+meta/runtime.yml
+----------------
+
+Usually this file only contains one entry: Which Ansible version is required to use this collection:
+
+.. code-block:: Yaml
+
+  ---
+  requires_ansible: ">=2.10.0"
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
