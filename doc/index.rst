@@ -11,5 +11,3 @@ Ansible Guide
    getting_started.rst
    roles_collections.rst
    styling_guide.rst
-   test_infrastructure.rst
-   role_overview.rst

@@ -62,17 +62,17 @@ Variables
   # role_var1 description
   role_var1: 'Foo Bar'
 
-- Variable names contains only lower case letters, numbers and underscores.
-- Each name starts with a role-name and an underline.
-- Use the collection name rather than the role name as prefix for variables that are shared between roles in a collection.
-    - Even though Ansible doesn't really support the "sharing" of variables between roles in a collection, closely related roles may need to use the same set of variables.
-    - Shared defaults must be kept in sync between roles. As there are no collection-wide defaults, the defaults must be maintained in each role separately. They should be maintained in a separate file, e.g. ``defaults/main/shared.yml``.
-    - Only share variable names between roles in the same collection. If there are other roles that need to use the same set of shared variables, consider if they might belong to the same collection.
-- Values are quoted if they contain variables or spaces.
-- Double quotes are preferred over single quotes for quoting strings,
+* Variable names contains only lower case letters, numbers and underscores.
+* Each name starts with a role-name and an underline.
+* Use the collection name rather than the role name as prefix for variables that are shared between roles in a collection.
+  * Even though Ansible doesn't really support the "sharing" of variables between roles in a collection, closely related roles may need to use the same set of variables.
+  * Shared defaults must be kept in sync between roles. As there are no collection-wide defaults, the defaults must be maintained in each role separately. They should be maintained in a separate file, e.g. ``defaults/main/shared.yml``.
+  * Only share variable names between roles in the same collection. If there are other roles that need to use the same set of shared variables, consider if they might belong to the same collection.
+* Values are quoted if they contain variables or spaces.
+* Double quotes are preferred over single quotes for quoting strings,
   as they allow escape sequences such as ``\\``, ``\n``.  Single
   quotes can be used to make nested quoting more readable.
-- Each variable has a description above.
+* Each variable has a description above.
 
 
 Registered variables
