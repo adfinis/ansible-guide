@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roles &amp; Collections &mdash; Ansible Guide</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/adsy.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=60dbed4a"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Styling Guide" href="styling_guide.html" />
+    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Ansible Guide
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Roles &amp; Collections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="styling_guide.html">Styling Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ansible Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Roles &amp; Collections</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/roles_collections.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="roles-collections">
+<h1>Roles &amp; Collections<a class="headerlink" href="#roles-collections" title="Link to this heading"></a></h1>
+<section id="general-organization">
+<h2>General Organization<a class="headerlink" href="#general-organization" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>We recommend to generally keep a strict separation between roles and
+collections on the one hand and playbook, inventory and host vars on
+the other hand.  This makes it easier to reuse roles at a later
+time.  Another advantage of this strict separation is that roles and
+collections can later on be published as open source without risking
+the exposure of sensitive customer data.</p></li>
+<li><p>We also recommend to put each role or collection into its own Git
+repository. Again, this makes reuse easier.</p></li>
+<li><p>We generally recommend to prefer collections over single-role
+repositories.  While there is no official “don’t use single-role
+repos” announcement yet, and they won’t go away for a long time,
+they for example are not supported in Ansible Automation Hub.</p></li>
+</ul>
+</section>
+<section id="roles">
+<h2>Roles<a class="headerlink" href="#roles" title="Link to this heading"></a></h2>
+<p>The following recommendations apply to both roles within collections
+as well as single-role repositories.</p>
+<p>A new role with all its boilerplate can be created using the command
+<code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span> <span class="pre">role</span> <span class="pre">init</span> <span class="pre">&lt;rolename&gt;</span></code>.  This can be used both within
+the <code class="docutils literal notranslate"><span class="pre">roles/</span></code> folder of a collection and for a standalone role
+repository.</p>
+<section id="role-directory-layout">
+<h3>Role Directory Layout<a class="headerlink" href="#role-directory-layout" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── defaults/
+│   └── main.yml
+├── files/
+│   └── etc/
+│       └── default/
+│          └── ssh
+├── handlers/
+│   └── main.yml
+├── meta/
+│   └── main.yml
+├── tasks/
+│   ├── configuration.yml
+│   ├── installation.yml
+│   └── main.yml
+├── templates/
+│   └── etc/
+│       └── ssh/
+│           └── sshd_config.j2
+└── vars/
+     ├── Debian.yml
+     └── RedHat.yml
+</pre></div>
+</div>
+</section>
+<section id="tasks">
+<h3>Tasks<a class="headerlink" href="#tasks" title="Link to this heading"></a></h3>
+<p>We use <code class="docutils literal notranslate"><span class="pre">main.yml</span></code> only to import other YAML files and to assign tags to the imported tasks:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Include OS-specific vars</span>
+<span class="w">  </span><span class="nt">ansible.builtin.include_vars</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">  </span><span class="nt">with_first_found</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_facts.distribution</span><span class="nv"> </span><span class="s">}}_{{</span><span class="nv"> </span><span class="s">ansible_facts.distribution_major_version</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_facts.os_family</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd:install&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd:config&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install SSH server</span>
+<span class="w">  </span><span class="nt">ansible.builtin.import_tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">install.yml</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd:install&quot;</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configure SSH server</span>
+<span class="w">  </span><span class="nt">ansible.builtin.import_tasks</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config.yml</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd:config&quot;</span>
+</pre></div>
+</div>
+<p>Role tagging helps later while running Ansible. When <code class="docutils literal notranslate"><span class="pre">ansible-playbook</span></code> is
+called with <code class="docutils literal notranslate"><span class="pre">--tags</span></code>, only matching tasks will be executed.</p>
+<p>The actual tasks are split up into individual logical units, each
+within one task file.  The example above e.g. splits the tasks into
+installation and configuration components.  Tasks inside the
+<code class="docutils literal notranslate"><span class="pre">install.yml</span></code> file are used to install all related packages:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install SSH-related packages</span>
+<span class="w">  </span><span class="nt">ansible.builtin.package</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_packages</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+</pre></div>
+</div>
+<p>The configuration files are rendered in <code class="docutils literal notranslate"><span class="pre">config.yml</span></code>:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Create SSH authorized_keys directory</span>
+<span class="w">  </span><span class="nt">ansible.builtin.file</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssh/authorized_keys</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">directory</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0755&quot;</span>
+<span class="w">    </span><span class="nt">seuser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system_u</span>
+<span class="w">    </span><span class="nt">serole</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_r</span>
+<span class="w">    </span><span class="nt">setype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sshd_key_t</span>
+<span class="w">    </span><span class="nt">selevel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s0</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configure SSHd</span>
+<span class="w">  </span><span class="nt">ansible.builtin.template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">etc/ssh/sshd_config.j2</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_daemon_cfg</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0644&quot;</span>
+<span class="w">    </span><span class="nt">seuser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system_u</span>
+<span class="w">    </span><span class="nt">serole</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_r</span>
+<span class="w">    </span><span class="nt">setype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">etc_t</span>
+<span class="w">    </span><span class="nt">selevel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s0</span>
+<span class="w">    </span><span class="nt">validate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_daemon_bin</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">-t</span><span class="nv"> </span><span class="s">-f</span><span class="nv"> </span><span class="s">%s&quot;</span>
+<span class="w">  </span><span class="nt">notify</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart sshd</span>
+</pre></div>
+</div>
+<p>If necessary, you can add additional tags to individual tasks inside
+the imported files.  However, since this ad-hoc tag list overrides the
+one defined in <code class="docutils literal notranslate"><span class="pre">main.yml</span></code>, you must also provide all the tags from
+<code class="docutils literal notranslate"><span class="pre">main.yml</span></code> again for the single task:</p>
+<p>Good example:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install SSH related packages</span>
+<span class="w">  </span><span class="nt">ansible.builtin.package</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_packages</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># This tag is added only for this task</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd:packages&quot;</span>
+<span class="w">    </span><span class="c1"># These two tags must  be provided again, as the tag list from main.yml is overwritten by this tag list.</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd:install&quot;</span>
+</pre></div>
+</div>
+<p>Bad example:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install SSH related packages</span>
+<span class="w">  </span><span class="nt">ansible.builtin.package</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_packages</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+<span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd:packages&quot;</span>
+</pre></div>
+</div>
+<p>This task is no longer executed when run via <code class="docutils literal notranslate"><span class="pre">--tags</span> <span class="pre">role::sshd</span></code>.</p>
+</section>
+<section id="variables">
+<h3>Variables<a class="headerlink" href="#variables" title="Link to this heading"></a></h3>
+<p>Variables in <code class="docutils literal notranslate"><span class="pre">vars/</span></code> are used for static data, e.g. package-, service-
+and filenames.  Only use <code class="docutils literal notranslate"><span class="pre">vars/</span></code> for data that does not change on a
+host-by-host basis, for that use the defaults!</p>
+<p>The variables stored in <code class="docutils literal notranslate"><span class="pre">vars/</span></code> can be loaded dynamically.  This can
+be used to e.g. load OS-dependent variables.  The example above uses
+this to load the <code class="docutils literal notranslate"><span class="pre">ssh_packages</span></code> variable dependent on the
+<code class="docutils literal notranslate"><span class="pre">os_family</span></code> host fact.</p>
+<p>To achieve this, you put the variables into files named after <code class="docutils literal notranslate"><span class="pre">os_family</span></code> inside the <code class="docutils literal notranslate"><span class="pre">vars/</span></code> directory:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Debian.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RedHat.yml</span></code></p></li>
+</ul>
+<p>If there are special variables for some operating systems, you can specify
+those in the files named:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Debian_11.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Debian_12.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CentOS_7.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CentOS_8.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CentOS_9.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ubuntu_20.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ubuntu_22.yml</span></code></p></li>
+<li><p>…</p></li>
+</ul>
+<p>This logic is implemented using the <code class="docutils literal notranslate"><span class="pre">with_first_found</span></code> iterator in
+the example above.  For more information, check out the documentation
+on <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_loops.html">Loops</a>.</p>
+<p>By our convention, each variable name start with <code class="docutils literal notranslate"><span class="pre">&lt;rolename&gt;_</span></code> and
+the name contains only lower case letters, numbers and underline
+<code class="docutils literal notranslate"><span class="pre">_</span></code>:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="c1"># ssh related packages</span>
+<span class="nt">sshd_packages</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openssh-client</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openssh-server</span>
+
+<span class="c1"># ssh service name</span>
+<span class="nt">sshd_service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh</span>
+
+<span class="c1"># ssh daemon binary (absolute path)</span>
+<span class="nt">sshd_daemon_bin</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/sbin/sshd</span>
+
+<span class="c1"># ssh daemon configuration file</span>
+<span class="nt">sshd_daemon_cfg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssh/sshd_config</span>
+
+<span class="c1"># ssh daemon sftp server</span>
+<span class="nt">sshd_sftp_server</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/lib/openssh/sftp-server</span>
+</pre></div>
+</div>
+</section>
+<section id="defaults">
+<h3>Defaults<a class="headerlink" href="#defaults" title="Link to this heading"></a></h3>
+<p>Every variable which is used inside a template or for tasks, and which
+is not defined in the vars, needs to be defined as defaults.  If there
+is no reasonable default value, the README should make it clear that
+the value must be provided via host vars.  Defaults can be used for
+example for default ports and hostnames (e.g. binding a service to
+<cite>localhost:80</cite> unless overwritten via host vars).</p>
+<p>There is only one defaults file, called <code class="docutils literal notranslate"><span class="pre">main.yml</span></code>:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="c1"># The ports to bind sshd on</span>
+<span class="nt">sshd_ports</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span>
+
+<span class="c1"># a list of ssh host keys</span>
+<span class="nt">sshd_host_keys</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssh/ssh_host_rsa_key</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/ssh/ssh_host_ed25519_key</span>
+</pre></div>
+</div>
+</section>
+<section id="handlers">
+<h3>Handlers<a class="headerlink" href="#handlers" title="Link to this heading"></a></h3>
+<p>Handlers are used to perform additional tasks required to apply
+changed configuration, such as restarting services.  That way a
+service does not get restarted with every playbook run, but only when
+required. Another advantage of handlers is that they can be notified
+by multiple tasks, yet only get executed once per playbook run..</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart SSHd</span>
+<span class="w">  </span><span class="nt">ansible.builtin.service</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_service</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
+</pre></div>
+</div>
+<p>This handler gets notified by a task called <code class="docutils literal notranslate"><span class="pre">Configure</span> <span class="pre">SSHd</span></code>. it
+will call the handler <code class="docutils literal notranslate"><span class="pre">Restart</span> <span class="pre">SSHd</span></code>, but only if the task has
+effected a change.</p>
+<p>Using handlers should always be preferred over implementing your own
+conditional restart logic, unless the restart requires additional
+logic that can’t be covered by handlers.</p>
+<p>Bad example:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Render /etc/ssh/sshd_config</span>
+<span class="w">  </span><span class="nt">ansible.builtin.template</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="nt">register</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sshd_register_sshd_config</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Restart SSHd</span>
+<span class="w">  </span><span class="nt">ansible.builtin.service</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_service</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">restarted</span>
+<span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_register_sshd_config.changed</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="files">
+<h3>Files<a class="headerlink" href="#files" title="Link to this heading"></a></h3>
+<p>If some static files have to be copied, they can be stored
+in the directory <code class="docutils literal notranslate"><span class="pre">files/</span></code>.</p>
+<p>Within this directory, we rebuild the path structure of a target system. We
+do not store files in a flattened directory:</p>
+<p>Good example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sshd/
+└── files/
+    └── etc/
+        ├── default/
+        │   └── ssh
+        └── ssh/
+            └── sshd_config
+</pre></div>
+</div>
+<p>Bad example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sshd/
+└── files/
+    ├── ssh
+    └── sshd_config
+</pre></div>
+</div>
+<p>We usually only use <code class="docutils literal notranslate"><span class="pre">files/</span></code> for binary files, e.g. executables or
+archives.  Most text files would usually go into <code class="docutils literal notranslate"><span class="pre">templates/</span></code>
+instead (see below); even if you don’t need to put any dynamic content
+into a text file, we recommend to use a template and add an
+<code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">ansible_managed</span> <span class="pre">|</span> <span class="pre">comment</span> <span class="pre">}}</span></code> header whenever possible.</p>
+</section>
+<section id="templates">
+<h3>Templates<a class="headerlink" href="#templates" title="Link to this heading"></a></h3>
+<p>Within this directory, template files are stored with a <code class="docutils literal notranslate"><span class="pre">.j2</span></code>
+extension as the files are treated as <a class="reference external" href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja</a> templates. This allows
+file contents to be modified based on Ansible variables, host vars and
+system facts.</p>
+<p>Templates should have a comment with <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">ansible_managed</span> <span class="pre">|</span>
+<span class="pre">comment</span> <span class="pre">}}</span></code> at the very beginning.  This generates a comment header
+inside the file, warning a potential user that changes to the file may
+be overwritten.  We recommend to use <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">ansible_managed</span> <span class="pre">|</span> <span class="pre">comment</span>
+<span class="pre">}}</span></code> rather than <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">{{</span> <span class="pre">ansible_managed</span> <span class="pre">}}</span></code>, as the latter does not
+work with multiline ansible_managed comments.  For customization of
+the comment, check out the <a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/builtin/comment_filter.html">documentation of the comment filter</a>.</p>
+<p>If possible, validate the template before copying it into place. This
+will guarantee that configuration will work after restarting the
+corresponding service.  A lot of daemon binaries come with a config
+test flag intended for exactly this purpose.</p>
+<p>Good example:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Configure the ssh daemon</span>
+<span class="w">  </span><span class="nt">ansible.builtin.template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">src</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">etc/ssh/sshd_config.j2</span>
+<span class="w">    </span><span class="nt">dest</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_daemon_cfg</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<span class="w">    </span><span class="nt">owner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">    </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
+<span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0644</span>
+<span class="w">    </span><span class="nt">seuser</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">system_u</span>
+<span class="w">    </span><span class="nt">serole</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object_r</span>
+<span class="w">    </span><span class="nt">setype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">etc_t</span>
+<span class="w">    </span><span class="nt">selevel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s0</span>
+<span class="w">    </span><span class="nt">validate</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sshd_daemon_bin</span><span class="nv"> </span><span class="s">}}</span><span class="nv"> </span><span class="s">-t</span><span class="nv"> </span><span class="s">-f</span><span class="nv"> </span><span class="s">%s&quot;</span>
+<span class="w">  </span><span class="nt">notify</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Restart</span><span class="nv"> </span><span class="s">SSHd&quot;</span>
+</pre></div>
+</div>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">template/</span></code> directory, we rebuild the path structure of a target system. We
+do not store templates in a flattened directory.</p>
+<p>Good example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sshd/
+└── templates/
+    └── etc/
+        ├── default/
+        │   └── ssh.j2
+        └── ssh/
+            └── sshd_config.j2
+</pre></div>
+</div>
+<p>Bad example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sshd/
+└── templates/
+    ├── ssh.j2
+    └── sshd_config.j2
+</pre></div>
+</div>
+</section>
+<section id="meta">
+<h3>Meta<a class="headerlink" href="#meta" title="Link to this heading"></a></h3>
+<p>The file <code class="docutils literal notranslate"><span class="pre">meta/main.yml</span></code> contains metadata about a role.  For
+standalone roles, this file is required in order to be submitted to
+Ansible Galaxy.  For roles in a collection, this file is optional, but
+recommmended.</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="nt">galaxy_info</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">author</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Adfinis</span><span class="nv"> </span><span class="s">AG&#39;</span>
+<span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Install</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">manage</span><span class="nv"> </span><span class="s">sshd&#39;</span>
+<span class="w">  </span><span class="nt">company</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Adfinis</span><span class="nv"> </span><span class="s">AG&#39;</span>
+<span class="w">  </span><span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GPL-3.0-only</span>
+<span class="w">  </span><span class="nt">min_ansible_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.10</span>
+<span class="w">  </span><span class="nt">platforms</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Debian</span>
+<span class="w">      </span><span class="nt">versions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">buster</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bullseye</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bookworm</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ubuntu</span>
+<span class="w">      </span><span class="nt">versions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jammy</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lunar</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mantic</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CentOS</span>
+<span class="w">      </span><span class="nt">versions</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9</span>
+<span class="w">  </span><span class="nt">galaxy_tags</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ssh</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sshd</span>
+
+<span class="c1"># The roles listed here are automatically applied before applying this role.</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adfinis.linux</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="collections">
+<h2>Collections<a class="headerlink" href="#collections" title="Link to this heading"></a></h2>
+<p>Collections are the new format for packaging roles, plugins, playbooks
+and other Ansible artifacts.</p>
+<p>A new collection can be created using the command <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span>
+<span class="pre">collection</span> <span class="pre">init</span> <span class="pre">&lt;namespace&gt;.&lt;collection&gt;</span></code>.  The collection will be
+created in the directory <code class="docutils literal notranslate"><span class="pre">./&lt;namespace&gt;/&lt;collection/</span></code>.</p>
+<p>For more in-detail information, please refer to the upstream
+documentation: <a class="reference external" href="https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html">Developing collections</a>.</p>
+<p>Artifacts in a collection should always be referred to by their FQCN
+(fully-qualified collection name) consisting of
+<code class="docutils literal notranslate"><span class="pre">&lt;namespace&gt;.&lt;collection&gt;.&lt;artifact&gt;</span></code>.  For example, the role
+<code class="docutils literal notranslate"><span class="pre">sshd</span></code> in the collection <code class="docutils literal notranslate"><span class="pre">adfinis.linux</span></code> is referred to as
+<code class="docutils literal notranslate"><span class="pre">adfinis.linux.sshd</span></code>.  The same applies to other artifacts such as
+plugins or playbooks as well.</p>
+<section id="collection-directory-layout">
+<h3>Collection Directory Layout<a class="headerlink" href="#collection-directory-layout" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── docs/
+├── galaxy.yml
+├── meta/
+│   └── runtime.yml
+├── plugins/
+│   ├── callback/
+│   ├── inventory/
+│   └── modules/
+│       └── example.py
+├── README.md
+├── roles/
+│   ├── sshd/
+│   └── pki/
+├── playbooks/
+│   ├── playbook.yml
+│   ├── templates/
+│   └── tasks/
+└── tests/
+</pre></div>
+</div>
+</section>
+<section id="galaxy-yml">
+<h3>galaxy.yml<a class="headerlink" href="#galaxy-yml" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">galaxy.yml</span></code> file at the root of your collection contains the
+metadata required in order to publish your collection to Ansible
+Galaxy:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adfinis</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span>
+<span class="nt">readme</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">README.md</span>
+<span class="nt">authors</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Adfinis AG &lt;support@adfinis.com&gt;</span>
+<span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collection of roles for basic configuration of a Linux server</span>
+<span class="nt">license</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GPL-3.0-only</span>
+<span class="nt">tags</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">linux</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">community.general</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;7.5.0&quot;</span>
+<span class="w">  </span><span class="nt">community.crypto</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2.15.1&quot;</span>
+<span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/adfinis/linux</span>
+<span class="nt">documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://adfinis.github.io/...</span>
+<span class="nt">homepage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://adfinis.com</span>
+<span class="nt">issues</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/adfinis/linux/issues</span>
+<span class="nt">build_ignore</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</pre></div>
+</div>
+</section>
+<section id="meta-runtime-yml">
+<h3>meta/runtime.yml<a class="headerlink" href="#meta-runtime-yml" title="Link to this heading"></a></h3>
+<p>Usually this file only contains one entry: Which Ansible version is required to use this collection:</p>
+<div class="highlight-Yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="nt">requires_ansible</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&gt;=2.10.0&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="styling_guide.html" class="btn btn-neutral float-right" title="Styling Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Adfinis AG.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

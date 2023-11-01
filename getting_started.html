@@ -13,13 +13,13 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=60dbed4a"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Styling Guide" href="styling_guide.html" />
+    <link rel="next" title="Roles &amp; Collections" href="roles_collections.html" />
     <link rel="prev" title="Overview" href="overview.html" /> 
 </head>
 
@@ -35,7 +35,7 @@
             Ansible Guide
           </a>
               <div class="version">
-                1.0
+                2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -48,9 +48,8 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roles_collections.html">Roles &amp; Collections</a></li>
 <li class="toctree-l1"><a class="reference internal" href="styling_guide.html">Styling Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="roles.html">Roles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="role_overview.html">Role Overview</a></li>
 </ul>
 
         </div>
@@ -81,97 +80,127 @@
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h1>
 <section id="project-repository">
 <h2>Project Repository<a class="headerlink" href="#project-repository" title="Link to this heading"></a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This section is vastly outdated and will be rewritten in the near future.
-Rather than adding a submodule, you should install roles and collections via <a class="reference external" href="https://docs.ansible.com/ansible/latest/galaxy/user_guide.html">Ansible Galaxy</a>.</p>
-</div>
-<p>First of all, you need a project repository. For that, you can just clone
-this repository or start a new one. As a Git Submodule you should add the
-<a class="reference external" href="https://github.com/adfinis/ansible-roles">ansible-roles</a> as <code class="docutils literal notranslate"><span class="pre">roles/</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span>
-<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;Intial commit.&#39;</span> <span class="o">--</span><span class="n">allow</span><span class="o">-</span><span class="n">empty</span>
-<span class="n">git</span> <span class="n">submodule</span> <span class="n">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">adfinis</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">roles</span> <span class="n">adfinis</span><span class="o">-</span><span class="n">roles</span>
+<p>First of all, you need a project repository.  For this, simply create
+a directory and run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code>, or create a new project on the git
+forge of your choice and clone the repository.</p>
+<p>Now, let’s configure Ansible.  For this, create a file named
+<code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> in your project’s root directory:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[defaults]</span>
+<span class="c1"># Path to the default inventory file</span>
+<span class="na">inventory</span><span class="o">=</span><span class="s">inventory</span>
+<span class="c1"># By default, roles and collections from Ansible Galaxy are installed to ~/.ansible.  To prevent conflicts</span>
+<span class="c1"># between different versions, it can be useful to change this to another path.  Also add to gitignore!</span>
+<span class="na">collections_path</span><span class="o">=</span><span class="s">./galaxy</span>
+<span class="na">roles_path</span><span class="o">=</span><span class="s">./galaxy/ansible_roles</span>
+
+<span class="c1"># The ansible_managed header used in templates can be multi-line; following lines need to be indented.</span>
+<span class="c1"># Use multi-line headers with caution when using roles where you don&#39;t know how ansible_managed</span>
+<span class="c1"># is used in templates.</span>
+<span class="na">ansible_managed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">This file is managed by Ansible.  Manual changes will be overwritten.</span>
+<span class="w"> </span><span class="na">Ansible repository</span><span class="o">:</span><span class="w"> </span><span class="s">https://git.example.org/example/project</span>
 </pre></div>
 </div>
-<p>Create the main playbook <code class="docutils literal notranslate"><span class="pre">site.yml</span></code> with content along the following
-example. Add your roles as needed:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<p>The next step is to create an inventory file, <code class="docutils literal notranslate"><span class="pre">inventory</span></code>,
+containing the hosts and groups of your infrastructure.  Create as
+many host groups as you need.  A host can be in multiple groups,
+and groups can contain other groups. Each host is automatically added
+to the the group <code class="docutils literal notranslate"><span class="pre">all</span></code>.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">www1.example.com</span>
+<span class="na">www2.example.com</span>
+<span class="na">db1.example.com</span>
 
-<span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="nb">all</span>
-  <span class="n">roles</span><span class="p">:</span>
-    <span class="o">-</span> <span class="n">ansible</span>
-    <span class="o">-</span> <span class="n">console</span>
-    <span class="o">-</span> <span class="n">ssh</span>
+<span class="k">[webservers]</span>
+<span class="na">www1.example.com</span>
+<span class="na">www2.example.com</span>
+
+<span class="k">[mysql_servers]</span>
+<span class="na">db1.example.com</span>
+
+<span class="k">[ssh_servers]</span>
+<span class="na">www1.example.com</span>
+<span class="na">www2.example.com</span>
+<span class="na">db1.example.com</span>
 </pre></div>
 </div>
-<p>Create an inventory file <code class="docutils literal notranslate"><span class="pre">hosts</span></code>, create as many hostgroups as you need. A
-host can be in multiple hostgroups. Each host is in the hostgroup <code class="docutils literal notranslate"><span class="pre">all</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-<span class="n">db1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<p>Next, you declare which roles and collections you need to use.  Roles
+and collections installed from <a class="reference external" href="https://galaxy.ansible.com">Ansible Galaxy</a>
+must be listed in the <code class="docutils literal notranslate"><span class="pre">requirements.yml</span></code> file:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
 
-<span class="p">[</span><span class="n">webservers</span><span class="p">]</span>
-<span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="nt">collections</span><span class="p">:</span>
 
-<span class="p">[</span><span class="n">mysql_servers</span><span class="p">]</span>
-<span class="n">db1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="w">  </span><span class="c1"># A collection installed from Ansible Galaxy</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">community.general</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;7.3.0&quot;</span>
 
-<span class="p">[</span><span class="n">ssh_servers</span><span class="p">]</span>
-<span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-<span class="n">db1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="w">  </span><span class="c1"># A collection installed directly from a git repository</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://git.example.org/example/ansible-collection-foo</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">git</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;main&quot;</span><span class="w">  </span><span class="c1"># Name of the branch or tag</span>
+
+<span class="nt">roles</span><span class="p">:</span>
+
+<span class="w">  </span><span class="c1"># A single role installed from Ansible Galaxy</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adfinis.users</span>
+<span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0.3.0&quot;</span>
 </pre></div>
 </div>
-<p>You can now start Ansible, and Ansible will connect to each host with ssh.
-If you can’t login with public keys, you can use ssh controlmaster with
-sockets, for that, create a file called <code class="docutils literal notranslate"><span class="pre">ansible.cfg</span></code> in the root of your
-project directory.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">defaults</span><span class="p">]</span>
-<span class="n">ansible_managed</span>     <span class="o">=</span> <span class="ne">Warning</span><span class="p">:</span> <span class="n">File</span> <span class="ow">is</span> <span class="n">managed</span> <span class="n">by</span> <span class="n">Ansible</span> <span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">adfinis</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">roles</span><span class="p">]</span>
-<span class="n">retry_files_enabled</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">hostfile</span>            <span class="o">=</span> <span class="o">./</span><span class="n">hosts</span>
-<span class="n">roles_path</span>          <span class="o">=</span> <span class="o">./</span><span class="n">adfinis</span><span class="o">-</span><span class="n">roles</span>
-
-<span class="p">[</span><span class="n">ssh_connection</span><span class="p">]</span>
-<span class="n">ssh_args</span>            <span class="o">=</span> <span class="o">-</span><span class="n">o</span> <span class="n">ControlMaster</span><span class="o">=</span><span class="n">auto</span> <span class="o">-</span><span class="n">o</span> <span class="n">ControlPersist</span><span class="o">=</span><span class="mi">30</span><span class="n">s</span>
-<span class="c1">#control_path       = ~/.ssh/sockets/%C</span>
+<p>These dependencies can be installed using the <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span></code> command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">galaxy</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
-<p>You need to create the directory <code class="docutils literal notranslate"><span class="pre">~/.ssh/sockets</span></code> and you should
-manually establish a connection to each host (with a command like <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-o</span>
-<span class="pre">ControlMaster=auto</span> <span class="pre">-o</span> <span class="pre">ControlPath='~/.ssh/sockets/%C'</span> <span class="pre">-o</span> <span class="pre">ControlPersist=30s</span>
-<span class="pre">-l</span> <span class="pre">root</span> <span class="pre">$FQDN</span></code>). While the connection is established (and 30 seconds
-after that) a socket file in <code class="docutils literal notranslate"><span class="pre">~/.ssh/sockets/</span></code> is generated. Ansible will use this
-socket file to connect to the hosts, and doesn’t’ need to reauthenticate.
-This speeds up Ansible operations considerably especially with many hosts.</p>
+<p>To assign these roles to hosts, create a playbook; let’s name it <code class="docutils literal notranslate"><span class="pre">playbook.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">roles</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adfinis.users</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">webservers</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- community.general.redis</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">- example.foo.bar</span>
+</pre></div>
+</div>
+<p>Most roles require additional configuration.  This can be provided
+both on a per-host and per-group basis.  While the exact filename does
+not matter, we recommend putting the host vars of a role into
+<code class="docutils literal notranslate"><span class="pre">host_vars/&lt;hostname&gt;/&lt;rolename&gt;.yml</span></code> and group vars into
+<code class="docutils literal notranslate"><span class="pre">group_vars/&lt;groupname&gt;/&lt;rolename&gt;.yml</span></code>.</p>
+<p>For example, let’s create <code class="docutils literal notranslate"><span class="pre">group_vars/all/users.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+
+<span class="nt">users_default_user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adfinis</span>
+
+<span class="nt">users_adfinis</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adfinis</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">customer</span>
+</pre></div>
+</div>
 </section>
 <section id="run-ansible">
 <h2>Run Ansible<a class="headerlink" href="#run-ansible" title="Link to this heading"></a></h2>
 <p>To run Ansible with your playbook and your hosts, just start
-<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">-i</span> <span class="pre">hosts</span> <span class="pre">site.yml</span></code>. If you want to know what has
-changed, you can add the option <code class="docutils literal notranslate"><span class="pre">--diff</span></code> and if you want to know that
-before you change anything, you can add <code class="docutils literal notranslate"><span class="pre">--check</span></code>. With the checkmode
-enabled, nothing gets changed on any of the systems!</p>
+<code class="docutils literal notranslate"><span class="pre">ansible-playbook</span> <span class="pre">playbook.yml</span></code>. If you want to know what has
+changed, you can add the option <code class="docutils literal notranslate"><span class="pre">--diff</span></code> and if you want to know
+that before you change anything, you can add <code class="docutils literal notranslate"><span class="pre">--check</span></code>. With check
+mode enabled, nothing gets changed, but the diff of what WOULD be
+changed is printed.</p>
 <p>As a possible way to go, start Ansible with diff and checkmode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">--</span><span class="n">diff</span> <span class="o">--</span><span class="n">check</span> <span class="n">site</span><span class="o">.</span><span class="n">yml</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbook</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">diff</span> <span class="o">--</span><span class="n">check</span>
 </pre></div>
 </div>
-<p>If you think the changes do what you intend to do, you can start Ansible without the checkmode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="o">-</span><span class="n">i</span> <span class="n">hosts</span> <span class="o">--</span><span class="n">diff</span> <span class="n">site</span><span class="o">.</span><span class="n">yml</span>
+<p>If you think the changes do what you intend to do, you can start
+Ansible without check mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">playbook</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">diff</span>
 </pre></div>
 </div>
 </section>
-<section id="special-roles">
-<h2>Special Roles<a class="headerlink" href="#special-roles" title="Link to this heading"></a></h2>
-<p>If you need new roles, which aren’t created yet, create them and make a
-pull-requests to the <a class="reference external" href="https://github.com/adfinis/ansible-roles">ansible-roles</a> repository. Only generic roles will
-be accepted. Follow the guidelines for new roles.</p>
-<p>To create special roles for one project (e.g. not possible as a generic
-role or never needed in another project) put them inside the directory
-<code class="docutils literal notranslate"><span class="pre">roles/</span></code>. Each role in this directory will override roles in the directory
-<code class="docutils literal notranslate"><span class="pre">adfinis-roles/</span></code>.</p>
+<section id="write-roles-collections">
+<h2>Write Roles &amp; Collections<a class="headerlink" href="#write-roles-collections" title="Link to this heading"></a></h2>
+<p>You will most likely run into a situation where existing roles and
+collections don’t match your needs rather quickly.</p>
+<p>Under <a class="reference internal" href="roles_collections.html#roles-collections"><span class="std std-ref">Roles &amp; Collections</span></a> we provide a
+guide and best practices for writing new roles and collections.</p>
 </section>
 </section>
 
@@ -180,7 +209,7 @@ role or never needed in another project) put them inside the directory
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="styling_guide.html" class="btn btn-neutral float-right" title="Styling Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="roles_collections.html" class="btn btn-neutral float-right" title="Roles &amp; Collections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
