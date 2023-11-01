@@ -12,7 +12,7 @@ General Organization
   time.  Another advantage of this strict separation is that roles and
   collections can later on be published as open source without risking
   the exposure of sensitive customer data.
-* We also recommend to put each role or collection into its on Git
+* We also recommend to put each role or collection into its own Git
   repository. Again, this makes reuse easier.
 * We generally recommend to prefer collections over single-role
   repositories.  While there is no official "don't use single-role
@@ -217,21 +217,21 @@ the name contains only lower case letters, numbers and underline
   ---
 
   # ssh related packages
-  ssh_packages:
+  sshd_packages:
     - openssh-client
     - openssh-server
 
   # ssh service name
-  ssh_service: ssh
+  sshd_service: ssh
 
   # ssh daemon binary (absolute path)
-  ssh_daemon_bin: /usr/sbin/sshd
+  sshd_daemon_bin: /usr/sbin/sshd
 
   # ssh daemon configuration file
-  ssh_daemon_cfg: /etc/ssh/sshd_config
+  sshd_daemon_cfg: /etc/ssh/sshd_config
 
   # ssh daemon sftp server
-  ssh_sftp_server: /usr/lib/openssh/sftp-server
+  sshd_sftp_server: /usr/lib/openssh/sftp-server
 
 
 Defaults
@@ -251,11 +251,11 @@ There is only one defaults file, called ``main.yml``:
   ---
 
   # The ports to bind sshd on
-  ssh_ports:
+  sshd_ports:
     - 22
 
   # a list of ssh host keys
-  ssh_host_keys:
+  sshd_host_keys:
     - /etc/ssh/ssh_host_rsa_key
     - /etc/ssh/ssh_host_ed25519_key
 
@@ -275,7 +275,7 @@ by multiple tasks, yet only get executed once per playbook run..
 
   - name: Restart sshd
     ansible.builtin.service:
-      name: "{{ ssh_service }}"
+      name: "{{ sshd_service }}"
       state: restarted
 
 This handler gets notified by a task called ``Configure SSHd``. it
@@ -294,13 +294,13 @@ Bad example:
 
   - name: Render /etc/ssh/sshd_config
     ansible.builtin.template: ...
-    register: ssh_register_sshd_config
+    register: sshd_register_sshd_config
 
   - name: Restart SSHd
     ansible.builtin.service:
-      name: "{{ ssh_service }}"
+      name: "{{ sshd_service }}"
       state: restarted
-    when: "{{ ssh_register_sshd_config.changed }}"
+    when: "{{ sshd_register_sshd_config.changed }}"
 
 
 Files
@@ -372,7 +372,7 @@ Good example:
   - name: Configure the ssh daemon
     ansible.builtin.template:
       src: etc/ssh/sshd_config.j2
-      dest: "{{ ssh_daemon_cfg }}"
+      dest: "{{ sshd_daemon_cfg }}"
       owner: root
       group: root
       mode: 0644
@@ -380,7 +380,7 @@ Good example:
       serole: object_r
       setype: etc_t
       selevel: s0
-      validate: "{{ ssh_daemon_bin }} -t -f %s"
+      validate: "{{ sshd_daemon_bin }} -t -f %s"
     notify:
       - "Restart SSHd"
 

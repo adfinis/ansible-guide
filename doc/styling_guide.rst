@@ -28,7 +28,7 @@ Tasks
 - Each task has a empty line above the task.
 - Tasks have a name which contains only letters, numbers
   and spaces.  Task names start with an uppercase letter.
-- Module names are written as FQCN whereever possible.
+- Module names are written as FQCN wherever possible.
 - Each argument of a module is on its own line.
 - Key and value are separated by colon and space.
 - Values don't need to be quoted if they are single words.
