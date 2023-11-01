@@ -6,37 +6,37 @@ Getting Started
 Project Repository
 ==================
 
-.. warning::
-    This section is vastly outdated and will be rewritten in the near future.
-    Rather than adding a submodule, you should install roles and collections via `Ansible Galaxy <https://docs.ansible.com/ansible/latest/galaxy/user_guide.html>`_.
+First of all, you need a project repository.  For this, simply create
+a directory and run ``git init``, or create a new project on the git
+forge of your choice and clone the repository.
 
-First of all, you need a project repository. For that, you can just clone
-this repository or start a new one. As a Git Submodule you should add the
-`ansible-roles`_ as ``roles/``:
+Now, let's configure Ansible.  For this, create a file named
+``ansible.cfg`` in your project's root directory:
 
-::
+.. code-block:: ini
 
-  git init
-  git commit -m 'Intial commit.' --allow-empty
-  git submodule add https://github.com/adfinis/ansible-roles adfinis-roles
+   [defaults]
+   # Path to the default inventory file
+   inventory=inventory
+   # By default, roles and collections from Ansible Galaxy are installed to ~/.ansible.  To prevent conflicts
+   # between different versions, it can be useful to change this to another path.  Also add to gitignore!
+   collections_path=./galaxy
+   roles_path=./galaxy/ansible_roles
+ 
+   # The ansible_managed header used in templates can be multi-line; following lines need to be indented.
+   # Use multi-line headers with caution when using roles where you don't know how ansible_managed
+   # is used in templates.
+   ansible_managed = This file is managed by Ansible.  Manual changes will be overwritten.
+    Ansible repository: https://git.example.org/example/project
 
-Create the main playbook ``site.yml`` with content along the following
-example. Add your roles as needed:
 
-::
+The next step is to create an inventory file, ``inventory``,
+containing the hosts and groups of your infrastructure.  Create as
+many host groups as you need.  A host can be in multiple groups,
+and groups can contain other groups. Each host is automatically added
+to the the group ``all``.
 
-  ---
-
-  - hosts: all
-    roles:
-      - ansible
-      - console
-      - ssh
-
-Create an inventory file ``hosts``, create as many hostgroups as you need. A
-host can be in multiple hostgroups. Each host is in the hostgroup ``all``.
-
-::
+.. code-block:: ini
 
   www1.example.com
   www2.example.com
@@ -54,68 +54,105 @@ host can be in multiple hostgroups. Each host is in the hostgroup ``all``.
   www2.example.com
   db1.example.com
 
-You can now start Ansible, and Ansible will connect to each host with ssh.
-If you can't login with public keys, you can use ssh controlmaster with
-sockets, for that, create a file called ``ansible.cfg`` in the root of your
-project directory.
+
+Next, you declare which roles and collections you need to use.  Roles
+and collections installed from `Ansible Galaxy <https://galaxy.ansible.com>`_
+must be listed in the ``requirements.yml`` file:
+
+.. code-block:: yaml
+
+  ---
+
+  collections:
+
+    # A collection installed from Ansible Galaxy
+    - name: community.general
+      version: "7.3.0"
+
+    # A collection installed directly from a git repository
+    - name: https://git.example.org/example/ansible-collection-foo
+      type: git
+      version: "main"  # Name of the branch or tag
+
+  roles:
+
+    # A single role installed from Ansible Galaxy
+    - name: adfinis.users
+      version: "0.3.0"
+
+
+These dependencies can be installed using the ``ansible-galaxy`` command:
 
 ::
 
-  [defaults]
-  ansible_managed     = Warning: File is managed by Ansible [https://github.com/adfinis/ansible-roles]
-  retry_files_enabled = False
-  hostfile            = ./hosts
-  roles_path          = ./adfinis-roles
+   ansible-galaxy install -r requirements.yml
 
-  [ssh_connection]
-  ssh_args            = -o ControlMaster=auto -o ControlPersist=30s
-  #control_path       = ~/.ssh/sockets/%C
 
-You need to create the directory ``~/.ssh/sockets`` and you should
-manually establish a connection to each host (with a command like ``ssh -o
-ControlMaster=auto -o ControlPath='~/.ssh/sockets/%C' -o ControlPersist=30s
--l root $FQDN``). While the connection is established (and 30 seconds
-after that) a socket file in ``~/.ssh/sockets/`` is generated. Ansible will use this
-socket file to connect to the hosts, and doesn't' need to reauthenticate.
-This speeds up Ansible operations considerably especially with many hosts.
+To assign these roles to hosts, create a playbook; let's name it ``playbook.yml``:
+
+.. code-block:: yaml
+
+  ---
+
+  - hosts: all
+    roles:
+      - adfinis.users
+
+  - hosts: webservers
+      - community.general.redis
+      - example.foo.bar
+
+
+Most roles require additional configuration.  This can be provided
+both on a per-host and per-group basis.  While the exact filename does
+not matter, we recommend putting the host vars of a role into
+``host_vars/<hostname>/<rolename>.yml`` and group vars into
+``group_vars/<groupname>/<rolename>.yml``.
+
+For example, let's create ``group_vars/all/users.yml``:
+
+.. code-block:: yaml
+   
+   ---
+   
+   users_default_user: adfinis
+   
+   users_adfinis:
+     - username: adfinis
+     - username: customer
 
 
 Run Ansible
 ===========
 
 To run Ansible with your playbook and your hosts, just start
-``ansible-playbook -i hosts site.yml``. If you want to know what has
-changed, you can add the option ``--diff`` and if you want to know that
-before you change anything, you can add ``--check``. With the checkmode
-enabled, nothing gets changed on any of the systems!
+``ansible-playbook playbook.yml``. If you want to know what has
+changed, you can add the option ``--diff`` and if you want to know
+that before you change anything, you can add ``--check``. With check
+mode enabled, nothing gets changed, but the diff of what WOULD be
+changed is printed.
 
 As a possible way to go, start Ansible with diff and checkmode:
 
 ::
 
-  ansible-playbook -i hosts --diff --check site.yml
+  ansible-playbook playbook.yml --diff --check
 
-If you think the changes do what you intend to do, you can start Ansible without the checkmode:
+If you think the changes do what you intend to do, you can start
+Ansible without check mode:
 
 ::
 
-  ansible-playbook -i hosts --diff site.yml
+  ansible-playbook playbook.yml --diff
 
 
-Special Roles
-=============
+Write Roles & Collections
+=========================
 
-If you need new roles, which aren't created yet, create them and make a
-pull-requests to the `ansible-roles`_ repository. Only generic roles will
-be accepted. Follow the guidelines for new roles.
+You will most likely run into a situation where existing roles and
+collections don't match your needs rather quickly.
 
-To create special roles for one project (e.g. not possible as a generic
-role or never needed in another project) put them inside the directory
-``roles/``. Each role in this directory will override roles in the directory
-``adfinis-roles/``.
-
-
-.. _ansible-roles: https://github.com/adfinis/ansible-roles
-
+Under :ref:`roles_collections:Roles & Collections` we provide a
+guide and best practices for writing new roles and collections.
 
 .. vim: set spell spelllang=en foldmethod=marker sw=2 ts=2 et wrap tw=76 :
