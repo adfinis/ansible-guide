@@ -106,7 +106,7 @@ installation and configuration components.  Tasks inside the
 
   - name: Install SSH-related packages
     ansible.builtin.package:
-      name: "{{ ssh_packages }}"
+      name: "{{ sshd_packages }}"
       state: present
 
 The configuration files are rendered in ``config.yml``:
@@ -130,7 +130,7 @@ The configuration files are rendered in ``config.yml``:
   - name: Configure SSHd
     ansible.builtin.template:
       src: etc/ssh/sshd_config.j2
-      dest: "{{ ssh_daemon_cfg }}"
+      dest: "{{ sshd_daemon_cfg }}"
       owner: root
       group: root
       mode: "0644"
@@ -138,7 +138,7 @@ The configuration files are rendered in ``config.yml``:
       serole: object_r
       setype: etc_t
       selevel: s0
-      validate: "{{ ssh_daemon_bin }} -t -f %s"
+      validate: "{{ sshd_daemon_bin }} -t -f %s"
     notify:
       - Restart sshd
 
@@ -153,7 +153,7 @@ Good example:
 
   - name: Install SSH related packages
     ansible.builtin.package:
-      name: "{{ ssh_packages }}"
+      name: "{{ sshd_packages }}"
       state: present
     tags:
       # This tag is added only for this task
@@ -168,7 +168,7 @@ Bad example:
 
   - name: Install SSH related packages
     ansible.builtin.package:
-      name: "{{ ssh_packages }}"
+      name: "{{ sshd_packages }}"
       state: present
     tags:
       - "role::sshd:packages"
@@ -273,7 +273,7 @@ by multiple tasks, yet only get executed once per playbook run..
 
   ---
 
-  - name: Restart sshd
+  - name: Restart SSHd
     ansible.builtin.service:
       name: "{{ sshd_service }}"
       state: restarted
@@ -316,22 +316,22 @@ Good example:
 
 ::
 
-  ssh/
+  sshd/
   └── files/
       └── etc/
           ├── default/
           │   └── ssh
           └── ssh/
-              └── ssh_config
+              └── sshd_config
 
 Bad example:
 
 ::
 
-  ssh/
+  sshd/
   └── files/
       ├── ssh
-      └── ssh_config
+      └── sshd_config
 
 We usually only use ``files/`` for binary files, e.g. executables or
 archives.  Most text files would usually go into ``templates/``
@@ -391,22 +391,22 @@ Good example:
 
 ::
 
-  ssh/
+  sshd/
   └── templates/
       └── etc/
           ├── default/
           │   └── ssh.j2
           └── ssh/
-              └── ssh_config.j2
+              └── sshd_config.j2
 
 Bad example:
 
 ::
 
-  ssh/
+  sshd/
   └── templates/
       ├── ssh.j2
-      └── ssh_config.j2
+      └── sshd_config.j2
 
 
       
@@ -425,7 +425,7 @@ recommmended.
 
   galaxy_info:
     author: 'Adfinis AG'
-    description: 'Install and manage ssh and sshd'
+    description: 'Install and manage sshd'
     company: 'Adfinis AG'
     license: GPL-3.0-only
     min_ansible_version: 2.10
@@ -471,8 +471,8 @@ documentation: `Developing collections
 Artifacts in a collection should always be referred to by their FQCN
 (fully-qualified collection name) consisting of
 ``<namespace>.<collection>.<artifact>``.  For example, the role
-``ssh`` in the collection ``adfinis.linux`` is referred to as
-``adfinis.linux.ssh``.  The same applies to other artifacts such as
+``sshd`` in the collection ``adfinis.linux`` is referred to as
+``adfinis.linux.sshd``.  The same applies to other artifacts such as
 plugins or playbooks as well.
 
 Collection Directory Layout
@@ -492,7 +492,7 @@ Collection Directory Layout
   │       └── example.py
   ├── README.md
   ├── roles/
-  │   ├── ssh/
+  │   ├── sshd/
   │   └── pki/
   ├── playbooks/
   │   ├── playbook.yml
