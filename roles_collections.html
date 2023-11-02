@@ -472,11 +472,14 @@ recommmended.</p>
 <h2>Collections<a class="headerlink" href="#collections" title="Link to this heading"></a></h2>
 <p>Collections are the new format for packaging roles, plugins, playbooks
 and other Ansible artifacts.</p>
+<p>For more in-detail information, please refer to the upstream
+documentation: <a class="reference external" href="https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html">Developing collections</a>.</p>
 <p>A new collection can be created using the command <code class="docutils literal notranslate"><span class="pre">ansible-galaxy</span>
 <span class="pre">collection</span> <span class="pre">init</span> <span class="pre">&lt;namespace&gt;.&lt;collection&gt;</span></code>.  The collection will be
 created in the directory <code class="docutils literal notranslate"><span class="pre">./&lt;namespace&gt;/&lt;collection/</span></code>.</p>
-<p>For more in-detail information, please refer to the upstream
-documentation: <a class="reference external" href="https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html">Developing collections</a>.</p>
+<p>We also provide a Github template for Ansible collection repositories,
+which comes with a CI pipeline for <cite>ansible-lint</cite> and automated
+release to Ansible Galaxy: <a class="reference external" href="https://github.com/adfinis/ansible-collection-template">adfinis/ansible-collection-template</a>.</p>
 <p>Artifacts in a collection should always be referred to by their FQCN
 (fully-qualified collection name) consisting of
 <code class="docutils literal notranslate"><span class="pre">&lt;namespace&gt;.&lt;collection&gt;.&lt;artifact&gt;</span></code>.  For example, the role

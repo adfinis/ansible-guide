@@ -460,13 +460,18 @@ Collections
 Collections are the new format for packaging roles, plugins, playbooks
 and other Ansible artifacts.
 
+For more in-detail information, please refer to the upstream
+documentation: `Developing collections
+<https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html>`_.
+
 A new collection can be created using the command ``ansible-galaxy
 collection init <namespace>.<collection>``.  The collection will be
 created in the directory ``./<namespace>/<collection/``.
 
-For more in-detail information, please refer to the upstream
-documentation: `Developing collections
-<https://docs.ansible.com/ansible/3/dev_guide/developing_collections.html>`_.
+We also provide a Github template for Ansible collection repositories,
+which comes with a CI pipeline for `ansible-lint` and automated
+release to Ansible Galaxy: `adfinis/ansible-collection-template
+<https://github.com/adfinis/ansible-collection-template>`_.
 
 Artifacts in a collection should always be referred to by their FQCN
 (fully-qualified collection name) consisting of
