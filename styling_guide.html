@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Styling Guide &mdash; Ansible Guide</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/adsy.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/adsy.css?v=16061422" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -14,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=60dbed4a"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -101,6 +103,10 @@
 <li><p>Each task has a empty line above the task.</p></li>
 <li><p>Tasks have a name which contains only letters, numbers
 and spaces.  Task names start with an uppercase letter.</p></li>
+<li><p>Tasks from an included task file should be named with a prefix, consisting
+of its file name. For example the task <cite>Deploy config</cite>
+in <code class="docutils literal notranslate"><span class="pre">tasks/deploy.yml</span></code> should be named <code class="docutils literal notranslate"><span class="pre">deploy</span> <span class="pre">|</span> <span class="pre">Deploy</span> <span class="pre">config</span></code>
+rather than just <code class="docutils literal notranslate"><span class="pre">Deploy</span> <span class="pre">config</span></code>.</p></li>
 <li><p>Module names are written as FQCN wherever possible.</p></li>
 <li><p>Each argument of a module is on its own line.</p></li>
 <li><p>Key and value are separated by colon and space.</p></li>

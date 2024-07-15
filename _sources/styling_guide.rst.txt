@@ -28,6 +28,10 @@ Tasks
 - Each task has a empty line above the task.
 - Tasks have a name which contains only letters, numbers
   and spaces.  Task names start with an uppercase letter.
+- Tasks from an included task file should be named with a prefix, consisting
+  of its file name. For example the task `Deploy config`
+  in ``tasks/deploy.yml`` should be named ``deploy | Deploy config``
+  rather than just ``Deploy config``.
 - Module names are written as FQCN wherever possible.
 - Each argument of a module is on its own line.
 - Key and value are separated by colon and space.

@@ -104,7 +104,7 @@ installation and configuration components.  Tasks inside the
 
   ---
 
-  - name: Install SSH-related packages
+  - name: install | Install SSH-related packages
     ansible.builtin.package:
       name: "{{ sshd_packages }}"
       state: present
@@ -115,7 +115,7 @@ The configuration files are rendered in ``config.yml``:
 
   ---
 
-  - name: Create SSH authorized_keys directory
+  - name: config | Create SSH authorized_keys directory
     ansible.builtin.file:
       path: /etc/ssh/authorized_keys
       state: directory
@@ -127,7 +127,7 @@ The configuration files are rendered in ``config.yml``:
       setype: sshd_key_t
       selevel: s0
 
-  - name: Configure SSHd
+  - name: config | Configure SSHd
     ansible.builtin.template:
       src: etc/ssh/sshd_config.j2
       dest: "{{ sshd_daemon_cfg }}"
@@ -151,7 +151,7 @@ Good example:
 
 .. code-block:: Yaml
 
-  - name: Install SSH related packages
+  - name: install | Install SSH related packages
     ansible.builtin.package:
       name: "{{ sshd_packages }}"
       state: present
@@ -166,7 +166,7 @@ Bad example:
 
 .. code-block:: Yaml
 
-  - name: Install SSH related packages
+  - name: install | Install SSH related packages
     ansible.builtin.package:
       name: "{{ sshd_packages }}"
       state: present
@@ -369,7 +369,7 @@ Good example:
 
   ---
 
-  - name: Configure the ssh daemon
+  - name: config | Configure the ssh daemon
     ansible.builtin.template:
       src: etc/ssh/sshd_config.j2
       dest: "{{ sshd_daemon_cfg }}"
