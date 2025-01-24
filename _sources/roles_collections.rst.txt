@@ -49,8 +49,8 @@ Role Directory Layout
   ├── meta/
   │   └── main.yml
   ├── tasks/
-  │   ├── configuration.yml
-  │   ├── installation.yml
+  │   ├── config.yml
+  │   ├── install.yml
   │   └── main.yml
   ├── templates/
   │   └── etc/
