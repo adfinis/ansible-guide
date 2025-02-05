@@ -1,7 +1,5 @@
 .DEFAULT_GOAL := help
 
-ROLES_DOC	:= $(doc/%.rst)
-
 all: doc
 
 help:  ## display this help
@@ -9,21 +7,12 @@ help:  ## display this help
 		sort -k1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 clean:  ## cleanup
-	$(shell \
-		cd doc; \
-		make clean; \
-		cd ..; \
-	)
+	cd doc && make clean
 
-doc: $(ROLES_DOC)  ## create html documentation
-	cd doc && make html
+doc: ## create html documentation
+	rm -rf doc/_build/
+	poetry install --no-root
+	poetry run sh -c 'cd doc && make html'
 
-doc/%.rst: doc/sphinx-template
-	mk/yml2rst $* $< $@
-
-doc/sphinx-template:
-	git clone https://github.com/adfinis-sygroup/adsy-sphinx-template doc/sphinx-template
-
-.PHONY: all help clean requirements install doc
-
+.PHONY: all help clean doc
 # vim: set noexpandtab ts=4 sw=4 ft=make :

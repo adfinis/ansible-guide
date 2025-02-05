@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "Ansible Guide"
+version = "1.0.0"
+description = "Ansible Guide used by Adfinis"
+authors = ["Adfinis AG <support@adfinis.com>"]
+license = "CC-BY-SA-4.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+sphinx = "^8.1.3"
+adfinis-sphinx-theme = { git = "https://github.com/adfinis/adfinis-sphinx-theme.git", branch = "main" }
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
