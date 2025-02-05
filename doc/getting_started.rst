@@ -27,7 +27,7 @@ Now, let's configure Ansible.  For this, create a file named
    # Use multi-line headers with caution when using roles where you don't know how ansible_managed
    # is used in templates.
    ansible_managed = This file is managed by Ansible.  Manual changes will be overwritten.
-    Ansible repository: https://git.example.org/example/project
+   Ansible repository: https://git.example.org/example/project
 
 
 The next step is to create an inventory file, ``inventory``,

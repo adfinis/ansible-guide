@@ -15,7 +15,7 @@ The Ansible Project publishes a set of `Best Practices
 <https://docs.ansible.com/ansible/latest/tips_tricks/ansible_tips_tricks.html>`_.
 Our guideline is an extension to that guide.
 
-::
+.. parsed-literal::
 
   .
   ├── README.rst
@@ -92,7 +92,7 @@ Inventory
 The file ``hosts`` in the project directory contains a list of each server,
 if needed with the depending connection information.
 
-::
+.. code-block:: ini
 
   jumphost.example.com
 
@@ -111,32 +111,44 @@ variables for this group.
 
 Task structure
 ==============
-- Playbooks
+.. data:: Playbooks
+
     A playbook is a set of roles. For each playbook it can be defined in which
     hostgroup it should be run, default is [all].
     `Ansible Playbooks
     <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html>`_
-- Roles
+
+.. data:: Roles
+
     Each role configures one application and consists of multiple tasks.
     `Playbooks Reuse
     <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse.html>`_
-- Tasks
+
+.. data:: Tasks
+
     Each tasks uses one module (e.g. template, file, copy, service).
 
 
 Variable structure
 ==================
-- roles/$ROLE/defaults/main.yml
+.. data:: roles/$ROLE/defaults/main.yml
+
     Each variable in a role should have a default value. Default values are
     specified in this file.
-- roles/$ROLE/vars/\*.yml
+
+.. data:: roles/$ROLE/vars/\*.yml
+
     We use multiple variable files per role. Define only constant data here,
     like package names. Store all data here not in the tasks.
-- group_vars/$HOSTGROUPS/\*.yml
+
+.. data:: group_vars/$HOSTGROUPS/\*.yml
+
     Each host can be in multiple hostgroups, create hostgroups as many as
     you need and as few as possible. Possible variables per hostgroup
     could be ntp servers per datacenter or nameservers per net.
-- host_vars/$FQDN/\*.yml
+
+.. data:: host_vars/$FQDN/\*.yml
+
     Host specific data, e.g. webserver virtualhost configurations or ip
     configuration.
 

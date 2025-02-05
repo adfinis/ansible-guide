@@ -1,13 +1,13 @@
-name: Deploy
+name: Pull Requests
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
   build:
-    name: Build & deploy docs
+    name: Build docs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,9 +24,3 @@ jobs:
         with:
           name: html-docs
           path: doc/_build/html/
-
-      # Only difference to pull-requests
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: doc/_build/html
