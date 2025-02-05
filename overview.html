@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Overview &mdash; Ansible Guide</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="_static/css/adsy.css?v=16061422" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/adfinis.css?v=a6683483" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -158,14 +159,14 @@ Our guideline is an extension to that guide.</p>
 <h2>Inventory<a class="headerlink" href="#inventory" title="Link to this heading"></a></h2>
 <p>The file <code class="docutils literal notranslate"><span class="pre">hosts</span></code> in the project directory contains a list of each server,
 if needed with the depending connection information.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jumphost</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">jumphost.example.com</span>
 
-<span class="p">[</span><span class="n">webservers</span><span class="p">]</span>
-<span class="n">www1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>  <span class="n">ansible_host</span><span class="o">=</span><span class="mf">192.0.2.50</span> <span class="n">ansible_port</span><span class="o">=</span><span class="mi">2222</span> <span class="n">ansible_user</span><span class="o">=</span><span class="n">root</span>
-<span class="n">www2</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="k">[webservers]</span>
+<span class="na">www1.example.com  ansible_host</span><span class="o">=</span><span class="s">192.0.2.50 ansible_port=2222 ansible_user=root</span>
+<span class="na">www2.example.com</span>
 
-<span class="p">[</span><span class="n">databases</span><span class="p">]</span>
-<span class="n">db</span><span class="o">-</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
+<span class="k">[databases]</span>
+<span class="na">db-[0</span><span class="o">:</span><span class="s">9].example.com</span>
 </pre></div>
 </div>
 <p>You can define groups of hosts with <code class="docutils literal notranslate"><span class="pre">[]</span></code>. There is a group called <code class="docutils literal notranslate"><span class="pre">all</span></code>,
@@ -175,56 +176,59 @@ variables for this group.</p>
 </section>
 <section id="task-structure">
 <h2>Task structure<a class="headerlink" href="#task-structure" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>Playbooks</dt><dd><p>A playbook is a set of roles. For each playbook it can be defined in which
+<dl class="py data">
+<dt class="sig sig-object py" id="Playbooks">
+<span class="sig-name descname"><span class="pre">Playbooks</span></span><a class="headerlink" href="#Playbooks" title="Link to this definition"></a></dt>
+<dd><p>A playbook is a set of roles. For each playbook it can be defined in which
 hostgroup it should be run, default is [all].
 <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html">Ansible Playbooks</a></p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Roles</dt><dd><p>Each role configures one application and consists of multiple tasks.
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="Roles">
+<span class="sig-name descname"><span class="pre">Roles</span></span><a class="headerlink" href="#Roles" title="Link to this definition"></a></dt>
+<dd><p>Each role configures one application and consists of multiple tasks.
 <a class="reference external" href="https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse.html">Playbooks Reuse</a></p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Tasks</dt><dd><p>Each tasks uses one module (e.g. template, file, copy, service).</p>
-</dd>
-</dl>
-</li>
-</ul>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="Tasks">
+<span class="sig-name descname"><span class="pre">Tasks</span></span><a class="headerlink" href="#Tasks" title="Link to this definition"></a></dt>
+<dd><p>Each tasks uses one module (e.g. template, file, copy, service).</p>
+</dd></dl>
+
 </section>
 <section id="variable-structure">
 <h2>Variable structure<a class="headerlink" href="#variable-structure" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><dl class="simple">
-<dt>roles/$ROLE/defaults/main.yml</dt><dd><p>Each variable in a role should have a default value. Default values are
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">roles/$ROLE/defaults/main.yml</span></span></dt>
+<dd><p>Each variable in a role should have a default value. Default values are
 specified in this file.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>roles/$ROLE/vars/*.yml</dt><dd><p>We use multiple variable files per role. Define only constant data here,
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">roles/$ROLE/vars/\*.yml</span></span></dt>
+<dd><p>We use multiple variable files per role. Define only constant data here,
 like package names. Store all data here not in the tasks.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>group_vars/$HOSTGROUPS/*.yml</dt><dd><p>Each host can be in multiple hostgroups, create hostgroups as many as
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">group_vars/$HOSTGROUPS/\*.yml</span></span></dt>
+<dd><p>Each host can be in multiple hostgroups, create hostgroups as many as
 you need and as few as possible. Possible variables per hostgroup
 could be ntp servers per datacenter or nameservers per net.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>host_vars/$FQDN/*.yml</dt><dd><p>Host specific data, e.g. webserver virtualhost configurations or ip
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">host_vars/$FQDN/\*.yml</span></span></dt>
+<dd><p>Host specific data, e.g. webserver virtualhost configurations or ip
 configuration.</p>
-</dd>
-</dl>
-</li>
-</ul>
+</dd></dl>
+
 </section>
 <section id="variable-precedence">
 <h2>Variable Precedence<a class="headerlink" href="#variable-precedence" title="Link to this heading"></a></h2>
