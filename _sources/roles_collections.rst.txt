@@ -188,7 +188,7 @@ be used to e.g. load OS-dependent variables.  The example above uses
 this to load the ``ssh_packages`` variable dependent on the
 ``os_family`` and ``distribution`` host fact.
 Common fact examples can be found in 
-`<Commonly-used facts https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#commonly-used-facts>`.
+`Commonly-used facts <https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#commonly-used-facts>`_.
 
 To achieve this, you put the variables into files named after ``os_family`` inside the ``vars/`` directory:
 
