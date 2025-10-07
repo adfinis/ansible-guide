@@ -74,6 +74,7 @@ We use ``main.yml`` only to import other YAML files and to assign tags to the im
     ansible.builtin.include_vars: "{{ item }}"
     with_first_found:
       - "{{ ansible_facts.distribution }}_{{ ansible_facts.distribution_major_version }}.yml"
+      - "{{ ansible_facts.distribution }}.yml"
       - "{{ ansible_facts.os_family }}.yml"
     tags:
       - "role::sshd"
@@ -185,14 +186,26 @@ host-by-host basis, for that use the defaults!
 The variables stored in ``vars/`` can be loaded dynamically.  This can
 be used to e.g. load OS-dependent variables.  The example above uses
 this to load the ``ssh_packages`` variable dependent on the
-``os_family`` host fact.
+``os_family`` and ``distribution`` host fact.
+Common fact examples can be found in 
+`<Commonly-used facts https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#commonly-used-facts>`.
 
 To achieve this, you put the variables into files named after ``os_family`` inside the ``vars/`` directory:
 
 * ``Debian.yml``
 * ``RedHat.yml``
 
-If there are special variables for some operating systems, you can specify
+Some distributions share the same ``os_family`` (for example Ubuntu has
+"Debian" as its ``os_family``), while working vastly different.
+
+For such cases you can create a dedicated vars file for this
+distribution if the values from ``os_family`` are not applicable for
+this distribution. For example:
+
+* ``Fedora.yml``
+* ``Ubuntu.yml``
+
+If there are special variables for some operating system versions, you can specify
 those in the files named:
 
 * ``Debian_11.yml``
