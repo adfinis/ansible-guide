@@ -137,6 +137,7 @@ repository.</p>
 <span class="w">  </span><span class="nt">ansible.builtin.include_vars</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
 <span class="w">  </span><span class="nt">with_first_found</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_facts.distribution</span><span class="nv"> </span><span class="s">}}_{{</span><span class="nv"> </span><span class="s">ansible_facts.distribution_major_version</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_facts.distribution</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_facts.os_family</span><span class="nv"> </span><span class="s">}}.yml&quot;</span>
 <span class="w">  </span><span class="nt">tags</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;role::sshd&quot;</span>
@@ -237,13 +238,24 @@ host-by-host basis, for that use the defaults!</p>
 <p>The variables stored in <code class="docutils literal notranslate"><span class="pre">vars/</span></code> can be loaded dynamically.  This can
 be used to e.g. load OS-dependent variables.  The example above uses
 this to load the <code class="docutils literal notranslate"><span class="pre">ssh_packages</span></code> variable dependent on the
-<code class="docutils literal notranslate"><span class="pre">os_family</span></code> host fact.</p>
+<code class="docutils literal notranslate"><span class="pre">os_family</span></code> and <code class="docutils literal notranslate"><span class="pre">distribution</span></code> host fact.
+Common fact examples can be found in
+<cite>&lt;Commonly-used facts https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html#commonly-used-facts&gt;</cite>.</p>
 <p>To achieve this, you put the variables into files named after <code class="docutils literal notranslate"><span class="pre">os_family</span></code> inside the <code class="docutils literal notranslate"><span class="pre">vars/</span></code> directory:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Debian.yml</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RedHat.yml</span></code></p></li>
 </ul>
-<p>If there are special variables for some operating systems, you can specify
+<p>Some distributions share the same <code class="docutils literal notranslate"><span class="pre">os_family</span></code> (for example Ubuntu has
+“Debian” as its <code class="docutils literal notranslate"><span class="pre">os_family</span></code>), while working vastly different.</p>
+<p>For such cases you can create a dedicated vars file for this
+distribution if the values from <code class="docutils literal notranslate"><span class="pre">os_family</span></code> are not applicable for
+this distribution. For example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Fedora.yml</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ubuntu.yml</span></code></p></li>
+</ul>
+<p>If there are special variables for some operating system versions, you can specify
 those in the files named:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Debian_11.yml</span></code></p></li>
